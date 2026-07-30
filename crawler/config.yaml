@@ -1,0 +1,58 @@
+seed_list_path: seed_list.json
+output_path: catalog.json
+apk_cache_dir: apk_cache
+log_level: INFO
+
+crawler:
+  max_workers: 5
+  per_app_timeout: 180
+  per_source_timeout: 30
+  cache_days: 30
+
+proxy:
+  enabled: false
+  scheme: socks5
+  host: 127.0.0.1
+  port: 1080
+
+source_order:
+  - apkpure
+  - fdroid
+  - apkmirror
+  - uptodown
+  - apkcombo
+
+play_store_url_template: "https://play.google.com/store/apps/details?id={package_name}"
+fdroid_url_template: "https://f-droid.org/packages/{package_name}/"
+
+catalog_schema:
+  description: >
+    Output catalog of Android apps confirmed to have the
+    android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED meta-data flag
+    in their manifest.
+  fields:
+    - name: package_name
+      type: string
+      description: Android package identifier (e.g. com.example.app)
+    - name: app_name
+      type: string
+      description: Human-readable display name extracted from manifest
+    - name: icon_url
+      type: string
+      description: "URL to the app icon (tiered: justapk info API -> APK extraction -> letter-initial fallback)"
+    - name: play_store_url
+      type: string
+      description: Google Play Store page URL
+    - name: fdroid_url
+      type: string
+      description: F-Droid page URL (if available)
+    - name: last_verified
+      type: string
+      description: ISO 8601 date of last successful verification
+    - name: category
+      type: string
+      description: "App category from seed list (e.g. communication, social)"
+  required:
+    - package_name
+    - app_name
+    - last_verified

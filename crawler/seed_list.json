@@ -1,0 +1,3482 @@
+[
+  {
+    "package_name": "com.whatsapp",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.facebook.orca",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "org.telegram.messenger",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.twitter.android",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.snapchat.android",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.skype.raider",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.discord",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.slack",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.google.android.apps.messaging",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.google.android.apps.hangouts",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.viber.voip",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.imo.android.imoim",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.tencent.mm",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.tencent.mobileqq",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.linecorp.android",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "jp.naver.line.android",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.bbm",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "org.thoughtcrime.securesms",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.simplemobiletools.contacts",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.google.android.dialer",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.google.android.apps.contacts",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.microsoft.teams",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.Zoom",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "us.zoom.videomeetings",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.google.android.apps.tachyon",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.cisco.webex.meetings",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.verizon.messaging.vzmsgs",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.tmobile.pr.adapt",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.att.mobile.android.vvm",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.android.contacts",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.android.dialer",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.android.mms",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "im.vector.app",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.nextcloud.client",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "org.mozilla.firefox",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.instagram.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.facebook.katana",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.facebook.lite",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.tiktok.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.reddit.frontpage",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.pinterest",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.tumblr",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.linkedin.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.myspace.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.flickr.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.quora.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.medium.reader",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.tapatalk.tapatalk",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.yik.yak",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "org.telegram.plus",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.twitter.lite",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.facebook.mlite",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.hootsuite.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.buffer.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "clubhouse.app",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.bereal.www",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.roblox.client",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.vk.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.odnoklassniki.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.google.android.apps.plus",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.android.chrome",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.gm",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.calendar",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.docs",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.sheets",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.slides",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.docs.editors.docs",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.docs.editors.sheets",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.docs.editors.slides",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.office.word",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.office.excel",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.office.powerpoint",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.office.outlook",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.skydrive",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.dropbox.android",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.box.android",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.nbu.files",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.estrongs.android.pop",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.sonydownloader.esto",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.alphainventor.filemanager",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.keep",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.evernote",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.notion.id",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.todoist",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.anydo",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.ticktick.task",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.onenote",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.asana.app",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.trello",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.cloudprint",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.adobe.reader",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.foxit.mobile.pdf.lite",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.pdfviewer",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.microsoft.translator",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.translate",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.duolingo",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "org.kiwix.kiwixmobile",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.ichi2.anki",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "org.wikipedia",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.classroom",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.apps.khanacademy",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.coursera.android",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "org.edx.mobile",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.udemy.android",
+    "source": "appbrain",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.netflix.mediaclient",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.google.android.youtube",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.amazon.avod.thirdparty",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.hulu.plus",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.disney.disneyplus",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.hbomax",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.peacocktv.peacockandroid",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.paramountplus.app",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.apple.android.music",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.spotify.music",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.pandora.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.soundcloud.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.deezer.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.tidal.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.shazam.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.twitch.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.crunchyroll.crunchyroid",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.funimation.funimationnow",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.imdb.mobile",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.google.android.apps.tv.launcher",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.vimeo.android.vimeoapp",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.dailymotion.app",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.trakt.intent",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.sonyliv",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.hotstar",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.zee5.android",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "in.airtel.movies",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.jio.media.jiocinema",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.mxtech.videoplayer.ad",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.google.android.videos",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.amazon.kindle",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.audible.application",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.overdrive.mobile.android.libby",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.zhiliaoapp.musically",
+    "source": "appbrain",
+    "category": "entertainment"
+  },
+  {
+    "package_name": "com.amazon.windowshop",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.ebay.mobile",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.walmart.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.target.ui",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.alibaba.aliexpresshd",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.taobao.taobao",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.jd.app.reader",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.etsy.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.shopify.app",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.ubercab",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.lyft.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.didiglobal.passenger",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.grab.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.swiggy.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.zomato.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.deliveroo.app",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.ubercab.eats",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.grubhub.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.doorhappy.doorandash",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.postmates.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.instacart.client",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.groupon",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.rakuten.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.shein.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.zaful.app",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.romwe.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.mercariapp.android",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.olx.app",
+    "source": "appbrain",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.google.android.apps.maps",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.google.android.apps.mapslite",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.waze",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.here.app.maps",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.tomtom.speedcameradetection",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.sygic.aura",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "net.osmand.plus",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "org.osmand",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.mapfactor.navigator",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.airbnb.android",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.booking.app",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.expedia.bookings",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.trivago.android",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.hotels.android",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.kayak.android",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.skyscanner.android",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.hopper.mountainview.play",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.gosund.gosund",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.movvit.app",
+    "source": "appbrain",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.google.android.apps.walletnfcrel",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.paypal.android.p2pmobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.venmo",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.cashapp.app",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.revolut.revolut",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.transferwise.android",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.monzo.android",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.chase.sig.android",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.bankofamerica.mobilebanking",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.wf.wellsfargomobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.usbank.mobilebanking",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.citi.citimobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "org.wse.mobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.coinbase.android",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.binance.dev",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.coinhub",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.robinhood.android",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.webull.trade",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.tdameritrade.mobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.etrade.mobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.fidelity.android",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.schwab.mobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.vanguard.mobile",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.apple.android.applepay",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.paytm",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.phonepe.app",
+    "source": "appbrain",
+    "category": "finance"
+  },
+  {
+    "package_name": "com.google.android.apps.fitness",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.fitbit.FitbitMobile",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.strava",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.myfitnesspal.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.nike.plusgps",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.underarmour.android.running",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.mapmyrun.android2",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.endomondo.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.runtastic.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.headspace.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.calm.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.sleepcycle.sleepcycle",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.loseit.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.noom.app",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.ww.android.weightwatchers",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.flo.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.clue.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.yazio.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.welltory.app",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "org.medicmobile.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.google.android.apps.gcs",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.zocdoc.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.webmd.android",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "org.ismyhealth.app",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.google.android.apps.accessibility.auditor",
+    "source": "appbrain",
+    "category": "health"
+  },
+  {
+    "package_name": "com.google.android.apps.pixel.launcher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.inputmethod.latin",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.googlequicksearchbox",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.photos",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.deskclock",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.emergency",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.calculator2",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.calendar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.deskclock",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.quicksearchbox",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.soundrecorder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.stk",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.vending",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.voicedialer",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.sbrowser",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.voicenote",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.contacts",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.calendar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.messaging",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.bixby.wakeup",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.camerasd",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.gallery",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.weather",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.huawei.android.launcher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.huawei.photos",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.xiaomi.market",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.home",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.securitycenter",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.launcher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.calculator",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oppo.launcher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.lineageos.recorder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.lineageos.jelly",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.lineageos.eleven",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.simplemobiletools.gallery",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.simplemobiletools.filemanager",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.simplemobiletools.calculator",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.simplemobiletools.notes",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.simplemobiletools.clock",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.simplemobiletools.calendar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.duckduckgo.mobile.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.mozilla.focus",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.brave.browser",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.opera.browser",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.opera.mini.native",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.adblockplus.browser",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.microsoft.emmx",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.ghostery.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.lastpass.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.dashlane.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.onelogin.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.auth0.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.authenticator2",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.fdroid.fdroid",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.aurora.store",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.termux",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "jackpal.androidterm",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.connectbot",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.amaze.filemanager",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.ghisler.android.totalcommander",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.rarlab.rar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.keramidas.TitaniumBackup",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.nilhcem.blamecharity",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.anysoftkeyboard.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.pocketworkstation.pckeyboard",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.omnitrack",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.torproject.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.veracrypt.veracrypt",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.bitwarden.android",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.weather.Weather",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.accuweather.android",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.google.android.apps.weather",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.yahoo.mobile.client.android.weather",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.wunderground.android.weather",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.weatherbug.android",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.ventusky.android",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "cz.mallat.uas",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.droid27.transparentclockweather",
+    "source": "appbrain",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.flipboard.app",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.google.android.apps.magazines",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.cnn.mobile.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.bbc.mobile.news.ww",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.nytimes.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.washingtonpost.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.ap.mobile.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.reuters.reuters",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.bloomberg.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.huffpost.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.buzzfeed.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.vice.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.npr.android",
+    "source": "appbrain",
+    "category": "news"
+  },
+  {
+    "package_name": "com.espn.fantasy.lm.football",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.espn.score_center",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.foxsports.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.nbcsports.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.bleacherreport.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.theathletic.app",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.flashscore",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "eu.livesport.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.sportsillustrated.edge",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.dafabet.mobile",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.pokerstar.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.draftkings.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.fanduel.android",
+    "source": "appbrain",
+    "category": "sports"
+  },
+  {
+    "package_name": "com.adobe.lrmobile",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.adobe.psmobile",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.canva.app",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.picsart.studio",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.vsco.cam",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.cyberlink.youperfect",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.facetune",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.retrica.android",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.snowcorp.snow",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.zte.beauty.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.motorola.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.google.android.GoogleCamera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.oneplus.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.samsung.android.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.miui.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.huawei.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.oppo.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.xiaomi.camera",
+    "source": "appbrain",
+    "category": "photography"
+  },
+  {
+    "package_name": "com.tinder",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.bumble.app",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.hinge.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.okcupid",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.match.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.grindr.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.plentyoffish",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.badoo.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.zoosk.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.happn.app",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.her.her",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.feeld.app",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.theleague.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.muslim.marriage",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.eharmony.android",
+    "source": "appbrain",
+    "category": "dating"
+  },
+  {
+    "package_name": "com.tripadvisor.tripadvisor",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.hilton.android",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.marriott.mrt",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.ihg.app",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.accor.app",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.hyatt.app",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.aa.com.mobile.android",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.delta.mobile.android",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.united.mobile.android",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.southwest.mobile",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.jetblue.android",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.virginatlantic.vaapp",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.ryanair.app",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.easyjet.mobile",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.amtrak.amtrak",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.nationalrail.android",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.flixbus.app",
+    "source": "appbrain",
+    "category": "travel"
+  },
+  {
+    "package_name": "com.supercell.clashofclans",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.supercell.clashroyale",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.supercell.brawlstars",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.supercell.boombeach",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.supercell.hayday",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.king.candycrushsaga",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.king.candycrushjellysaga",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.king.farmheroessaga",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.king.bubblewitch3",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.king.pethoodsaga",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nianticlabs.pokemongo",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nianticlabs.pikmin",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nianticproject.ingress",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.mojang.minecraftpe",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.epicgames.fortnite",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.tencent.ig",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.pubg.imobile",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.pubg.newstate",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.activision.callofduty.shooter",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.games.nfs13_na",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.gp.simcity",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.game.starwars_galaxy",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.gp.thesims4",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.game.pvz2_row",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.gameloft.android.ANMP.GloftA8HM",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.gameloft.android.ANMP.GloftM4HM",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.miniclip.eightballpool",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.miniclip.agar.io",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.miniclip.plagueinc",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zynga.zync",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zynga.words",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zynga.poker",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.robtopx.geometryjump",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rovio.angrybirds",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rovio.angrybirds2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rovio.baba",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.outfit7.talkingfriends",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.outfit7.mytalkingtom2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.outfit7.mytalkingangelafree",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.imangi.templerun",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.imangi.templerun2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.vng.candycrush",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.dreamsky.cyberpunk",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.tencent.lolm",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.tencent.tmgp.sgame",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.miHoYo.GenshinImpact",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.miHoYo.hkrpg",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.miHoYo.tot",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.proximabeta.mf",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nintendo.zara",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nintendo.znca",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.sega.sonicdash",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.sega.sonicforces",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.capcom.mmxx",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.square_enix.android_googleplay.ffvii",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.square_enix.android_googleplay.ff_br",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.bandainamco.dragonballzdbz",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.bandainamco.onepiece",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.kiloo.subwaysurf",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.halfbrick.fruitninja",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.halfbrick.jetpackjoyride",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.dena.hdwars",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.dena.game.hdwars",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.dena.a12016001",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nexon.dev.sky",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nexon.kartrider.rumble",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nexon.bluearch",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.nexon.mabinogi",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.netmarble.lin2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.netmarble.mherosgb",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.netmarble.niun",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ncsoft.aion",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ncsoft.lineage",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.crazyLabs.zentris",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ketchapp.ballz",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ketchapp.stack",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.getanything.puzzle",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zeptolab.ctr.ads",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zeptolab.cuttherope",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zeptolab.cuttherope2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.zeptolab.ctr.paid",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.djinnworks.anm",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.playdots.two",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.wordsmobile.words",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.magenta.riddle",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.frame.vr",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.blocker.game",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.yodo1.crossyroad",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.hippo.hippo",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.marmalade.monopoly",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.gp.madden",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.gp.fifa",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ea.gp.nhl",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.t2ksports.nba2k23",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.t2ksports.mlb2k23",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ubisoft.rainbow6",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.ubisoft.assassinscreed",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.wb.goog.legobat",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.wb.goog.mk",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.wb.goog.injustice2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.wb.goog.harrypotter",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.disney.bnmo.android",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.marmalade.sonic",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.mojang.minecraftedu",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.bethsoft.falloutshelter",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.bethsoft.skyrim",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rockstar.gta3",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rockstar.gtasa",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rockstar.gtavc",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rockstar.gta_libertycity",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.rockstar.rdr2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.lego.starwars",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.lucasarts.starwars",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.droidhen.defense",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.artifex.mum",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.artifex.mk",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.illwinter.doom",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.illwinter.quake",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.idsoftware.quake",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.idsoftware.doom",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.bethsoft.doom",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.bethsoft.wolfenstein",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.vampire.vampire",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.pixelation.rainbow",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.pixelation.portal",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.valve.portal",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.valve.halflife",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.valve.left4dead",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.valve.counterstrike",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.valve.dota2",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.blizzard.diablo",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.blizzard.warcraft",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.blizzard.overwatch",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.blizzard.hearthstone",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.blizzard.starcraft",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.riot.leagueoflegends",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.riot.tft",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.riot.valorant",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.riot.wildrift",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.riot.legends_of_runeterra",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.epicgames.battlebreakers",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.epicgames.rocketleague",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.epicgames.fallguys",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.playvalve.dota",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.playvalve.teamfortress",
+    "source": "appbrain",
+    "category": "games"
+  },
+  {
+    "package_name": "com.amazon.appstore",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.dna",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.wallpaper",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.pixel",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.printservice.recommendation",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.setupwizard",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.launcher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.as",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.pixel.setup",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.touchtype.swiftkey",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.rb.jac",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.microsoft.office.lens",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.nbu.paisa.user",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.subscriptions.red",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.wearable",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.wearable.app",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.wearable",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.fitbit.wearable",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.garmin.android.apps",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.corusen.accupedo",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.camerax",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.intsig.camscanner",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.abbyy.mobile.ocr",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.genius.scan",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.shinycore.picsay",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.cleanmaster.master",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.advancedprocessmanager.app",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.speedsoftware.rootexplorer",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.jrummy.liberty.toolbox",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.jrummy.root.toolbox",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.chainfire.supersu",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.topjohnwu.magisk",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "eu.chainfire.cf.lumen",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.fdroid.fdroid.privileged",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.android.vending.billing",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.finsky",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.samsungapps",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.huawei.appmarket",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oppo.market",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.vivo.market",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "org.thoughtcrime.securesms.service",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.attribution",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.partnersetup",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.gsf",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.gms",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.backuptransport",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.configupdater",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.onetimeinitializer",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.tag",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.mediashell",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.webview",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.tts",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.safetyhub",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.doze",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.recorder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.wellbeing",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.carrier",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.tycho",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.nexuslauncher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.camera",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.google.android.apps.soundpicker",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.soundalive",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.camera",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.clockpackage",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.shealth",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.music",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.myfiles",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.parser",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.sec.android.app.videoplayer",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.watchmanager",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.notes",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.memo",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.reminder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.contacts",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.clock",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.calendar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.messages",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.phone",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.settings",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.galaxyapp",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.huawei.android.wifi",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.huawei.android.settings",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.powerkeeper",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.cleanmaster",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.notes",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.gallery",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.player",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.video",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.weather2",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.miui",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.securityadd",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.notification",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.system",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.settings",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.touchassistant",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.voiceassist",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.backup",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.bugreport",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.calculator",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.calendar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.compass",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.contentcatcher",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.controls",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.daemon",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.enbale",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.factoryreset",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.fm",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.freeshare",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.greenguard",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.guardprovider",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.hybrid",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.miwallpaper",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.miwallpaper.earth",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.miwallpaper.mars",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.mediaeditor",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.mishare",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.msa.global",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.note",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.personalassistant",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.phone",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.screenshot",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.screenrecorder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.security",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.security.core",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.smartcard",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.soundrecorder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.miui.yellowpage",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.note",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.gallery",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.music",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.filemanager",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.phone",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.contacts",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.mms",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.deskclock",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.calendar",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.settings",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.security",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.wifiapp",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.soundrecorder",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.weather",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.wallet",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.brickmode",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.card",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.clock",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.compass",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.dialog",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.dirac",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.doze",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.gesture",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.health",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.nfc",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.notification",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.packageinstaller",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.sim",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.sound",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.telephony",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.theme",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.torch",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.ux",
+    "source": "appbrain",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.oneplus.wallpaper",
+    "source": "appbrain",
+    "category": "tools"
+  }
+]
