@@ -1,0 +1,17 @@
+# uv and Python environments
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Test and tool caches
+.pytest_cache/
+**/.parser_cache.json
+
+# Crawler downloads and temporary APKs
+/apk_cache/
+/crawler/apk_cache/
+
+# Astro build artifacts
+/site/node_modules/
+/site/dist/
