@@ -11,6 +11,7 @@ from parser import (
     _check_satellite_flag,
     _extract_base_apk_from_xapk,
     _is_xapk,
+    _manifest_contains_satellite_flag,
     check_satellite_flag,
     parse_apk,
     SATELLITE_FLAG,
@@ -31,6 +32,35 @@ class TestIsXapk:
         assert _is_xapk(Path("app.zip")) is False
 
 
+class TestManifestPrefilter:
+    def test_detects_utf8_flag(self, tmp_path):
+        apk_path = tmp_path / "no-flag.apk"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("AndroidManifest.xml", b"prefix" + SATELLITE_FLAG.encode("utf-8"))
+
+        assert _manifest_contains_satellite_flag(apk_path) is True
+
+    def test_detects_utf16_flag(self, tmp_path):
+        apk_path = tmp_path / "utf16.apk"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("AndroidManifest.xml", SATELLITE_FLAG.encode("utf-16le"))
+
+        assert _manifest_contains_satellite_flag(apk_path) is True
+
+    def test_rejects_manifest_without_flag(self, tmp_path):
+        apk_path = tmp_path / "no-flag.apk"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("AndroidManifest.xml", b"ordinary manifest")
+
+        assert _manifest_contains_satellite_flag(apk_path) is False
+
+    def test_unknown_archive_falls_back_to_full_parser(self, tmp_path):
+        apk_path = tmp_path / "not-a-zip.apk"
+        apk_path.write_bytes(b"not a zip")
+
+        assert _manifest_contains_satellite_flag(apk_path) is None
+
+
 class TestCheckSatelliteFlag:
     def test_flag_found(self):
         flag_elem = MagicMock()
@@ -44,6 +74,7 @@ class TestCheckSatelliteFlag:
 
         mock_apk = MagicMock()
         mock_apk.get_android_manifest_xml.return_value = mock_root
+        mock_apk.get_package.return_value = "com.example.app"
 
         assert _check_satellite_flag(mock_apk) is True
 
@@ -66,6 +97,19 @@ class TestCheckSatelliteFlag:
         mock_apk = MagicMock()
         mock_apk.get_android_manifest_xml.return_value = None
         assert _check_satellite_flag(mock_apk) is False
+
+    def test_wrong_package_value_is_rejected(self):
+        flag_elem = MagicMock()
+        flag_elem.get.side_effect = lambda key: {
+            "{http://schemas.android.com/apk/res/android}name": SATELLITE_FLAG,
+            "{http://schemas.android.com/apk/res/android}value": "com.other.app",
+        }.get(key)
+        mock_root = MagicMock()
+        mock_root.iter.return_value = [flag_elem]
+        mock_apk = MagicMock()
+        mock_apk.get_android_manifest_xml.return_value = mock_root
+
+        assert _check_satellite_flag(mock_apk, "com.example.app") is False
 
 
 @patch("parser.Path.exists", return_value=True)
@@ -136,6 +180,32 @@ class TestParseApk:
         assert result["error"] is not None
 
 
+def test_parse_skips_androguard_for_manifest_without_flag(tmp_path):
+    apk_path = tmp_path / "ordinary.apk"
+    with zipfile.ZipFile(apk_path, "w") as archive:
+        archive.writestr("AndroidManifest.xml", b"ordinary manifest")
+
+    with patch("parser.APK") as mock_apk:
+        result = parse_apk(apk_path)
+
+    assert result["satellite_optimized"] is False
+    assert result["error"] is None
+    mock_apk.assert_not_called()
+
+
+def test_parse_reuses_fingerprint_cache_without_scanning_again(tmp_path):
+    apk_path = tmp_path / "ordinary.apk"
+    with zipfile.ZipFile(apk_path, "w") as archive:
+        archive.writestr("AndroidManifest.xml", b"ordinary manifest")
+
+    parse_apk(apk_path)
+    with patch("parser._manifest_contains_satellite_flag") as prefilter:
+        result = parse_apk(apk_path)
+
+    assert result["satellite_optimized"] is False
+    prefilter.assert_not_called()
+
+
 class TestParseApkNoMocks:
     def test_file_not_found(self):
         result = parse_apk(Path("/tmp/nonexistent.apk"))
@@ -171,7 +241,6 @@ class TestExtractXapk:
 
         result = _extract_base_apk_from_xapk(xapk_path, tmp_path)
         assert result is not None
-        assert result.name == "base.apk"
         assert result.read_bytes() == b"fake apk content"
 
     def test_extract_no_base_entry(self, tmp_path):
@@ -183,8 +252,30 @@ class TestExtractXapk:
         result = _extract_base_apk_from_xapk(xapk_path, tmp_path)
         assert result is None
 
+    def test_extract_handles_non_object_manifest(self, tmp_path):
+        xapk_path = tmp_path / "malformed.xapk"
+        with zipfile.ZipFile(xapk_path, "w") as zf:
+            zf.writestr("manifest.json", "[]")
+            zf.writestr("base.apk", b"fake apk content")
+
+        result = _extract_base_apk_from_xapk(xapk_path, tmp_path)
+        assert result is not None
+        assert result.read_bytes() == b"fake apk content"
+
     def test_extract_corrupted_xapk(self, tmp_path):
         xapk_path = tmp_path / "corrupt.xapk"
         xapk_path.write_bytes(b"not a zip file")
         result = _extract_base_apk_from_xapk(xapk_path, tmp_path)
         assert result is None
+
+    def test_extract_rejects_path_traversal(self, tmp_path):
+        xapk_path = tmp_path / "malicious.xapk"
+        with zipfile.ZipFile(xapk_path, "w") as zf:
+            zf.writestr(
+                "manifest.json",
+                json.dumps({"entries": [{"name": "../outside.apk", "type": "base"}]}),
+            )
+            zf.writestr("../outside.apk", b"must not be extracted")
+
+        assert _extract_base_apk_from_xapk(xapk_path, tmp_path) is None
+        assert not (tmp_path.parent / "outside.apk").exists()

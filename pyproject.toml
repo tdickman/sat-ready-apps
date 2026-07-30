@@ -1,0 +1,21 @@
+[project]
+name = "android-satellite-apps"
+version = "0.1.0"
+description = "Crawler for Android apps optimized for constrained satellite networks"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.9.0",
+    "androguard>=3.4.0",
+    "justapk>=0.1.1",
+    "pyyaml>=6.0",
+    "requests[socks]>=2.31.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["crawler/tests"]
+pythonpath = ["crawler"]

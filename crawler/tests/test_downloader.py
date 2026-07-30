@@ -25,6 +25,10 @@ class TestDownload:
         result = download("notapackagename", config=MOCK_CONFIG)
         assert result is None
 
+    def test_invalid_package_shape(self):
+        for package_name in ("com..example", "../com.example", "com/example.app"):
+            assert download(package_name, config=MOCK_CONFIG) is None
+
     def test_invalid_whitespace(self):
         result = download("   ", config=MOCK_CONFIG)
         assert result is None
@@ -43,6 +47,7 @@ class TestDownload:
         mock_instance.download.return_value = mock_result
 
         with tempfile.TemporaryDirectory() as tmp:
+            mock_result.path = Path(tmp) / "org.telegram.messenger.apk"
             result = download("org.telegram.messenger", output_dir=Path(tmp), config=MOCK_CONFIG)
             assert result is not None
             assert str(result).endswith(".apk")

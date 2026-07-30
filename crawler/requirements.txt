@@ -1,5 +1,6 @@
+# Legacy pip-compatible dependency list. uv uses pyproject.toml and uv.lock.
 pyyaml>=6.0
-requests>=2.31.0
+requests[socks]>=2.31.0
 justapk>=0.1.1
 androguard>=3.4.0
 aiohttp>=3.9.0

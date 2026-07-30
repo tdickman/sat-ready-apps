@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "generated_at": null,
+    "total_apps": 0,
+    "new_additions": 0,
+    "new_packages": [],
+    "summary": {
+      "total_processed": 0,
+      "downloaded": 0,
+      "satellite_optimized_found": 0,
+      "errors": 0,
+      "cached_skipped": 0
+    }
+  },
+  "apps": []
+}

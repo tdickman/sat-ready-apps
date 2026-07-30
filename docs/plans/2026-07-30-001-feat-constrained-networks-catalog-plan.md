@@ -157,7 +157,7 @@ android-satellite-apps/
 - No duplicate package names in the list.
 
 **Verification:**
-- `python3 -c "import json; data=json.load(open('crawler/seed_list.json')); print(len(data))"` outputs 400-600 entries with no duplicates.
+- `uv run python -c "import json; data=json.load(open('crawler/seed_list.json')); print(len(data))"` outputs 400-600 entries with no duplicates.
 
 ---
 
@@ -192,7 +192,7 @@ android-satellite-apps/
 - **Invalid package name:** Empty string or malformed name — returns `None` without crashing.
 
 **Verification:**
-- Running `python3 -c "from downloader import download; path = download('org.telegram.messenger')"` produces a valid `.apk` file.
+- Running `uv run python -c "import sys; sys.path.insert(0, 'crawler'); from downloader import download; path = download('org.telegram.messenger')"` produces a valid `.apk` file.
 
 ---
 
@@ -258,7 +258,7 @@ android-satellite-apps/
 - **Resume:** Run interrupted mid-crawl — re-running skips already-processed apps using cached APKs.
 
 **Verification:**
-- Running `python3 crawl.py` produces a valid `catalog.json` with the expected structure.
+- Running `uv run python crawler/crawl.py` produces a valid `catalog.json` with the expected structure.
 - The output contains no duplicate package names.
 
 ---
@@ -395,8 +395,8 @@ android-satellite-apps/
 
 ## Documentation / Operational Notes
 
-- **Setup:** `pip install justapk androguard pyyaml` in `crawler/`. `npm install` in `site/`.
-- **Running:** `python3 crawler/crawl.py` then `cd site && npm run build`.
+- **Setup:** `uv sync` from the repository root. `npm install` in `site/`.
+- **Running:** `uv run python crawler/crawl.py` then `cd site && npm run build`.
 - **First crawl:** The top-500 seed list combined with multi-source downloading + manifest parsing will take approximately 4-8 hours sequentially, or ~1 hour with 5-10 parallel workers. U4 includes a ThreadPoolExecutor with configurable concurrency in `config.yaml`.
 - **Caching:** Downloaded APKs cached by package name in `crawler/apk_cache/`. Subsequent monthly runs only download apps without cache entries, making them much faster.
 

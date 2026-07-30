@@ -2,6 +2,7 @@ seed_list_path: seed_list.json
 output_path: catalog.json
 apk_cache_dir: apk_cache
 log_level: INFO
+quiet: true
 
 crawler:
   max_workers: 5
@@ -10,9 +11,9 @@ crawler:
   cache_days: 30
 
 proxy:
-  enabled: false
-  scheme: socks5
-  host: 127.0.0.1
+  enabled: true
+  scheme: socks5h
+  host: 10.64.0.1
   port: 1080
 
 source_order:
