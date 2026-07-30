@@ -5,7 +5,6 @@ description = "Crawler for Android apps optimized for constrained satellite netw
 requires-python = ">=3.12"
 dependencies = [
     "aiohttp>=3.9.0",
-    "androguard>=3.4.0",
     "justapk>=0.1.1",
     "pyyaml>=6.0",
     "requests[socks]>=2.31.0",

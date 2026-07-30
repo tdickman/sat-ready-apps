@@ -3,15 +3,14 @@ from __future__ import annotations
 import json
 import zipfile
 from pathlib import Path
-from unittest.mock import MagicMock, call, patch
-
-import pytest
+from unittest.mock import patch
 
 from parser import (
-    _check_satellite_flag,
     _extract_base_apk_from_xapk,
     _is_xapk,
     _manifest_contains_satellite_flag,
+    _parse_aapt_badging,
+    _parse_aapt_xmltree,
     check_satellite_flag,
     parse_apk,
     SATELLITE_FLAG,
@@ -61,136 +60,103 @@ class TestManifestPrefilter:
         assert _manifest_contains_satellite_flag(apk_path) is None
 
 
-class TestCheckSatelliteFlag:
-    def test_flag_found(self):
-        flag_elem = MagicMock()
-        flag_elem.get.side_effect = lambda key: {
-            "{http://schemas.android.com/apk/res/android}name": SATELLITE_FLAG,
-            "{http://schemas.android.com/apk/res/android}value": "com.example.app",
-        }.get(key)
+XMLTREE_WITH_FLAG = f'''\
+    E: manifest (line=1)
+      A: package="com.example.app" (Raw: "com.example.app")
+        E: application (line=1)
+          E: meta-data (line=1)
+            A: http://schemas.android.com/apk/res/android:name(0x01010003)="{SATELLITE_FLAG}"
+            A: http://schemas.android.com/apk/res/android:value(0x01010024)="com.example.app"
+'''
 
-        mock_root = MagicMock()
-        mock_root.iter.return_value = [flag_elem]
-
-        mock_apk = MagicMock()
-        mock_apk.get_android_manifest_xml.return_value = mock_root
-        mock_apk.get_package.return_value = "com.example.app"
-
-        assert _check_satellite_flag(mock_apk) is True
-
-    def test_flag_not_found(self):
-        other = MagicMock()
-        other.get.side_effect = lambda key: {
-            "{http://schemas.android.com/apk/res/android}name": "some.other.flag",
-            "{http://schemas.android.com/apk/res/android}value": "x",
-        }.get(key)
-
-        mock_root = MagicMock()
-        mock_root.iter.return_value = [other]
-
-        mock_apk = MagicMock()
-        mock_apk.get_android_manifest_xml.return_value = mock_root
-
-        assert _check_satellite_flag(mock_apk) is False
-
-    def test_no_manifest(self):
-        mock_apk = MagicMock()
-        mock_apk.get_android_manifest_xml.return_value = None
-        assert _check_satellite_flag(mock_apk) is False
-
-    def test_wrong_package_value_is_rejected(self):
-        flag_elem = MagicMock()
-        flag_elem.get.side_effect = lambda key: {
-            "{http://schemas.android.com/apk/res/android}name": SATELLITE_FLAG,
-            "{http://schemas.android.com/apk/res/android}value": "com.other.app",
-        }.get(key)
-        mock_root = MagicMock()
-        mock_root.iter.return_value = [flag_elem]
-        mock_apk = MagicMock()
-        mock_apk.get_android_manifest_xml.return_value = mock_root
-
-        assert _check_satellite_flag(mock_apk, "com.example.app") is False
+BADGING = """\
+package: name='com.example.app' versionName='1.0'
+application-label:'Example App'
+application: label='Example App' icon='res/mipmap/ic_launcher.png'
+"""
 
 
-@patch("parser.Path.exists", return_value=True)
-@patch("parser._load_cache", side_effect=lambda _: {})
-@patch("parser._save_cache")
-@patch("parser._apk_hash", return_value="abc123")
-class TestParseApk:
-    @patch("parser.APK")
-    def test_satellite_flag_present(self, MockAPK, mock_hash, mock_save, mock_load, mock_exists):
-        mock_apk = MagicMock()
-        mock_apk.get_package.return_value = "com.example.app"
-        mock_apk.get_app_name.return_value = "Example App"
-        mock_apk.get_app_icon.return_value = "res/mipmap/ic_launcher.png"
-
-        flag_elem = MagicMock()
-        flag_elem.get.side_effect = lambda key: {
-            "{http://schemas.android.com/apk/res/android}name": SATELLITE_FLAG,
-            "{http://schemas.android.com/apk/res/android}value": "com.example.app",
-        }.get(key)
-
-        mock_root = MagicMock()
-        mock_root.iter.return_value = [flag_elem]
-
-        mock_apk.get_android_manifest_xml.return_value = mock_root
-        MockAPK.return_value = mock_apk
-
-        result = parse_apk(Path("/tmp/test.apk"))
-        assert result["satellite_optimized"] is True
-        assert result["app_name"] == "Example App"
-        assert result["package_name"] == "com.example.app"
-
-    @patch("parser.APK")
-    def test_no_satellite_flag(self, MockAPK, mock_hash, mock_save, mock_load, mock_exists):
-        mock_apk = MagicMock()
-        mock_apk.get_package.return_value = "com.example.app"
-        mock_apk.get_app_name.return_value = "Example App"
-        mock_apk.get_app_icon.return_value = "res/mipmap/ic_launcher.png"
-
-        other_elem = MagicMock()
-        other_elem.get.side_effect = lambda key: {
-            "{http://schemas.android.com/apk/res/android}name": "com.google.android.meta.different_flag",
-            "{http://schemas.android.com/apk/res/android}value": "something",
-        }.get(key)
-
-        mock_root = MagicMock()
-        mock_root.iter.return_value = [other_elem]
-
-        mock_apk.get_android_manifest_xml.return_value = mock_root
-        MockAPK.return_value = mock_apk
-
-        result = parse_apk(Path("/tmp/test.apk"))
-        assert result["satellite_optimized"] is False
-
-    @patch("parser.APK")
-    def test_no_manifest(self, MockAPK, mock_hash, mock_save, mock_load, mock_exists):
-        mock_apk = MagicMock()
-        mock_apk.get_android_manifest_xml.return_value = None
-        MockAPK.return_value = mock_apk
-
-        result = parse_apk(Path("/tmp/test.apk"))
-        assert result["satellite_optimized"] is False
-
-    @patch("parser.APK")
-    def test_corrupted_apk(self, MockAPK, mock_hash, mock_save, mock_load, mock_exists):
-        MockAPK.side_effect = Exception("Bad ZIP file")
-        result = parse_apk(Path("/tmp/test.apk"))
-        assert result["satellite_optimized"] is False
-        assert result["error"] is not None
+def test_aapt_xmltree_detects_satellite_flag():
+    result = _parse_aapt_xmltree(XMLTREE_WITH_FLAG)
+    assert result == {"package_name": "com.example.app", "satellite_optimized": True}
 
 
-def test_parse_skips_androguard_for_manifest_without_flag(tmp_path):
+def test_aapt_xmltree_rejects_wrong_package_value():
+    output = XMLTREE_WITH_FLAG.replace(
+        'A: package="com.example.app"',
+        'A: package="com.other.app"',
+    )
+    result = _parse_aapt_xmltree(output)
+    assert result["package_name"] == "com.other.app"
+    assert result["satellite_optimized"] is False
+
+
+def test_aapt_badging_extracts_metadata():
+    assert _parse_aapt_badging(BADGING) == {
+        "package_name": "com.example.app",
+        "app_name": "Example App",
+        "icon_path": "res/mipmap/ic_launcher.png",
+    }
+
+
+def test_parse_apk_uses_aapt2_for_positive_result(tmp_path):
+    apk_path = tmp_path / "test.apk"
+    apk_path.write_bytes(b"apk")
+
+    with patch("parser._manifest_contains_satellite_flag", return_value=True), patch(
+        "parser._run_aapt2_dump", side_effect=[XMLTREE_WITH_FLAG, BADGING]
+    ), patch("parser._save_cache"):
+        result = parse_apk(apk_path)
+
+    assert result == {
+        "satellite_optimized": True,
+        "app_name": "Example App",
+        "package_name": "com.example.app",
+        "icon_path": "res/mipmap/ic_launcher.png",
+        "error": None,
+    }
+
+
+def test_parse_apk_skips_aapt2_for_manifest_without_flag(tmp_path):
     apk_path = tmp_path / "ordinary.apk"
-    with zipfile.ZipFile(apk_path, "w") as archive:
-        archive.writestr("AndroidManifest.xml", b"ordinary manifest")
+    apk_path.write_bytes(b"apk")
 
-    with patch("parser.APK") as mock_apk:
+    with patch("parser._manifest_contains_satellite_flag", return_value=False), patch(
+        "parser._run_aapt2_dump"
+    ) as run_aapt2, patch("parser._save_cache"):
         result = parse_apk(apk_path)
 
     assert result["satellite_optimized"] is False
-    assert result["error"] is None
-    mock_apk.assert_not_called()
+    run_aapt2.assert_not_called()
+
+
+def test_parse_apk_returns_aapt2_failure(tmp_path):
+    apk_path = tmp_path / "broken.apk"
+    apk_path.write_bytes(b"apk")
+
+    with patch("parser._manifest_contains_satellite_flag", return_value=None), patch(
+        "parser._run_aapt2_dump", side_effect=RuntimeError("bad manifest")
+    ):
+        result = parse_apk(apk_path)
+
+    assert result["satellite_optimized"] is False
+    assert result["error"] == "bad manifest"
+
+
+def test_parse_apk_retries_transient_aapt2_failure(tmp_path):
+    apk_path = tmp_path / "retry.apk"
+    apk_path.write_bytes(b"apk")
+
+    with patch("parser._manifest_contains_satellite_flag", return_value=True), patch(
+        "parser._run_aapt2_dump",
+        side_effect=[RuntimeError("temporary failure"), XMLTREE_WITH_FLAG, BADGING],
+    ) as run_aapt2:
+        first = parse_apk(apk_path)
+        second = parse_apk(apk_path)
+
+    assert first["error"] == "temporary failure"
+    assert second["satellite_optimized"] is True
+    assert run_aapt2.call_count == 3
 
 
 def test_parse_reuses_fingerprint_cache_without_scanning_again(tmp_path):
@@ -204,6 +170,30 @@ def test_parse_reuses_fingerprint_cache_without_scanning_again(tmp_path):
 
     assert result["satellite_optimized"] is False
     prefilter.assert_not_called()
+
+
+def test_parse_caches_xapk_against_outer_archive(tmp_path):
+    xapk_path = tmp_path / "test.xapk"
+    with zipfile.ZipFile(xapk_path, "w") as archive:
+        archive.writestr(
+            "manifest.json",
+            json.dumps({"entries": [{"name": "base.apk", "type": "base"}]}),
+        )
+        archive.writestr("base.apk", b"fake apk content")
+
+    result = {
+        "satellite_optimized": True,
+        "app_name": "Example App",
+        "package_name": "com.example.app",
+        "icon_path": "res/icon.png",
+        "error": None,
+    }
+    with patch("parser._parse_apk_with_aapt2", return_value=result) as parse:
+        assert parse_apk(xapk_path) == result
+        assert parse_apk(xapk_path) == result
+
+    parse.assert_called_once()
+    assert not list(tmp_path.glob(".*-base-*"))
 
 
 class TestParseApkNoMocks:

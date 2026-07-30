@@ -4,28 +4,22 @@ import hashlib
 import json
 import logging
 import os
-import sys
+import re
+import subprocess
 import tempfile
 import threading
+import time
 import zipfile
 from pathlib import Path
 from typing import Optional
-
-from androguard.core.apk import APK
-
-try:
-    from loguru import logger as _androguard_logger
-
-    _androguard_logger.remove()
-    _androguard_logger.add(sys.stderr, level="WARNING")
-except ImportError:
-    _androguard_logger = None
 
 logger = logging.getLogger(__name__)
 
 SATELLITE_FLAG = "android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED"
 CACHE_FILE = ".parser_cache.json"
 CACHE_LOCK = threading.Lock()
+AAPT2_COMMAND = os.environ.get("AAPT2_PATH", "aapt2")
+AAPT2_TIMEOUT_SECONDS = 60
 MAX_EXTRACTED_APK_BYTES = 512 * 1024 * 1024
 MAX_ARCHIVE_ENTRIES = 4096
 MAX_ARCHIVE_UNCOMPRESSED_BYTES = 1024 * 1024 * 1024
@@ -33,12 +27,8 @@ MAX_MANIFEST_BYTES = 1024 * 1024
 
 
 def configure_parser_logging(quiet: bool) -> None:
-    if _androguard_logger is None:
-        return
-    if quiet:
-        _androguard_logger.disable("androguard")
-    else:
-        _androguard_logger.enable("androguard")
+    # Kept as a compatibility hook for the crawler; aapt2 owns parser logging.
+    return
 
 
 def _cache_path(apk_path: Path) -> Path:
@@ -116,6 +106,7 @@ def _is_xapk(path: Path) -> bool:
 
 
 def _extract_base_apk_from_xapk(xapk_path: Path, output_dir: Path) -> Optional[Path]:
+    base_path = None
     try:
         with zipfile.ZipFile(xapk_path) as zf:
             entries = zf.infolist()
@@ -153,6 +144,8 @@ def _extract_base_apk_from_xapk(xapk_path: Path, output_dir: Path) -> Optional[P
             logger.info("Extracted base APK %s from XAPK %s", base_name, xapk_path.name)
             return base_path
     except (zipfile.BadZipFile, KeyError, json.JSONDecodeError, OSError) as e:
+        if base_path:
+            base_path.unlink(missing_ok=True)
         logger.error("Failed to extract XAPK %s: %s", xapk_path.name, e)
         return None
 
@@ -203,7 +196,137 @@ def _safe_archive_member(name: str) -> bool:
     return not path.is_absolute() and ".." not in path.parts
 
 
-def parse_apk(apk_path: Path) -> dict:
+def _aapt_attribute(line: str) -> tuple[Optional[str], Optional[str]]:
+    """Extract an attribute's local name and quoted value from xmltree output."""
+    stripped = line.strip()
+    if not stripped.startswith("A:"):
+        return None, None
+    attribute, separator, value = stripped[2:].partition("=")
+    if not separator:
+        return None, None
+    local_name = attribute.split("(", 1)[0].rsplit(":", 1)[-1].strip()
+    value = value.strip()
+    if value.startswith('"'):
+        end_quote = value.find('"', 1)
+        return local_name, value[1:end_quote] if end_quote > 0 else None
+    return local_name, value.split(None, 1)[0] if value else None
+
+
+def _parse_aapt_xmltree(output: str) -> dict:
+    package_name = None
+    satellite_optimized = False
+    lines = output.splitlines()
+
+    for line in lines:
+        name, value = _aapt_attribute(line)
+        if name == "package" and value and package_name is None:
+            package_name = value
+
+    for index, line in enumerate(lines):
+        if not line.lstrip().startswith("E: meta-data"):
+            continue
+        element_indent = len(line) - len(line.lstrip())
+        attributes = {}
+        for child_line in lines[index + 1 :]:
+            if child_line.strip() and len(child_line) - len(child_line.lstrip()) <= element_indent:
+                break
+            name, value = _aapt_attribute(child_line)
+            if name and value is not None:
+                attributes[name] = value
+        if (
+            attributes.get("name") == SATELLITE_FLAG
+            and attributes.get("value") == package_name
+        ):
+            satellite_optimized = True
+            break
+
+    return {
+        "package_name": package_name,
+        "satellite_optimized": satellite_optimized,
+    }
+
+
+def _parse_aapt_badging(output: str) -> dict:
+    package_match = re.search(r"^package: name='([^']+)'", output, re.MULTILINE)
+    label_match = re.search(r"^application-label:'([^']*)'", output, re.MULTILINE)
+    icon_match = re.search(r"^application: label='[^']*' icon='([^']*)'", output, re.MULTILINE)
+    return {
+        "package_name": package_match.group(1) if package_match else None,
+        "app_name": label_match.group(1) if label_match else "",
+        "icon_path": icon_match.group(1) if icon_match else None,
+    }
+
+
+def _run_aapt2_dump(args: list[str], apk_path: Path, timeout: float) -> str:
+    try:
+        completed = subprocess.run(
+            [AAPT2_COMMAND, "dump", *args, str(apk_path)],
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            check=False,
+        )
+    except FileNotFoundError as e:
+        raise RuntimeError(f"aapt2 executable not found: {AAPT2_COMMAND}") from e
+    except subprocess.TimeoutExpired as e:
+        raise TimeoutError(f"aapt2 timed out parsing {apk_path.name}") from e
+    except OSError as e:
+        raise RuntimeError(f"Could not execute aapt2: {e}") from e
+
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or "unknown aapt2 error"
+        raise RuntimeError(detail)
+    return completed.stdout
+
+
+def _parse_apk_with_aapt2(apk_path: Path, timeout: float) -> dict:
+    prefilter = _manifest_contains_satellite_flag(apk_path)
+    if prefilter is False:
+        return {
+            "satellite_optimized": False,
+            "app_name": "",
+            "package_name": None,
+            "icon_path": None,
+            "error": None,
+        }
+
+    deadline = time.monotonic() + timeout
+    manifest = _parse_aapt_xmltree(
+        _run_aapt2_dump(
+            ["xmltree", "--file", "AndroidManifest.xml"],
+            apk_path,
+            max(0.001, deadline - time.monotonic()),
+        )
+    )
+    package_name = manifest.get("package_name")
+    if not package_name:
+        raise RuntimeError("aapt2 did not return a manifest package name")
+    if not manifest["satellite_optimized"]:
+        return {
+            "satellite_optimized": False,
+            "app_name": "",
+            "package_name": package_name,
+            "icon_path": None,
+            "error": None,
+        }
+
+    badging = _parse_aapt_badging(
+        _run_aapt2_dump(
+            ["badging"],
+            apk_path,
+            max(0.001, deadline - time.monotonic()),
+        )
+    )
+    return {
+        "satellite_optimized": True,
+        "app_name": badging.get("app_name") or package_name,
+        "package_name": badging.get("package_name") or package_name,
+        "icon_path": badging.get("icon_path"),
+        "error": None,
+    }
+
+
+def parse_apk(apk_path: Path, timeout: float = AAPT2_TIMEOUT_SECONDS) -> dict:
     apk_path = Path(apk_path)
     if not apk_path.exists():
         logger.error("APK not found: %s", apk_path)
@@ -212,54 +335,39 @@ def parse_apk(apk_path: Path) -> dict:
     cache = _load_cache(apk_path)
     try:
         fingerprint = _file_fingerprint(apk_path)
-    except OSError as e:
+    except OSError:
         # Keep malformed test fixtures and legacy cache entries on the full-parse path.
         fingerprint = None
 
     cached = cache.get(str(apk_path.name))
     if cached:
+        cached_result = cached.get("result", {})
         if fingerprint and cached.get("fingerprint") == fingerprint:
-            logger.debug("Using cached parse result for %s", apk_path.name)
-            return cached["result"]
+            if not cached_result.get("error"):
+                logger.debug("Using cached parse result for %s", apk_path.name)
+                return cached_result
         if cached.get("hash"):
             try:
                 if cached["hash"] == _apk_hash(apk_path):
-                    logger.debug("Using legacy cached parse result for %s", apk_path.name)
-                    return cached["result"]
+                    if not cached_result.get("error"):
+                        logger.debug("Using legacy cached parse result for %s", apk_path.name)
+                        return cached_result
             except OSError:
                 pass
 
-    if _is_xapk(apk_path):
-        logger.info("Detected XAPK format: %s", apk_path.name)
-        extracted = _extract_base_apk_from_xapk(apk_path, apk_path.parent)
-        if not extracted:
-            return {"satellite_optimized": False, "app_name": "", "package_name": "", "icon_path": None, "error": "xapk_extraction_failed"}
-        result = parse_apk(extracted)
-        try:
-            extracted.unlink()
-        except OSError:
-            pass
-        return result
-
-    prefilter = _manifest_contains_satellite_flag(apk_path)
-    if prefilter is False:
-        result = {
-            "satellite_optimized": False,
-            "app_name": "",
-            "package_name": None,
-            "icon_path": None,
-            "error": None,
-        }
-        if fingerprint:
-            cache[str(apk_path.name)] = {"fingerprint": fingerprint, "result": result}
-            _save_cache(apk_path, cache)
-        return result
-
     try:
-        a = APK(str(apk_path))
-        package_name = a.get_package()
-        has_flag = _check_satellite_flag(a, package_name)
-    except Exception as e:
+        if _is_xapk(apk_path):
+            logger.info("Detected XAPK format: %s", apk_path.name)
+            extracted = _extract_base_apk_from_xapk(apk_path, apk_path.parent)
+            if not extracted:
+                return {"satellite_optimized": False, "app_name": "", "package_name": "", "icon_path": None, "error": "xapk_extraction_failed"}
+            try:
+                result = _parse_apk_with_aapt2(extracted, timeout)
+            finally:
+                extracted.unlink(missing_ok=True)
+        else:
+            result = _parse_apk_with_aapt2(apk_path, timeout)
+    except (RuntimeError, TimeoutError) as e:
         logger.error("Failed to parse APK %s: %s", apk_path.name, e)
         return {
             "satellite_optimized": False,
@@ -269,29 +377,9 @@ def parse_apk(apk_path: Path) -> dict:
             "error": str(e),
         }
 
-    try:
-        app_name = a.get_app_name()
-    except Exception as e:
-        logger.warning("Failed to read app name from %s: %s", apk_path.name, e)
-        app_name = package_name
-    try:
-        icon_path = a.get_app_icon()
-    except Exception as e:
-        logger.warning("Failed to read icon from %s: %s", apk_path.name, e)
-        icon_path = None
-
-    result = {
-        "satellite_optimized": has_flag,
-        "app_name": app_name or package_name,
-        "package_name": package_name,
-        "icon_path": icon_path,
-        "error": None,
-    }
-
-    if fingerprint:
+    if fingerprint and not result.get("error"):
         cache[str(apk_path.name)] = {"fingerprint": fingerprint, "result": result}
         _save_cache(apk_path, cache)
-
     return result
 
 

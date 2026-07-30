@@ -11,6 +11,7 @@ implemented.
 
 - Python 3.12 or newer
 - [`uv`](https://docs.astral.sh/uv/)
+- Android SDK Build-Tools with `aapt2` on `PATH`
 - A working Mullvad connection exposing SOCKS5 at `10.64.0.1:1080`
 
 ## Setup
@@ -61,6 +62,16 @@ partial catalog is still written. Review the summary and the `scanned` state in
 `crawler/catalog.json`.
 
 ## Run A 10-App Test
+
+If the temporary test files already exist, run the crawl directly:
+
+```bash
+uv run python crawler/crawl.py /tmp/satellite-test-config.yaml
+```
+
+The result is written to `/tmp/satellite-test-catalog.json`.
+
+To recreate those temporary files from a fresh checkout, use:
 
 Create an isolated seed list and configuration:
 
@@ -156,6 +167,7 @@ Important settings are in `crawler/config.yaml`:
 crawler:
   max_workers: 5
   per_source_timeout: 30
+  aapt2_timeout: 60
   cache_days: 30
   scan_days: 30
 
@@ -167,7 +179,9 @@ proxy:
 ```
 
 `source_order` controls the justapk fallback order. `quiet: true` suppresses
-third-party progress and debug output while retaining the crawl summary.
+third-party progress and debug output while retaining the crawl summary. APK
+manifests are parsed with the native Android `aapt2` tool; set `AAPT2_PATH` when
+the executable is not on `PATH`.
 
 ## Development
 

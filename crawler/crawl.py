@@ -252,7 +252,10 @@ def process_package(
             "cached": cached,
         }
 
-    parser_result = parse_apk(apk_path)
+    parser_result = parse_apk(
+        apk_path,
+        timeout=config.get("crawler", {}).get("aapt2_timeout", 60),
+    )
 
     if parser_result.get("error") and not downloaded:
         logger.warning("Cached APK for %s could not be parsed; retrying download", package_name)
@@ -263,7 +266,10 @@ def process_package(
         apk_path = download(package_name, output_dir=cache_dir, config=config)
         downloaded = True
         if apk_path:
-            parser_result = parse_apk(apk_path)
+            parser_result = parse_apk(
+                apk_path,
+                timeout=config.get("crawler", {}).get("aapt2_timeout", 60),
+            )
 
     if parser_result.get("error"):
         return {
