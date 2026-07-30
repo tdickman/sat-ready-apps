@@ -14,12 +14,15 @@ from typing import Optional
 from urllib.parse import quote
 from xml.sax.saxutils import escape
 
+import requests
+
 from downloader import PACKAGE_NAME_RE, download, get_app_info, load_config
-from parser import parse_apk
+from parser import configure_parser_logging, parse_apk
 
 logger = logging.getLogger(__name__)
 
 CACHE_DAYS_DEFAULT = 30
+SCAN_DAYS_DEFAULT = 30
 
 
 def _setup_logging(level: str = "INFO") -> None:
@@ -64,6 +67,64 @@ def _load_previous_catalog(path: Path) -> dict[str, dict]:
     except (json.JSONDecodeError, OSError) as e:
         logger.warning("Could not load previous catalog %s: %s", path, e)
         return {}
+
+
+def _load_previous_scan_state(path: Path, previous_apps: dict[str, dict]) -> dict[str, dict]:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning("Could not load scan state %s: %s", path, e)
+        return {}
+
+    raw_state = data.get("scanned", {}) if isinstance(data, dict) else {}
+    if isinstance(raw_state, list):
+        state = {
+            entry["package_name"]: entry
+            for entry in raw_state
+            if isinstance(entry, dict) and entry.get("package_name")
+        }
+    elif isinstance(raw_state, dict):
+        state = {
+            package_name: entry
+            for package_name, entry in raw_state.items()
+            if isinstance(entry, dict)
+        }
+    else:
+        state = {}
+
+    # Catalogs created before scan-state tracking can still avoid rescanning positives.
+    for package_name, app in previous_apps.items():
+        state.setdefault(
+            package_name,
+            {
+                "package_name": package_name,
+                "category": app.get("category", ""),
+                "satellite_optimized": True,
+                "status": "positive",
+                "last_scanned": app.get("last_verified"),
+            },
+        )
+    return state
+
+
+def _is_scan_fresh(scan: Optional[dict], scan_days: int) -> bool:
+    if not scan or scan.get("status") not in {"positive", "negative"}:
+        return False
+    last_scanned = scan.get("last_scanned")
+    if not last_scanned:
+        return False
+    try:
+        timestamp = datetime.fromisoformat(last_scanned.replace("Z", "+00:00"))
+        if timestamp.tzinfo is None:
+            timestamp = timestamp.replace(tzinfo=timezone.utc)
+    except ValueError:
+        try:
+            timestamp = datetime.strptime(last_scanned, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        except ValueError:
+            return False
+    return (datetime.now(timezone.utc) - timestamp).total_seconds() < scan_days * 86400
 
 
 def _is_cache_fresh(apk_path: Path, cache_days: int) -> bool:
@@ -119,12 +180,47 @@ def _letter_icon_data_url(app_name: str) -> str:
     return "data:image/svg+xml," + quote(svg, safe="")
 
 
+def _store_url_is_available(url: str, config: dict) -> bool:
+    session = requests.Session()
+    session.trust_env = False
+    proxy = config.get("proxy", {})
+    if proxy.get("enabled", False):
+        proxy_url = (
+            f"{proxy.get('scheme', 'socks5h')}://{proxy.get('host', '127.0.0.1')}"
+            f":{proxy.get('port', 1080)}"
+        )
+        session.proxies = {"http": proxy_url, "https": proxy_url}
+    try:
+        response = session.get(
+            url,
+            allow_redirects=True,
+            stream=True,
+            timeout=config.get("crawler", {}).get("per_source_timeout", 30),
+        )
+        available = response.status_code < 400
+        response.close()
+        return available
+    except requests.RequestException as e:
+        logger.debug("Store link unavailable %s: %s", url, e)
+        return False
+    finally:
+        session.close()
+
+
 def _build_store_urls(package_name: str, config: dict) -> dict:
     play_url = config.get("play_store_url_template", "")
     fdroid_url = config.get("fdroid_url_template", "")
+    validate = config.get("validate_store_links", True)
+
+    def resolve(template: str) -> Optional[str]:
+        if not template:
+            return None
+        url = template.format(package_name=package_name)
+        return url if not validate or _store_url_is_available(url, config) else None
+
     return {
-        "play_store_url": play_url.format(package_name=package_name) if play_url else None,
-        "fdroid_url": fdroid_url.format(package_name=package_name) if fdroid_url else None,
+        "play_store_url": resolve(play_url),
+        "fdroid_url": resolve(fdroid_url),
     }
 
 
@@ -191,17 +287,20 @@ def process_package(
     if not parser_result.get("satellite_optimized", False):
         return {
             "package_name": package_name,
+            "category": category,
             "error": None,
             "satellite_optimized": False,
             "downloaded": downloaded,
             "status": "negative",
             "cached": cached,
+            "last_scanned": datetime.now(timezone.utc).isoformat(),
         }
 
     app_name = parser_result.get("app_name") or package_name
     icon_url = _resolve_icon_url(package_name, apk_path, parser_result, config)
     store_urls = _build_store_urls(package_name, config)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    scanned_at = datetime.now(timezone.utc).isoformat()
 
     return {
         "package_name": package_name,
@@ -209,6 +308,7 @@ def process_package(
         "icon_url": icon_url,
         "category": category,
         "last_verified": now,
+        "last_scanned": scanned_at,
         "downloaded": downloaded,
         "error": None,
         "satellite_optimized": True,
@@ -233,12 +333,23 @@ def _find_cached_apk(cache_dir: Path, package_name: str) -> Optional[Path]:
 
 def _write_catalog(
     output_path: Path,
-    apps: list[dict],
+    results: list[dict],
     previous: dict[str, dict],
+    previous_scans: dict[str, dict],
     summary: dict,
     failed_packages: set[str],
+    current_packages: set[str],
 ) -> None:
-    current_apps = {app["package_name"]: app for app in apps if app.get("satellite_optimized")}
+    current_apps = {
+        result["package_name"]: result
+        for result in results
+        if result.get("status") == "positive"
+    }
+    for result in results:
+        if result.get("status") == "skipped" and result.get("satellite_optimized"):
+            package_name = result["package_name"]
+            if package_name in previous:
+                current_apps[package_name] = previous[package_name]
     for package_name in failed_packages:
         if package_name not in current_apps and package_name in previous:
             current_apps[package_name] = previous[package_name]
@@ -250,6 +361,39 @@ def _write_catalog(
     new_packages = current_pkgs - previous_pkgs
     for app in apps:
         app["new_addition"] = app["package_name"] in new_packages
+
+    scans = {
+        package_name: scan
+        for package_name, scan in previous_scans.items()
+        if package_name in current_packages
+    }
+    for result in results:
+        package_name = result["package_name"]
+        status = result.get("status")
+        if status in {"positive", "negative"}:
+            scans[package_name] = {
+                "package_name": package_name,
+                "category": result.get("category", ""),
+                "satellite_optimized": result.get("satellite_optimized", False),
+                "status": status,
+                "last_scanned": result.get("last_scanned"),
+            }
+        elif status == "error":
+            previous_scan = scans.get(package_name)
+            if previous_scan:
+                scans[package_name] = {
+                    **previous_scan,
+                    "last_error": result.get("error"),
+                }
+            else:
+                scans[package_name] = {
+                    "package_name": package_name,
+                    "category": result.get("category", ""),
+                    "satellite_optimized": False,
+                    "status": "error",
+                    "last_scanned": None,
+                    "last_error": result.get("error"),
+                }
 
     seen = set()
     deduped = []
@@ -267,9 +411,11 @@ def _write_catalog(
             "total_apps": len(deduped),
             "new_additions": len(new_packages),
             "new_packages": sorted(new_packages),
+            "total_scanned": len(scans),
             "summary": summary,
         },
         "apps": deduped,
+        "scanned": {package_name: scans[package_name] for package_name in sorted(scans)},
     }
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -299,12 +445,34 @@ def run_crawl(config: dict) -> dict:
     output_path = Path(config.get("output_path", "catalog.json"))
     max_workers = config.get("crawler", {}).get("max_workers", 5)
     seed_list = _load_seed_list(seed_path)
+    configure_parser_logging(config.get("quiet", False))
 
     logger.info("Starting crawl: %d apps, %d workers", len(seed_list), max_workers)
 
     previous = _load_previous_catalog(output_path)
+    previous_scans = _load_previous_scan_state(output_path, previous)
+    crawler_config = config.get("crawler", {})
+    scan_days = crawler_config.get("scan_days", SCAN_DAYS_DEFAULT)
+    entries_to_scan = [
+        entry
+        for entry in seed_list
+        if not _is_scan_fresh(previous_scans.get(entry["package_name"]), scan_days)
+    ]
+    results: list[dict] = [
+        {
+            "package_name": entry["package_name"],
+            "category": entry.get("category", ""),
+            "satellite_optimized": previous_scans[entry["package_name"]].get(
+                "satellite_optimized", False
+            ),
+            "status": "skipped",
+            "error": None,
+        }
+        for entry in seed_list
+        if entry["package_name"] in previous_scans
+        and _is_scan_fresh(previous_scans[entry["package_name"]], scan_days)
+    ]
 
-    results: list[dict] = []
     errors = 0
     downloaded = 0
     sat_found = 0
@@ -319,7 +487,7 @@ def run_crawl(config: dict) -> dict:
                 entry.get("category", ""),
                 config,
             ): entry["package_name"]
-            for entry in seed_list
+            for entry in entries_to_scan
         }
 
         for future in as_completed(future_map):
@@ -336,15 +504,24 @@ def run_crawl(config: dict) -> dict:
                     downloaded += 1
                 if result.get("cached") and not result.get("downloaded"):
                     cached_skipped += 1
-                if result.get("satellite_optimized"):
+                if result.get("satellite_optimized") and result.get("status") != "skipped":
                     sat_found += 1
             except Exception as e:
                 errors += 1
                 failed_packages.add(pkg)
                 logger.error("Unhandled exception for %s: %s", pkg, e)
+                results.append(
+                    {
+                        "package_name": pkg,
+                        "status": "error",
+                        "error": str(e),
+                    }
+                )
 
     summary = {
         "total_processed": len(seed_list),
+        "scanned_this_run": len(entries_to_scan),
+        "scan_skipped": len(seed_list) - len(entries_to_scan),
         "downloaded": downloaded,
         "satellite_optimized_found": sat_found,
         "errors": errors,
@@ -352,14 +529,23 @@ def run_crawl(config: dict) -> dict:
     }
 
     logger.info(
-        "Crawl complete: %d processed, %d downloaded, %d sat-optimized, %d errors",
-        summary["total_processed"],
+        "Crawl complete: %d scanned, %d skipped, %d downloaded, %d sat-optimized, %d errors",
+        summary["scanned_this_run"],
+        summary["scan_skipped"],
         summary["downloaded"],
         summary["satellite_optimized_found"],
         summary["errors"],
     )
 
-    _write_catalog(output_path, results, previous, summary, failed_packages)
+    _write_catalog(
+        output_path,
+        results,
+        previous,
+        previous_scans,
+        summary,
+        failed_packages,
+        {entry["package_name"] for entry in seed_list},
+    )
 
     return summary
 

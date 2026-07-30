@@ -9,6 +9,7 @@ crawler:
   per_app_timeout: 180
   per_source_timeout: 30
   cache_days: 30
+  scan_days: 30
 
 proxy:
   enabled: true
@@ -25,6 +26,7 @@ source_order:
 
 play_store_url_template: "https://play.google.com/store/apps/details?id={package_name}"
 fdroid_url_template: "https://f-droid.org/packages/{package_name}/"
+validate_store_links: true
 
 catalog_schema:
   description: >

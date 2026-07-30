@@ -399,6 +399,8 @@ android-satellite-apps/
 - **Running:** `uv run python crawler/crawl.py` then `cd site && npm run build`.
 - **First crawl:** The top-500 seed list combined with multi-source downloading + manifest parsing will take approximately 4-8 hours sequentially, or ~1 hour with 5-10 parallel workers. U4 includes a ThreadPoolExecutor with configurable concurrency in `config.yaml`.
 - **Caching:** Downloaded APKs cached by package name in `crawler/apk_cache/`. Subsequent monthly runs only download apps without cache entries, making them much faster.
+- **Scan state:** `catalog.json` records every seed package under `scanned`, including positive/negative status and `last_scanned`. U4 skips successful scans younger than `crawler.scan_days` (30 days by default); failed scans remain eligible for retry.
+- **Store links:** Play Store and F-Droid links are checked before being included in a catalog entry. Set `validate_store_links: false` only for offline tests.
 
 ---
 

@@ -4,6 +4,7 @@ import hashlib
 import json
 import logging
 import os
+import sys
 import tempfile
 import threading
 import zipfile
@@ -11,6 +12,14 @@ from pathlib import Path
 from typing import Optional
 
 from androguard.core.apk import APK
+
+try:
+    from loguru import logger as _androguard_logger
+
+    _androguard_logger.remove()
+    _androguard_logger.add(sys.stderr, level="WARNING")
+except ImportError:
+    _androguard_logger = None
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +30,15 @@ MAX_EXTRACTED_APK_BYTES = 512 * 1024 * 1024
 MAX_ARCHIVE_ENTRIES = 4096
 MAX_ARCHIVE_UNCOMPRESSED_BYTES = 1024 * 1024 * 1024
 MAX_MANIFEST_BYTES = 1024 * 1024
+
+
+def configure_parser_logging(quiet: bool) -> None:
+    if _androguard_logger is None:
+        return
+    if quiet:
+        _androguard_logger.disable("androguard")
+    else:
+        _androguard_logger.enable("androguard")
 
 
 def _cache_path(apk_path: Path) -> Path:
