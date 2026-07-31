@@ -45,11 +45,6 @@
     "category": "communication"
   },
   {
-    "package_name": "com.google.android.apps.hangouts",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
     "package_name": "com.viber.voip",
     "source": "appbrain",
     "category": "communication"
@@ -70,17 +65,7 @@
     "category": "communication"
   },
   {
-    "package_name": "com.linecorp.android",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
     "package_name": "jp.naver.line.android",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
-    "package_name": "com.bbm",
     "source": "appbrain",
     "category": "communication"
   },
@@ -100,17 +85,7 @@
     "category": "communication"
   },
   {
-    "package_name": "com.google.android.apps.contacts",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
     "package_name": "com.microsoft.teams",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
-    "package_name": "com.Zoom",
     "source": "appbrain",
     "category": "communication"
   },
@@ -135,22 +110,12 @@
     "category": "communication"
   },
   {
-    "package_name": "com.tmobile.pr.adapt",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
     "package_name": "com.att.mobile.android.vvm",
     "source": "appbrain",
     "category": "communication"
   },
   {
     "package_name": "com.android.contacts",
-    "source": "appbrain",
-    "category": "communication"
-  },
-  {
-    "package_name": "com.android.dialer",
     "source": "appbrain",
     "category": "communication"
   },
@@ -190,11 +155,6 @@
     "category": "social"
   },
   {
-    "package_name": "com.tiktok.android",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
     "package_name": "com.reddit.frontpage",
     "source": "appbrain",
     "category": "social"
@@ -215,11 +175,6 @@
     "category": "social"
   },
   {
-    "package_name": "com.myspace.android",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
     "package_name": "com.flickr.android",
     "source": "appbrain",
     "category": "social"
@@ -235,11 +190,6 @@
     "category": "social"
   },
   {
-    "package_name": "com.tapatalk.tapatalk",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
     "package_name": "com.yik.yak",
     "source": "appbrain",
     "category": "social"
@@ -250,47 +200,12 @@
     "category": "social"
   },
   {
-    "package_name": "com.twitter.lite",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
     "package_name": "com.facebook.mlite",
     "source": "appbrain",
     "category": "social"
   },
   {
-    "package_name": "com.hootsuite.android",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
-    "package_name": "com.buffer.android",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
-    "package_name": "clubhouse.app",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
-    "package_name": "com.bereal.www",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
     "package_name": "com.roblox.client",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
-    "package_name": "com.vk.android",
-    "source": "appbrain",
-    "category": "social"
-  },
-  {
-    "package_name": "com.odnoklassniki.android",
     "source": "appbrain",
     "category": "social"
   },
@@ -316,16 +231,6 @@
   },
   {
     "package_name": "com.google.android.apps.docs",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
-    "package_name": "com.google.android.apps.sheets",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
-    "package_name": "com.google.android.apps.slides",
     "source": "appbrain",
     "category": "productivity"
   },
@@ -390,11 +295,6 @@
     "category": "productivity"
   },
   {
-    "package_name": "com.sonydownloader.esto",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
     "package_name": "com.alphainventor.filemanager",
     "source": "appbrain",
     "category": "productivity"
@@ -410,11 +310,6 @@
     "category": "productivity"
   },
   {
-    "package_name": "com.notion.id",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
     "package_name": "com.todoist",
     "source": "appbrain",
     "category": "productivity"
@@ -426,11 +321,6 @@
   },
   {
     "package_name": "com.ticktick.task",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
-    "package_name": "com.microsoft.onenote",
     "source": "appbrain",
     "category": "productivity"
   },
@@ -500,16 +390,6 @@
     "category": "productivity"
   },
   {
-    "package_name": "com.google.android.apps.khanacademy",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
-    "package_name": "com.coursera.android",
-    "source": "appbrain",
-    "category": "productivity"
-  },
-  {
     "package_name": "org.edx.mobile",
     "source": "appbrain",
     "category": "productivity"
@@ -530,11 +410,6 @@
     "category": "entertainment"
   },
   {
-    "package_name": "com.amazon.avod.thirdparty",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
     "package_name": "com.hulu.plus",
     "source": "appbrain",
     "category": "entertainment"
@@ -545,17 +420,7 @@
     "category": "entertainment"
   },
   {
-    "package_name": "com.hbomax",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
     "package_name": "com.peacocktv.peacockandroid",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.paramountplus.app",
     "source": "appbrain",
     "category": "entertainment"
   },
@@ -580,22 +445,7 @@
     "category": "entertainment"
   },
   {
-    "package_name": "com.deezer.android",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.tidal.android",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
     "package_name": "com.shazam.android",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.twitch.android",
     "source": "appbrain",
     "category": "entertainment"
   },
@@ -605,57 +455,12 @@
     "category": "entertainment"
   },
   {
-    "package_name": "com.funimation.funimationnow",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
     "package_name": "com.imdb.mobile",
     "source": "appbrain",
     "category": "entertainment"
   },
   {
-    "package_name": "com.google.android.apps.tv.launcher",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.vimeo.android.vimeoapp",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.dailymotion.app",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.trakt.intent",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
     "package_name": "com.sonyliv",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.hotstar",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.zee5.android",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "in.airtel.movies",
-    "source": "appbrain",
-    "category": "entertainment"
-  },
-  {
-    "package_name": "com.jio.media.jiocinema",
     "source": "appbrain",
     "category": "entertainment"
   },
@@ -730,42 +535,12 @@
     "category": "shopping"
   },
   {
-    "package_name": "com.shopify.app",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
     "package_name": "com.ubercab",
     "source": "appbrain",
     "category": "shopping"
   },
   {
-    "package_name": "com.lyft.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
     "package_name": "com.didiglobal.passenger",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.grab.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.swiggy.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.zomato.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.deliveroo.app",
     "source": "appbrain",
     "category": "shopping"
   },
@@ -776,11 +551,6 @@
   },
   {
     "package_name": "com.grubhub.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.doorhappy.doorandash",
     "source": "appbrain",
     "category": "shopping"
   },
@@ -796,36 +566,6 @@
   },
   {
     "package_name": "com.groupon",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.rakuten.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.shein.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.zaful.app",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.romwe.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.mercariapp.android",
-    "source": "appbrain",
-    "category": "shopping"
-  },
-  {
-    "package_name": "com.olx.app",
     "source": "appbrain",
     "category": "shopping"
   },
@@ -850,22 +590,12 @@
     "category": "maps"
   },
   {
-    "package_name": "com.tomtom.speedcameradetection",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
     "package_name": "com.sygic.aura",
     "source": "appbrain",
     "category": "maps"
   },
   {
     "package_name": "net.osmand.plus",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
-    "package_name": "org.osmand",
     "source": "appbrain",
     "category": "maps"
   },
@@ -880,22 +610,7 @@
     "category": "maps"
   },
   {
-    "package_name": "com.booking.app",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
     "package_name": "com.expedia.bookings",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
-    "package_name": "com.trivago.android",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
-    "package_name": "com.hotels.android",
     "source": "appbrain",
     "category": "maps"
   },
@@ -905,22 +620,7 @@
     "category": "maps"
   },
   {
-    "package_name": "com.skyscanner.android",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
     "package_name": "com.hopper.mountainview.play",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
-    "package_name": "com.gosund.gosund",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
-    "package_name": "com.movvit.app",
     "source": "appbrain",
     "category": "maps"
   },
@@ -940,11 +640,6 @@
     "category": "finance"
   },
   {
-    "package_name": "com.cashapp.app",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
     "package_name": "com.revolut.revolut",
     "source": "appbrain",
     "category": "finance"
@@ -955,17 +650,7 @@
     "category": "finance"
   },
   {
-    "package_name": "com.monzo.android",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
     "package_name": "com.chase.sig.android",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.bankofamerica.mobilebanking",
     "source": "appbrain",
     "category": "finance"
   },
@@ -985,11 +670,6 @@
     "category": "finance"
   },
   {
-    "package_name": "org.wse.mobile",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
     "package_name": "com.coinbase.android",
     "source": "appbrain",
     "category": "finance"
@@ -1000,27 +680,7 @@
     "category": "finance"
   },
   {
-    "package_name": "com.coinhub",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
     "package_name": "com.robinhood.android",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.webull.trade",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.tdameritrade.mobile",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.etrade.mobile",
     "source": "appbrain",
     "category": "finance"
   },
@@ -1036,16 +696,6 @@
   },
   {
     "package_name": "com.vanguard.mobile",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.apple.android.applepay",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.paytm",
     "source": "appbrain",
     "category": "finance"
   },
@@ -1080,11 +730,6 @@
     "category": "health"
   },
   {
-    "package_name": "com.underarmour.android.running",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
     "package_name": "com.mapmyrun.android2",
     "source": "appbrain",
     "category": "health"
@@ -1100,37 +745,7 @@
     "category": "health"
   },
   {
-    "package_name": "com.headspace.android",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
     "package_name": "com.calm.android",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "com.sleepcycle.sleepcycle",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "com.loseit.android",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "com.noom.app",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "com.ww.android.weightwatchers",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "com.flo.android",
     "source": "appbrain",
     "category": "health"
   },
@@ -1141,16 +756,6 @@
   },
   {
     "package_name": "com.yazio.android",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "com.welltory.app",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
-    "package_name": "org.medicmobile.android",
     "source": "appbrain",
     "category": "health"
   },
@@ -1170,19 +775,9 @@
     "category": "health"
   },
   {
-    "package_name": "org.ismyhealth.app",
-    "source": "appbrain",
-    "category": "health"
-  },
-  {
     "package_name": "com.google.android.apps.accessibility.auditor",
     "source": "appbrain",
     "category": "health"
-  },
-  {
-    "package_name": "com.google.android.apps.pixel.launcher",
-    "source": "appbrain",
-    "category": "tools"
   },
   {
     "package_name": "com.google.android.inputmethod.latin",
@@ -1201,16 +796,6 @@
   },
   {
     "package_name": "com.google.android.deskclock",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.android.emergency",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.android.calculator2",
     "source": "appbrain",
     "category": "tools"
   },
@@ -1245,11 +830,6 @@
     "category": "tools"
   },
   {
-    "package_name": "com.android.voicedialer",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
     "package_name": "com.sec.android.app.sbrowser",
     "source": "appbrain",
     "category": "tools"
@@ -1280,31 +860,6 @@
     "category": "tools"
   },
   {
-    "package_name": "com.samsung.android.camerasd",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.samsung.android.gallery",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.samsung.android.weather",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.huawei.android.launcher",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.huawei.photos",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
     "package_name": "com.xiaomi.market",
     "source": "appbrain",
     "category": "tools"
@@ -1326,26 +881,6 @@
   },
   {
     "package_name": "com.oneplus.calculator",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.oppo.launcher",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "org.lineageos.recorder",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "org.lineageos.jelly",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "org.lineageos.eleven",
     "source": "appbrain",
     "category": "tools"
   },
@@ -1415,31 +950,6 @@
     "category": "tools"
   },
   {
-    "package_name": "com.ghostery.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.lastpass.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.dashlane.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.onelogin.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.auth0.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
     "package_name": "com.google.android.apps.authenticator2",
     "source": "appbrain",
     "category": "tools"
@@ -1475,11 +985,6 @@
     "category": "tools"
   },
   {
-    "package_name": "com.ghisler.android.totalcommander",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
     "package_name": "com.rarlab.rar",
     "source": "appbrain",
     "category": "tools"
@@ -1490,37 +995,12 @@
     "category": "tools"
   },
   {
-    "package_name": "com.nilhcem.blamecharity",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.anysoftkeyboard.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
     "package_name": "org.pocketworkstation.pckeyboard",
     "source": "appbrain",
     "category": "tools"
   },
   {
-    "package_name": "com.omnitrack",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
     "package_name": "org.torproject.android",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.veracrypt.veracrypt",
-    "source": "appbrain",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.bitwarden.android",
     "source": "appbrain",
     "category": "tools"
   },
@@ -1550,42 +1030,12 @@
     "category": "weather"
   },
   {
-    "package_name": "com.weatherbug.android",
-    "source": "appbrain",
-    "category": "weather"
-  },
-  {
-    "package_name": "com.ventusky.android",
-    "source": "appbrain",
-    "category": "weather"
-  },
-  {
-    "package_name": "cz.mallat.uas",
-    "source": "appbrain",
-    "category": "weather"
-  },
-  {
     "package_name": "com.droid27.transparentclockweather",
     "source": "appbrain",
     "category": "weather"
   },
   {
-    "package_name": "com.flipboard.app",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
     "package_name": "com.google.android.apps.magazines",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.cnn.mobile.android",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.bbc.mobile.news.ww",
     "source": "appbrain",
     "category": "news"
   },
@@ -1600,37 +1050,7 @@
     "category": "news"
   },
   {
-    "package_name": "com.ap.mobile.android",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.reuters.reuters",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.bloomberg.android",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.huffpost.android",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
     "package_name": "com.buzzfeed.android",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.vice.android",
-    "source": "appbrain",
-    "category": "news"
-  },
-  {
-    "package_name": "com.npr.android",
     "source": "appbrain",
     "category": "news"
   },
@@ -1650,52 +1070,7 @@
     "category": "sports"
   },
   {
-    "package_name": "com.nbcsports.android",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.bleacherreport.android",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.theathletic.app",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
     "package_name": "com.flashscore",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "eu.livesport.android",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.sportsillustrated.edge",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.dafabet.mobile",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.pokerstar.android",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.draftkings.android",
-    "source": "appbrain",
-    "category": "sports"
-  },
-  {
-    "package_name": "com.fanduel.android",
     "source": "appbrain",
     "category": "sports"
   },
@@ -1706,11 +1081,6 @@
   },
   {
     "package_name": "com.adobe.psmobile",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.canva.app",
     "source": "appbrain",
     "category": "photography"
   },
@@ -1730,26 +1100,6 @@
     "category": "photography"
   },
   {
-    "package_name": "com.facetune",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.retrica.android",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.snowcorp.snow",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.zte.beauty.camera",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
     "package_name": "com.motorola.camera",
     "source": "appbrain",
     "category": "photography"
@@ -1765,27 +1115,7 @@
     "category": "photography"
   },
   {
-    "package_name": "com.samsung.android.camera",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.miui.camera",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
     "package_name": "com.huawei.camera",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.oppo.camera",
-    "source": "appbrain",
-    "category": "photography"
-  },
-  {
-    "package_name": "com.xiaomi.camera",
     "source": "appbrain",
     "category": "photography"
   },
@@ -1800,102 +1130,12 @@
     "category": "dating"
   },
   {
-    "package_name": "com.hinge.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.okcupid",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.match.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.grindr.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.plentyoffish",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.badoo.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.zoosk.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.happn.app",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.her.her",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.feeld.app",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.theleague.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.muslim.marriage",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
-    "package_name": "com.eharmony.android",
-    "source": "appbrain",
-    "category": "dating"
-  },
-  {
     "package_name": "com.tripadvisor.tripadvisor",
     "source": "appbrain",
     "category": "travel"
   },
   {
-    "package_name": "com.hilton.android",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
     "package_name": "com.marriott.mrt",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.ihg.app",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.accor.app",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.hyatt.app",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.aa.com.mobile.android",
     "source": "appbrain",
     "category": "travel"
   },
@@ -1911,41 +1151,6 @@
   },
   {
     "package_name": "com.southwest.mobile",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.jetblue.android",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.virginatlantic.vaapp",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.ryanair.app",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.easyjet.mobile",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.amtrak.amtrak",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.nationalrail.android",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
-    "package_name": "com.flixbus.app",
     "source": "appbrain",
     "category": "travel"
   },
@@ -1991,11 +1196,6 @@
   },
   {
     "package_name": "com.king.bubblewitch3",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.king.pethoodsaga",
     "source": "appbrain",
     "category": "games"
   },
@@ -2050,32 +1250,12 @@
     "category": "games"
   },
   {
-    "package_name": "com.ea.gp.simcity",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ea.game.starwars_galaxy",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ea.gp.thesims4",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.ea.game.pvz2_row",
     "source": "appbrain",
     "category": "games"
   },
   {
     "package_name": "com.gameloft.android.ANMP.GloftA8HM",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.gameloft.android.ANMP.GloftM4HM",
     "source": "appbrain",
     "category": "games"
   },
@@ -2095,17 +1275,7 @@
     "category": "games"
   },
   {
-    "package_name": "com.zynga.zync",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.zynga.words",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.zynga.poker",
     "source": "appbrain",
     "category": "games"
   },
@@ -2120,17 +1290,7 @@
     "category": "games"
   },
   {
-    "package_name": "com.rovio.angrybirds2",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.rovio.baba",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.outfit7.talkingfriends",
     "source": "appbrain",
     "category": "games"
   },
@@ -2155,16 +1315,6 @@
     "category": "games"
   },
   {
-    "package_name": "com.vng.candycrush",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.dreamsky.cyberpunk",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.tencent.lolm",
     "source": "appbrain",
     "category": "games"
@@ -2176,21 +1326,6 @@
   },
   {
     "package_name": "com.miHoYo.GenshinImpact",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.miHoYo.hkrpg",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.miHoYo.tot",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.proximabeta.mf",
     "source": "appbrain",
     "category": "games"
   },
@@ -2210,36 +1345,6 @@
     "category": "games"
   },
   {
-    "package_name": "com.sega.sonicforces",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.capcom.mmxx",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.square_enix.android_googleplay.ffvii",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.square_enix.android_googleplay.ff_br",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.bandainamco.dragonballzdbz",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.bandainamco.onepiece",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.kiloo.subwaysurf",
     "source": "appbrain",
     "category": "games"
@@ -2255,41 +1360,6 @@
     "category": "games"
   },
   {
-    "package_name": "com.dena.hdwars",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.dena.game.hdwars",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.dena.a12016001",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.nexon.dev.sky",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.nexon.kartrider.rumble",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.nexon.bluearch",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.nexon.mabinogi",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.netmarble.lin2",
     "source": "appbrain",
     "category": "games"
@@ -2300,22 +1370,7 @@
     "category": "games"
   },
   {
-    "package_name": "com.netmarble.niun",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ncsoft.aion",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.ncsoft.lineage",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.crazyLabs.zentris",
     "source": "appbrain",
     "category": "games"
   },
@@ -2330,57 +1385,12 @@
     "category": "games"
   },
   {
-    "package_name": "com.getanything.puzzle",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.zeptolab.ctr.ads",
     "source": "appbrain",
     "category": "games"
   },
   {
-    "package_name": "com.zeptolab.cuttherope",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.zeptolab.cuttherope2",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.zeptolab.ctr.paid",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.djinnworks.anm",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.playdots.two",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.wordsmobile.words",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.magenta.riddle",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.frame.vr",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.blocker.game",
     "source": "appbrain",
     "category": "games"
   },
@@ -2400,71 +1410,6 @@
     "category": "games"
   },
   {
-    "package_name": "com.ea.gp.madden",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ea.gp.fifa",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ea.gp.nhl",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.t2ksports.nba2k23",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.t2ksports.mlb2k23",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ubisoft.rainbow6",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ubisoft.assassinscreed",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.wb.goog.legobat",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.wb.goog.mk",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.wb.goog.injustice2",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.wb.goog.harrypotter",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.disney.bnmo.android",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.marmalade.sonic",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.mojang.minecraftedu",
     "source": "appbrain",
     "category": "games"
@@ -2475,27 +1420,7 @@
     "category": "games"
   },
   {
-    "package_name": "com.bethsoft.skyrim",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.rockstar.gta3",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.rockstar.gtasa",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.rockstar.gtavc",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.rockstar.gta_libertycity",
     "source": "appbrain",
     "category": "games"
   }
