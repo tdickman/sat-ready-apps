@@ -16,7 +16,7 @@ from xml.sax.saxutils import escape
 
 import requests
 
-from downloader import PACKAGE_NAME_RE, download, get_app_info, load_config
+from downloader import PACKAGE_NAME_RE, download_with_diagnostics, get_app_info, load_config
 from parser import configure_parser_logging, parse_apk
 
 logger = logging.getLogger(__name__)
@@ -180,7 +180,7 @@ def _letter_icon_data_url(app_name: str) -> str:
     return "data:image/svg+xml," + quote(svg, safe="")
 
 
-def _store_url_is_available(url: str, config: dict) -> bool:
+def _store_url_status(url: str, config: dict) -> tuple[Optional[int], Optional[str]]:
     session = requests.Session()
     session.trust_env = False
     proxy = config.get("proxy", {})
@@ -197,14 +197,92 @@ def _store_url_is_available(url: str, config: dict) -> bool:
             stream=True,
             timeout=config.get("crawler", {}).get("per_source_timeout", 30),
         )
-        available = response.status_code < 400
+        status = response.status_code
         response.close()
-        return available
+        return status, None
     except requests.RequestException as e:
         logger.debug("Store link unavailable %s: %s", url, e)
-        return False
+        return None, str(e)
     finally:
         session.close()
+
+
+def _store_url_is_available(url: str, config: dict) -> bool:
+    status, _ = _store_url_status(url, config)
+    return status is not None and status < 400
+
+
+def _validate_seed_package(package_name: str, config: dict) -> dict:
+    template = config.get("play_store_url_template", "")
+    if not template:
+        return {
+            "package_name": package_name,
+            "status": "unavailable",
+            "detail": "play_store_url_template is not configured",
+        }
+
+    url = template.format(package_name=package_name)
+    status, error_detail = _store_url_status(url, config)
+    if status == 200:
+        return {
+            "package_name": package_name,
+            "status": "valid",
+            "http_status": status,
+            "url": url,
+        }
+    if status == 404:
+        return {
+            "package_name": package_name,
+            "status": "rejected",
+            "detail": "Google Play returned HTTP 404",
+            "http_status": status,
+            "url": url,
+        }
+
+    detail = f"Google Play returned HTTP {status}" if status is not None else error_detail
+    return {
+        "package_name": package_name,
+        "status": "unavailable",
+        "detail": detail or "Google Play validation failed",
+        "http_status": status,
+        "url": url,
+    }
+
+
+def _validate_seed_entries(
+    entries: list[dict], config: dict, max_workers: int
+) -> tuple[list[dict], dict[str, dict], list[dict]]:
+    results = []
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_map = {
+            executor.submit(_validate_seed_package, entry["package_name"], config): entry
+            for entry in entries
+        }
+        for future in as_completed(future_map):
+            entry = future_map[future]
+            try:
+                result = future.result()
+            except Exception as e:
+                result = {
+                    "package_name": entry["package_name"],
+                    "status": "unavailable",
+                    "detail": str(e),
+                }
+            results.append({**result, "category": entry.get("category", "")})
+
+    results.sort(key=lambda result: result["package_name"])
+    rejected = {
+        result["package_name"]: result
+        for result in results
+        if result["status"] == "rejected"
+    }
+    accepted_packages = {
+        result["package_name"]
+        for result in results
+        if result["status"] != "rejected"
+    }
+    accepted = [entry for entry in entries if entry["package_name"] in accepted_packages]
+    return accepted, rejected, results
 
 
 def _build_store_urls(package_name: str, config: dict) -> dict:
@@ -216,6 +294,11 @@ def _build_store_urls(package_name: str, config: dict) -> dict:
         if not template:
             return None
         url = template.format(package_name=package_name)
+        if (
+            template == play_url
+            and package_name in config.get("_validated_play_packages", set())
+        ):
+            return url
         return url if not validate or _store_url_is_available(url, config) else None
 
     return {
@@ -236,17 +319,21 @@ def process_package(
     apk_path = _find_cached_apk(cache_dir, package_name)
     downloaded = False
     cached = bool(apk_path)
+    download_error = None
 
     if apk_path and _is_cache_fresh(apk_path, cache_days):
         logger.debug("Using cached APK for %s", package_name)
     else:
-        apk_path = download(package_name, output_dir=cache_dir, config=config)
+        apk_path, download_error = download_with_diagnostics(
+            package_name, output_dir=cache_dir, config=config
+        )
         downloaded = True
 
     if not apk_path:
         return {
             "package_name": package_name,
             "error": "download_failed",
+            "error_detail": download_error,
             "downloaded": False,
             "status": "error",
             "cached": cached,
@@ -263,18 +350,29 @@ def process_package(
             apk_path.unlink()
         except OSError:
             pass
-        apk_path = download(package_name, output_dir=cache_dir, config=config)
+        apk_path, download_error = download_with_diagnostics(
+            package_name, output_dir=cache_dir, config=config
+        )
         downloaded = True
-        if apk_path:
-            parser_result = parse_apk(
-                apk_path,
-                timeout=config.get("crawler", {}).get("aapt2_timeout", 60),
-            )
+        if not apk_path:
+            return {
+                "package_name": package_name,
+                "error": "download_failed",
+                "error_detail": download_error,
+                "downloaded": False,
+                "status": "error",
+                "cached": cached,
+            }
+        parser_result = parse_apk(
+            apk_path,
+            timeout=config.get("crawler", {}).get("aapt2_timeout", 60),
+        )
 
     if parser_result.get("error"):
         return {
             "package_name": package_name,
             "error": "parse_failed",
+            "error_detail": parser_result.get("error"),
             "downloaded": downloaded,
             "status": "error",
             "cached": cached,
@@ -285,6 +383,7 @@ def process_package(
         return {
             "package_name": package_name,
             "error": "package_mismatch",
+            "error_detail": f"downloaded package {parsed_package!r}",
             "downloaded": downloaded,
             "status": "error",
             "cached": cached,
@@ -424,6 +523,11 @@ def _write_catalog(
         "scanned": {package_name: scans[package_name] for package_name in sorted(scans)},
     }
 
+    _write_json_atomic(output_path, catalog)
+    logger.info("Catalog written to %s (%d apps, %d new)", output_path, len(deduped), len(new_packages))
+
+
+def _write_json_atomic(output_path: Path, data: dict) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path = None
     try:
@@ -433,7 +537,7 @@ def _write_catalog(
             prefix=f".{output_path.name}.",
             delete=False,
         ) as tmp:
-            json.dump(catalog, tmp, indent=2, ensure_ascii=False)
+            json.dump(data, tmp, indent=2, ensure_ascii=False)
             tmp.write("\n")
             tmp.flush()
             os.fsync(tmp.fileno())
@@ -443,12 +547,88 @@ def _write_catalog(
         if temporary_path:
             temporary_path.unlink(missing_ok=True)
         raise
-    logger.info("Catalog written to %s (%d apps, %d new)", output_path, len(deduped), len(new_packages))
+
+
+def _write_error_report(output_path: Path, failures: dict[str, dict]) -> None:
+    not_found = [
+        {
+            "package_name": package_name,
+            "error": failure.get("error", "package_not_found"),
+            "detail": failure.get("detail"),
+        }
+        for package_name, failure in sorted(failures.items())
+        if failure.get("error") == "package_not_found"
+    ]
+    errors = [
+        {
+            "package_name": package_name,
+            "error": failure.get("error", "unknown_error"),
+            "detail": failure.get("detail"),
+        }
+        for package_name, failure in sorted(failures.items())
+        if failure.get("error") != "package_not_found"
+    ]
+    report = {
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "total_failures": len(failures),
+        "total_errors": len(errors),
+        "packages_not_found": len(not_found),
+        "not_found": not_found,
+        "errors": errors,
+    }
+
+    _write_json_atomic(output_path, report)
+
+    if failures:
+        logger.info(
+            "Error report written to %s (%d errors, %d packages not found)",
+            output_path,
+            len(errors),
+            len(not_found),
+        )
+
+
+def _write_seed_validation_report(
+    output_path: Path, entries: list[dict], enabled: bool = True
+) -> None:
+    report = {
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "enabled": enabled,
+        "total_checked": len(entries),
+        "accepted_for_crawl": sum(entry["status"] != "rejected" for entry in entries),
+        "rejected": sum(entry["status"] == "rejected" for entry in entries),
+        "entries": entries,
+    }
+    _write_json_atomic(output_path, report)
+    logger.info(
+        "Seed validation written to %s (%d checked, %d rejected)",
+        output_path,
+        report["total_checked"],
+        report["rejected"],
+    )
 
 
 def run_crawl(config: dict) -> dict:
     seed_path = config.get("seed_list_path", "seed_list.json")
     output_path = Path(config.get("output_path", "catalog.json"))
+    error_output_path = Path(
+        config.get("error_output_path", output_path.with_name("crawl-errors.json"))
+    )
+    validation_report_path = Path(
+        config.get("seed_validation_report_path", output_path.with_name("seed-validation.json"))
+    )
+    output_paths = {
+        "output_path": output_path.resolve(),
+        "error_output_path": error_output_path.resolve(),
+        "seed_validation_report_path": validation_report_path.resolve(),
+    }
+    if len(set(output_paths.values())) != len(output_paths):
+        raise ValueError("catalog, error, and seed validation paths must differ")
+    input_paths = {Path(seed_path).resolve()}
+    if config.get("_config_path"):
+        input_paths.add(Path(config["_config_path"]).resolve())
+    if any(path in input_paths for path in output_paths.values()):
+        raise ValueError("output paths must differ from seed and config paths")
     max_workers = config.get("crawler", {}).get("max_workers", 5)
     seed_list = _load_seed_list(seed_path)
     configure_parser_logging(config.get("quiet", False))
@@ -464,6 +644,19 @@ def run_crawl(config: dict) -> dict:
         for entry in seed_list
         if not _is_scan_fresh(previous_scans.get(entry["package_name"]), scan_days)
     ]
+    validation_rejected: dict[str, dict] = {}
+    if config.get("validate_seed_packages", False):
+        entries_to_scan, validation_rejected, validation_entries = _validate_seed_entries(
+            entries_to_scan, config, max_workers
+        )
+        _write_seed_validation_report(validation_report_path, validation_entries)
+        config["_validated_play_packages"] = {
+            entry["package_name"]
+            for entry in validation_entries
+            if entry["status"] == "valid"
+        }
+    else:
+        _write_seed_validation_report(validation_report_path, [], enabled=False)
     results: list[dict] = [
         {
             "package_name": entry["package_name"],
@@ -479,11 +672,29 @@ def run_crawl(config: dict) -> dict:
         and _is_scan_fresh(previous_scans[entry["package_name"]], scan_days)
     ]
 
-    errors = 0
     downloaded = 0
     sat_found = 0
     cached_skipped = 0
     failed_packages: set[str] = set()
+    failure_details: dict[str, dict] = {
+        package_name: {
+            "error": "package_not_found",
+            "detail": result.get("detail"),
+        }
+        for package_name, result in validation_rejected.items()
+    }
+    errors = 0
+    packages_not_found = len(validation_rejected)
+    for result in validation_rejected.values():
+        results.append(
+            {
+                "package_name": result["package_name"],
+                "category": result.get("category", ""),
+                "status": "error",
+                "error": "package_not_found",
+                "error_detail": result.get("detail"),
+            }
+        )
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_map = {
@@ -503,12 +714,18 @@ def run_crawl(config: dict) -> dict:
                 if result.get("error"):
                     errors += 1
                     failed_packages.add(pkg)
-                    log = logger.debug if config.get("quiet", False) else logger.warning
-                    log("Failed %s: %s", pkg, result["error"])
+                    failure_details[pkg] = {
+                        "error": result["error"],
+                        "detail": result.get("error_detail"),
+                    }
                 results.append(result)
                 if result.get("downloaded"):
                     downloaded += 1
-                if result.get("cached") and not result.get("downloaded"):
+                if (
+                    result.get("cached")
+                    and not result.get("downloaded")
+                    and not result.get("error")
+                ):
                     cached_skipped += 1
                 if result.get("satellite_optimized") and result.get("status") != "skipped":
                     sat_found += 1
@@ -516,31 +733,38 @@ def run_crawl(config: dict) -> dict:
                 errors += 1
                 failed_packages.add(pkg)
                 logger.error("Unhandled exception for %s: %s", pkg, e)
+                failure_details[pkg] = {"error": "unhandled_exception", "detail": str(e)}
                 results.append(
                     {
                         "package_name": pkg,
                         "status": "error",
                         "error": str(e),
+                        "error_detail": str(e),
                     }
                 )
 
     summary = {
         "total_processed": len(seed_list),
         "scanned_this_run": len(entries_to_scan),
-        "scan_skipped": len(seed_list) - len(entries_to_scan),
+        "scan_skipped": len(seed_list) - len(entries_to_scan) - len(validation_rejected),
         "downloaded": downloaded,
         "satellite_optimized_found": sat_found,
         "errors": errors,
+        "packages_not_found": packages_not_found,
+        "total_failures": errors + packages_not_found,
         "cached_skipped": cached_skipped,
+        "seed_validation_rejected": packages_not_found,
     }
 
     logger.info(
-        "Crawl complete: %d scanned, %d skipped, %d downloaded, %d sat-optimized, %d errors",
+        "Crawl complete: %d scanned, %d skipped, %d downloaded, %d sat-optimized, "
+        "%d errors, %d packages not found",
         summary["scanned_this_run"],
         summary["scan_skipped"],
         summary["downloaded"],
         summary["satellite_optimized_found"],
         summary["errors"],
+        summary["packages_not_found"],
     )
 
     _write_catalog(
@@ -553,6 +777,8 @@ def run_crawl(config: dict) -> dict:
         {entry["package_name"] for entry in seed_list},
     )
 
+    _write_error_report(error_output_path, failure_details)
+
     return summary
 
 
@@ -561,10 +787,19 @@ def main() -> None:
     try:
         config = load_config(config_path)
         config_dir = config_path.resolve().parent
-        for key in ("seed_list_path", "output_path", "apk_cache_dir"):
-            value = Path(config.get(key, ""))
-            if value and not value.is_absolute():
-                config[key] = str(config_dir / value)
+        config["_config_path"] = str(config_path.resolve())
+        for key in (
+            "seed_list_path",
+            "output_path",
+            "apk_cache_dir",
+            "error_output_path",
+            "seed_validation_report_path",
+        ):
+            raw_value = config.get(key)
+            if raw_value:
+                value = Path(raw_value)
+                if not value.is_absolute():
+                    config[key] = str(config_dir / value)
     except Exception as e:
         logger.error("Failed to load config %s: %s", config_path, e)
         sys.exit(1)
@@ -573,7 +808,7 @@ def main() -> None:
 
     summary = run_crawl(config)
 
-    if summary.get("errors", 0) > 0:
+    if summary.get("total_failures", 0) > 0:
         sys.exit(1)
 
 

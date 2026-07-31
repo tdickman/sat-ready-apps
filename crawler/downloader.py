@@ -139,9 +139,18 @@ def download(
     output_dir: Optional[Path] = None,
     config: Optional[dict] = None,
 ) -> Optional[Path]:
+    path, _ = download_with_diagnostics(package_name, output_dir, config)
+    return path
+
+
+def download_with_diagnostics(
+    package_name: str,
+    output_dir: Optional[Path] = None,
+    config: Optional[dict] = None,
+) -> tuple[Optional[Path], Optional[str]]:
     if not isinstance(package_name, str) or not PACKAGE_NAME_RE.fullmatch(package_name):
         logger.warning("Invalid package name: '%s'", package_name)
-        return None
+        return None, "invalid_package_name"
 
     if config is None:
         config = load_config()
@@ -170,7 +179,7 @@ def download(
                 result_path.resolve().relative_to(output_dir.resolve())
             except ValueError:
                 logger.error("Downloader returned a path outside output directory: %s", result_path)
-                return None
+                return None, "downloader_returned_path_outside_output_directory"
             if not config.get("quiet", False):
                 logger.info(
                     "Downloaded %s -> %s (%.1f MB)",
@@ -178,12 +187,12 @@ def download(
                     result_path,
                     result.size / 1e6,
                 )
-            return result_path
-        return None
+            return result_path, None
+        return None, "downloader_returned_no_result"
     except Exception as e:
         log = logger.debug if config.get("quiet", False) else logger.warning
         log("Failed to download %s: %s", package_name, e)
-        return None
+        return None, str(e)
     finally:
         _QUIET_OUTPUT.enabled = False
 

@@ -1,8 +1,11 @@
 seed_list_path: seed_list.json
 output_path: catalog.json
+error_output_path: crawl-errors.json
+seed_validation_report_path: seed-validation.json
 apk_cache_dir: apk_cache
 log_level: INFO
 quiet: true
+validate_seed_packages: true
 
 crawler:
   max_workers: 5

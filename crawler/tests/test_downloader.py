@@ -4,7 +4,7 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
-from downloader import download, get_app_info
+from downloader import download, download_with_diagnostics, get_app_info
 
 MOCK_CONFIG = {
     "apk_cache_dir": "apk_cache",
@@ -58,6 +58,27 @@ class TestDownload:
         mock_instance.download.side_effect = Exception("Connection error")
         result = download("org.telegram.messenger", config=MOCK_CONFIG)
         assert result is None
+
+    @patch("downloader.APKDownloader")
+    def test_download_with_diagnostics_preserves_exception(self, MockDownloader):
+        mock_instance = MockDownloader.return_value
+        mock_instance.download.side_effect = RuntimeError(
+            "All sources failed for com.example.app: apkpure: timeout"
+        )
+
+        result, detail = download_with_diagnostics("com.example.app", config=MOCK_CONFIG)
+
+        assert result is None
+        assert detail == "All sources failed for com.example.app: apkpure: timeout"
+
+    @patch("downloader.APKDownloader")
+    def test_download_with_diagnostics_reports_no_result(self, MockDownloader):
+        MockDownloader.return_value.download.return_value = None
+
+        result, detail = download_with_diagnostics("com.example.app", config=MOCK_CONFIG)
+
+        assert result is None
+        assert detail == "downloader_returned_no_result"
 
 
 class TestGetAppInfo:

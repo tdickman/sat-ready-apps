@@ -11,6 +11,8 @@ __pycache__/
 # Crawler downloads and temporary APKs
 /apk_cache/
 /crawler/apk_cache/
+/crawler/crawl-errors.json
+/crawler/seed-validation.json
 
 # Astro build artifacts
 /site/node_modules/
