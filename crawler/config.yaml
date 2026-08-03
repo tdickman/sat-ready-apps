@@ -46,7 +46,7 @@ catalog_schema:
       description: Human-readable display name extracted from manifest
     - name: icon_url
       type: string
-      description: "URL to the app icon (tiered: justapk info API -> APK extraction -> letter-initial fallback)"
+      description: "URL to the app icon (tiered: store metadata API -> APK extraction -> letter-initial fallback)"
     - name: play_store_url
       type: string
       description: Google Play Store page URL

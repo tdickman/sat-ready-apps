@@ -4,8 +4,8 @@ Python crawler that downloads Android APKs, checks their manifests for
 `android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED`, and writes a catalog of
 matching apps.
 
-The crawler currently covers the U1-U4 pipeline. The Astro site is not yet
-implemented.
+The crawler covers the original U1-U4 pipeline. The Astro site lives under
+`site/` and consumes the generated `crawler/catalog.json` at build time.
 
 ## Requirements
 
@@ -52,6 +52,8 @@ configured Mullvad proxy, five workers, quiet dependency logging, and the
 Output files:
 
 - `crawler/catalog.json`: confirmed apps and scan state
+- `crawler/crawl-errors.json`: per-package failure details, including source errors
+- `crawler/seed-validation.json`: Google Play preflight results for packages scanned this run
 - `crawler/apk_cache/`: downloaded APKs and bundles
 - `crawler/apk_cache/.parser_cache.json`: parser cache
 
@@ -164,6 +166,10 @@ validate_store_links: false
 Important settings are in `crawler/config.yaml`:
 
 ```yaml
+error_output_path: crawl-errors.json
+seed_validation_report_path: seed-validation.json
+validate_seed_packages: true
+
 crawler:
   max_workers: 5
   per_source_timeout: 30
@@ -179,9 +185,19 @@ proxy:
 ```
 
 `source_order` controls the justapk fallback order. `quiet: true` suppresses
-third-party progress and debug output while retaining the crawl summary. APK
-manifests are parsed with the native Android `aapt2` tool; set `AAPT2_PATH` when
-the executable is not on `PATH`.
+third-party progress and debug output while retaining the crawl summary and
+writing detailed failures to `error_output_path`. APK manifests are parsed with
+the native Android `aapt2` tool; set `AAPT2_PATH` when the executable is not on
+`PATH`.
+
+With `validate_seed_packages: true`, packages that return HTTP 404 from Google
+Play are rejected before APK download. Temporary validation failures such as
+HTTP 403, HTTP 429, or network errors remain eligible for download.
+
+The crawl summary and `crawl-errors.json` distinguish confirmed missing
+packages from operational download errors. `errors` counts source, parser, and
+worker failures; `packages_not_found` and `not_found` contain packages rejected
+by the Google Play preflight. `total_failures` includes both categories.
 
 ## Development
 
@@ -195,3 +211,14 @@ uv lock --check
 
 `crawler/requirements.txt` is retained as a legacy pip-compatible dependency
 list. `pyproject.toml` and `uv.lock` are the source of truth for `uv` setups.
+
+## Build The Site
+
+The site syncs and validates the crawler catalog before every development or
+production build:
+
+```bash
+cd site
+npm install
+npm run build
+```

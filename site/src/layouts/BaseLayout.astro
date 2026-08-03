@@ -1,0 +1,44 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Satellite-ready apps",
+  description = "A catalog of Android apps built for constrained satellite networks.",
+} = Astro.props;
+const pageTitle = title === "Satellite-ready apps" ? title : `${title} | Satellite-ready apps`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="Satellite-ready apps home">
+          <span class="wordmark-mark" aria-hidden="true">✦</span>
+          <span>satellite<span class="wordmark-accent">/</span>apps</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="/">Catalog</a>
+        </nav>
+      </header>
+      <main><slot /></main>
+      <footer class="site-footer">
+        <span>Manifest-verified for constrained networks.</span>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <span>Updated from the monthly crawl.</span>
+      </footer>
+    </div>
+  </body>
+</html>

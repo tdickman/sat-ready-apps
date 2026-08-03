@@ -17,4 +17,5 @@ __pycache__/
 # Astro build artifacts
 /site/node_modules/
 /site/dist/
+/site/.astro/
 .opencode/

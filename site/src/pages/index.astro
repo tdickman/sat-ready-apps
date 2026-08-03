@@ -1,0 +1,37 @@
+---
+import AppGrid from "../components/AppGrid.astro";
+import SearchBar from "../components/SearchBar.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { apps, meta } from "../lib/catalog";
+
+const generatedAt = typeof meta?.generated_at === "string" ? meta.generated_at : null;
+const generatedDate = generatedAt ? new Date(generatedAt) : null;
+const formattedGeneratedDate = generatedDate && !Number.isNaN(generatedDate.valueOf())
+  ? generatedDate.toLocaleDateString("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+  : null;
+---
+
+<BaseLayout>
+  <section class="catalog-hero" aria-labelledby="page-title">
+    <div class="hero-kicker"><span class="signal-dot" aria-hidden="true"></span> Open catalog / Android 16+</div>
+    <h1 id="page-title">Apps that keep<br /><em>the signal.</em></h1>
+    <p class="hero-intro">Discover Android apps that declare support for constrained satellite networks, verified directly from their APK manifests.</p>
+    <div class="catalog-meta" aria-label="Catalog status">
+      <span><strong>{apps.length}</strong> verified {apps.length === 1 ? "app" : "apps"}</span>
+      <span class="meta-rule" aria-hidden="true"></span>
+      <span>{formattedGeneratedDate ? `Crawl ${formattedGeneratedDate}` : "Awaiting first crawl"}</span>
+    </div>
+  </section>
+
+  <section class="catalog-section" aria-labelledby="catalog-heading">
+    <div class="section-heading">
+      <div>
+        <p class="section-eyebrow">The catalog</p>
+        <h2 id="catalog-heading">Find your next connection</h2>
+      </div>
+      <span class="section-index" aria-hidden="true">01 / 01</span>
+    </div>
+    <SearchBar />
+    <AppGrid apps={apps} />
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import type { CatalogApp } from "../lib/catalog";
+
+interface Props {
+  app: CatalogApp;
+}
+
+const { app } = Astro.props;
+const initial = app.app_name.trim().charAt(0).toUpperCase() || "?";
+const detailUrl = `/apps/${encodeURIComponent(app.package_name)}`;
+---
+
+<article class="app-card" data-app-name={app.app_name}>
+  <a class="app-card-link" href={detailUrl}>
+    <div class="app-icon app-icon-card" aria-hidden="true">
+      {app.icon_url ? (
+        <>
+          <img src={app.icon_url} alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+          <span class="icon-fallback" hidden>{initial}</span>
+        </>
+      ) : (
+        <span class="icon-fallback">{initial}</span>
+      )}
+    </div>
+    <div class="app-card-copy">
+      <h2>{app.app_name}</h2>
+      <p>{app.package_name}</p>
+      {app.category && <span class="category-label">{app.category}</span>}
+    </div>
+    <span class="card-arrow" aria-hidden="true">↗</span>
+  </a>
+</article>

@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+import base64
 import json
 import logging
-import base64
 import os
+import re
 import sys
 import tempfile
 import zipfile
@@ -11,13 +12,20 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
-from urllib.parse import quote
+from urllib.parse import parse_qs, quote, urlencode, urlsplit, urlunsplit
 from xml.sax.saxutils import escape
 
 import requests
+from justapk.sources.apkpure import APKPureSource
 
-from downloader import PACKAGE_NAME_RE, download_with_diagnostics, get_app_info, load_config
-from parser import configure_parser_logging, parse_apk
+from downloader import PACKAGE_NAME_RE, download_with_diagnostics, load_config
+from parser import (
+    AAPT2_TIMEOUT_SECONDS,
+    _aapt_attribute,
+    _run_aapt2_dump,
+    configure_parser_logging,
+    parse_apk,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -140,31 +148,177 @@ def _resolve_icon_url(
     parser_result: dict,
     config: dict,
 ) -> Optional[str]:
-    info = get_app_info(package_name, config)
-    if info and info.get("icon_url"):
-        return info["icon_url"]
+    icon_url = _store_icon_url(package_name, config)
+    if icon_url:
+        return icon_url
     icon_path = parser_result.get("icon_path")
     if icon_path and apk_path:
-        icon_url = _extract_icon_data_url(apk_path, icon_path)
+        timeout = config.get("crawler", {}).get("aapt2_timeout", AAPT2_TIMEOUT_SECONDS)
+        icon_url = _extract_icon_data_url(apk_path, icon_path, timeout)
         if icon_url:
             return icon_url
     return _letter_icon_data_url(parser_result.get("app_name") or package_name)
 
 
-def _extract_icon_data_url(apk_path: Path, icon_path: str) -> Optional[str]:
+def _store_icon_url(package_name: str, config: dict) -> Optional[str]:
+    """Resolve the app icon URL from the APKPure detail API."""
+    source = APKPureSource()
+    proxy = config.get("proxy", {})
+    if proxy.get("enabled", False):
+        proxy_url = (
+            f"{proxy.get('scheme', 'socks5')}://{proxy.get('host', '127.0.0.1')}"
+            f":{proxy.get('port', 1080)}"
+        )
+        source.session.trust_env = False
+        source.session.proxies = {"http": proxy_url, "https": proxy_url}
+    try:
+        detail = source._get_detail(package_name)
+    except Exception as e:
+        logger.debug("Icon lookup failed for %s: %s", package_name, e)
+        return None
+    if not detail:
+        return None
+    icon = detail.get("icon") or {}
+    for key in ("original", "thumbnail"):
+        candidate = (icon.get(key) or {}).get("url")
+        if isinstance(candidate, str) and candidate:
+            return _larger_icon_url(candidate)
+    return None
+
+
+def _larger_icon_url(url: str, size: int = 256) -> str:
+    """Request a higher-resolution rendering when the store CDN supports a size query."""
+    parsed = urlsplit(url)
+    query = parse_qs(parsed.query)
+    if "w" in query:
+        query["w"] = [str(size)]
+        parsed = parsed._replace(query=urlencode(query, doseq=True))
+    return urlunsplit(parsed)
+
+
+def _extract_icon_data_url(apk_path: Path, icon_path: str, timeout: float) -> Optional[str]:
     if Path(icon_path).is_absolute() or ".." in Path(icon_path).parts:
         return None
+    suffix = Path(icon_path).suffix.lower()
+    if suffix == ".xml":
+        return _extract_adaptive_icon_data_url(apk_path, icon_path, timeout)
+
     try:
         with zipfile.ZipFile(apk_path) as archive:
+            info = archive.getinfo(icon_path)
+            if info.file_size > 1024 * 1024:
+                return None
             data = archive.read(icon_path)
-        if not data or len(data) > 1024 * 1024:
-            return None
     except (OSError, KeyError, zipfile.BadZipFile):
         return None
 
-    suffix = Path(icon_path).suffix.lower()
-    mime = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}.get(suffix)
-    if not mime:
+    return _raster_data_url(suffix, data)
+
+
+_ADAPTIVE_SLOT_PRIORITY = ["foreground", "background", "monochrome"]
+_DENSITY_RANK = {
+    "xxxhdpi": 6,
+    "xxhdpi": 5,
+    "xhdpi": 4,
+    "hdpi": 3,
+    "tvdpi": 2,
+    "mdpi": 1,
+}
+
+
+def _extract_adaptive_icon_data_url(
+    apk_path: Path, icon_path: str, timeout: float
+) -> Optional[str]:
+    try:
+        xmltree = _run_aapt2_dump(["xmltree", "--file", icon_path], apk_path, timeout)
+        resources = _run_aapt2_dump(["resources"], apk_path, timeout)
+    except (RuntimeError, TimeoutError):
+        return None
+
+    refs = _parse_adaptive_icon_refs(xmltree)
+    file_map = _load_resource_files(resources)
+    for slot in _ADAPTIVE_SLOT_PRIORITY:
+        ref = refs.get(slot)
+        if not ref:
+            continue
+        entries = file_map.get(ref.lstrip("@"), [])
+        raster = [entry for entry in entries if entry[2] in {"PNG", "JPEG", "WEBP"}]
+        if not raster:
+            continue
+        raster.sort(key=lambda entry: _DENSITY_RANK.get(entry[0], 0), reverse=True)
+        resource_path = raster[0][1]
+        try:
+            with zipfile.ZipFile(apk_path) as archive:
+                info = archive.getinfo(resource_path)
+                if info.file_size > 1024 * 1024:
+                    continue
+                data = archive.read(resource_path)
+        except (OSError, KeyError, zipfile.BadZipFile):
+            continue
+        url = _raster_data_url(Path(resource_path).suffix.lower(), data)
+        if url:
+            return url
+    return None
+
+
+def _parse_adaptive_icon_refs(xmltree_output: str) -> dict[str, Optional[str]]:
+    refs: dict[str, Optional[str]] = {}
+    current_slot: Optional[str] = None
+    adaptive_indent: Optional[int] = None
+    for line in xmltree_output.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("E: adaptive-icon"):
+            adaptive_indent = len(line) - len(line.lstrip())
+            current_slot = None
+            continue
+        if adaptive_indent is None:
+            continue
+        indent = len(line) - len(line.lstrip())
+        if indent <= adaptive_indent:
+            adaptive_indent = None
+            current_slot = None
+            continue
+        if stripped.startswith(("E: background", "E: foreground", "E: monochrome")):
+            current_slot = stripped.split()[1].split("(")[0]
+            continue
+        if current_slot and stripped.startswith("A: "):
+            name, value = _aapt_attribute(line)
+            if name == "drawable" and value and value.startswith("@"):
+                refs[current_slot] = value
+    return refs
+
+
+_RESOURCE_ID_RE = re.compile(r"^    resource (0x[0-9a-f]+) ")
+_RESOURCE_FILE_RE = re.compile(r"^      \(([^)]*)\) \(file\) (\S+) type=(\S+)$")
+
+
+def _load_resource_files(
+    resources_output: str,
+) -> dict[str, list[tuple[str, str, str]]]:
+    files: dict[str, list[tuple[str, str, str]]] = {}
+    current_id: Optional[str] = None
+    for line in resources_output.splitlines():
+        if line.startswith("    resource "):
+            match = _RESOURCE_ID_RE.match(line)
+            current_id = match.group(1) if match else None
+            if current_id:
+                files.setdefault(current_id, [])
+            continue
+        if current_id:
+            match = _RESOURCE_FILE_RE.match(line)
+            if match:
+                files[current_id].append((match.group(1), match.group(2), match.group(3)))
+    return files
+
+
+def _raster_data_url(suffix: str, data: bytes) -> Optional[str]:
+    mime = {
+        ".png": "image/png",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".webp": "image/webp",
+    }.get(suffix)
+    if not mime or not data:
         return None
     return f"data:{mime};base64,{base64.b64encode(data).decode('ascii')}"
 

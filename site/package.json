@@ -1,0 +1,15 @@
+{
+  "name": "android-satellite-apps-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run sync-catalog && astro dev --host",
+    "build": "npm run sync-catalog && astro build",
+    "preview": "astro preview",
+    "sync-catalog": "node scripts/sync-catalog.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.12.0"
+  }
+}

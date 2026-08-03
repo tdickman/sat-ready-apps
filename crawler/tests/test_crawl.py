@@ -1,10 +1,22 @@
 from __future__ import annotations
 
+import base64
 import json
+import zipfile
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
-from crawl import _build_store_urls, _find_cached_apk, _write_catalog, process_package, run_crawl
+from crawl import (
+    _build_store_urls,
+    _extract_icon_data_url,
+    _find_cached_apk,
+    _parse_adaptive_icon_refs,
+    _resolve_icon_url,
+    _store_icon_url,
+    _write_catalog,
+    process_package,
+    run_crawl,
+)
 
 
 def test_find_cached_apk_requires_exact_package_prefix(tmp_path):
@@ -78,7 +90,7 @@ def test_process_package_retries_a_corrupt_fresh_cache(tmp_path):
 
     with patch("crawl.parse_apk", side_effect=parser_results), patch(
         "crawl.download_with_diagnostics", return_value=(downloaded_apk, None)
-    ), patch("crawl.get_app_info", return_value=None):
+    ), patch("crawl._store_icon_url", return_value=None):
         result = process_package("com.example.app", "tools", config)
 
     assert result["status"] == "positive"
@@ -400,3 +412,203 @@ def test_run_crawl_skips_fresh_negative_scan(tmp_path):
     validation_report = json.loads((tmp_path / "seed-validation.json").read_text())
     assert validation_report["enabled"] is True
     assert validation_report["total_checked"] == 0
+
+
+class TestStoreIconUrl:
+    def test_returns_original_icon_url(self):
+        source = Mock()
+        source.session = Mock()
+        source._get_detail.return_value = {
+            "icon": {"original": {"url": "https://image.winudf.com/icon.png?w=100&fakeurl=1"}}
+        }
+        with patch("crawl.APKPureSource", return_value=source):
+            url = _store_icon_url("com.example.app", {"proxy": {"enabled": False}})
+
+        source._get_detail.assert_called_once_with("com.example.app")
+        assert url == "https://image.winudf.com/icon.png?w=256&fakeurl=1"
+
+    def test_falls_back_to_thumbnail(self):
+        source = Mock()
+        source.session = Mock()
+        source._get_detail.return_value = {
+            "icon": {
+                "original": {"url": ""},
+                "thumbnail": {"url": "https://image.winudf.com/thumb.png"},
+            }
+        }
+        with patch("crawl.APKPureSource", return_value=source):
+            url = _store_icon_url("com.example.app", {"proxy": {"enabled": False}})
+
+        assert url == "https://image.winudf.com/thumb.png"
+
+    def test_returns_none_without_icon(self):
+        source = Mock()
+        source.session = Mock()
+        source._get_detail.return_value = {"icon": None}
+        with patch("crawl.APKPureSource", return_value=source):
+            url = _store_icon_url("com.example.app", {"proxy": {"enabled": False}})
+
+        assert url is None
+
+    def test_returns_none_on_request_failure(self):
+        source = Mock()
+        source.session = Mock()
+        source._get_detail.side_effect = RuntimeError("timeout")
+        with patch("crawl.APKPureSource", return_value=source):
+            url = _store_icon_url("com.example.app", {"proxy": {"enabled": False}})
+
+        assert url is None
+
+    def test_applies_proxy_when_enabled(self):
+        source = Mock()
+        source.session = Mock()
+        source._get_detail.return_value = {"icon": None}
+        with patch("crawl.APKPureSource", return_value=source):
+            _store_icon_url("com.example.app", {"proxy": {"enabled": True, "scheme": "socks5h", "host": "10.0.0.1", "port": 1080}})
+
+        source.session.trust_env = False
+        assert source.session.proxies == {
+            "http": "socks5h://10.0.0.1:1080",
+            "https": "socks5h://10.0.0.1:1080",
+        }
+
+
+class TestResolveIconUrl:
+    def test_prefers_store_icon(self):
+        with patch("crawl._store_icon_url", return_value="https://example.com/icon.png") as store, patch(
+            "crawl._extract_icon_data_url"
+        ) as extract:
+            url = _resolve_icon_url(
+                "com.example.app",
+                Path("/tmp/app.apk"),
+                {"app_name": "Example", "icon_path": "res/icon.png"},
+                {},
+            )
+
+        assert url == "https://example.com/icon.png"
+        store.assert_called_once_with("com.example.app", {})
+        extract.assert_not_called()
+
+    def test_falls_back_to_apk_extraction(self):
+        with patch("crawl._store_icon_url", return_value=None), patch(
+            "crawl._extract_icon_data_url", return_value="data:image/png;base64,AA=="
+        ) as extract:
+            url = _resolve_icon_url(
+                "com.example.app",
+                Path("/tmp/app.apk"),
+                {"app_name": "Example", "icon_path": "res/icon.png"},
+                {"crawler": {"aapt2_timeout": 5}},
+            )
+
+        assert url == "data:image/png;base64,AA=="
+        extract.assert_called_once_with(Path("/tmp/app.apk"), "res/icon.png", 5)
+
+    def test_falls_back_to_letter_icon(self):
+        with patch("crawl._store_icon_url", return_value=None), patch(
+            "crawl._extract_icon_data_url", return_value=None
+        ):
+            url = _resolve_icon_url(
+                "com.example.app", None, {"app_name": "Example", "icon_path": None}, {}
+            )
+
+        assert url.startswith("data:image/svg+xml,")
+        assert "%3CE" in url or "Example" not in url
+
+
+class TestAdaptiveIconExtraction:
+    def test_extracts_raster_foreground(self, tmp_path):
+        apk_path = tmp_path / "app.apk"
+        png = b"\x89PNG\r\n\x1a\n" + b"fake png payload"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("res/eka.xml", b"binary xml")
+            archive.writestr("res/ekg.png", png)
+
+        xmltree = """\
+  E: adaptive-icon (line=2)
+    E: background (line=3)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100005
+    E: foreground (line=4)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100007
+"""
+        resources = """\
+  type mipmap id=10 entryCount=2
+    resource 0x7f100005 mipmap/launcher_icon_background
+      (anydpi) (file) res/ekb.xml type=XML
+    resource 0x7f100007 mipmap/launcher_icon_foreground
+      (xxhdpi) (file) res/ekg.png type=PNG
+"""
+        with patch("crawl._run_aapt2_dump", side_effect=[xmltree, resources]):
+            url = _extract_icon_data_url(apk_path, "res/eka.xml", 60)
+
+        assert url == "data:image/png;base64," + base64.b64encode(png).decode("ascii")
+
+    def test_returns_none_when_only_vector_resources(self, tmp_path):
+        apk_path = tmp_path / "app.apk"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("res/eka.xml", b"binary xml")
+            archive.writestr("res/ekb.xml", b"binary vector")
+
+        xmltree = """\
+  E: adaptive-icon (line=2)
+    E: background (line=3)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100005
+    E: foreground (line=4)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100007
+"""
+        resources = """\
+  type mipmap id=10 entryCount=2
+    resource 0x7f100005 mipmap/launcher_icon_background
+      (anydpi) (file) res/ekb.xml type=XML
+    resource 0x7f100007 mipmap/launcher_icon_foreground
+      (xxhdpi) (file) res/ekc.xml type=XML
+"""
+        with patch("crawl._run_aapt2_dump", side_effect=[xmltree, resources]):
+            url = _extract_icon_data_url(apk_path, "res/eka.xml", 60)
+
+        assert url is None
+
+    def test_prefers_highest_density(self, tmp_path):
+        apk_path = tmp_path / "app.apk"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("res/eka.xml", b"binary xml")
+            archive.writestr("res/ekg.png", b"mdpi")
+            archive.writestr("res/ekh.png", b"xxhdpi")
+
+        xmltree = """\
+  E: adaptive-icon (line=2)
+    E: foreground (line=4)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100007
+"""
+        resources = """\
+  type mipmap id=10 entryCount=1
+    resource 0x7f100007 mipmap/launcher_icon_foreground
+      (mdpi) (file) res/ekg.png type=PNG
+      (xxhdpi) (file) res/ekh.png type=PNG
+"""
+        with patch("crawl._run_aapt2_dump", side_effect=[xmltree, resources]):
+            url = _extract_icon_data_url(apk_path, "res/eka.xml", 60)
+
+        assert url == "data:image/png;base64," + base64.b64encode(b"xxhdpi").decode("ascii")
+
+    def test_parses_adaptive_icon_refs(self):
+        xmltree = """\
+  E: adaptive-icon (line=2)
+    E: background (line=3)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100005
+    E: foreground (line=4)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100007
+    E: monochrome (line=5)
+      A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f100008
+"""
+        assert _parse_adaptive_icon_refs(xmltree) == {
+            "background": "@0x7f100005",
+            "foreground": "@0x7f100007",
+            "monochrome": "@0x7f100008",
+        }
+
+    def test_ignores_plain_vector_drawables(self):
+        xmltree = """\
+  E: vector (line=2)
+    A: android:width="24dp"
+"""
+        assert _parse_adaptive_icon_refs(xmltree) == {}
