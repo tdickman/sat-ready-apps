@@ -605,11 +605,6 @@
     "category": "maps"
   },
   {
-    "package_name": "com.airbnb.android",
-    "source": "appbrain",
-    "category": "maps"
-  },
-  {
     "package_name": "com.expedia.bookings",
     "source": "appbrain",
     "category": "maps"
@@ -631,11 +626,6 @@
   },
   {
     "package_name": "com.paypal.android.p2pmobile",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.venmo",
     "source": "appbrain",
     "category": "finance"
   },
@@ -665,11 +655,6 @@
     "category": "finance"
   },
   {
-    "package_name": "com.citi.citimobile",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
     "package_name": "com.coinbase.android",
     "source": "appbrain",
     "category": "finance"
@@ -691,11 +676,6 @@
   },
   {
     "package_name": "com.schwab.mobile",
-    "source": "appbrain",
-    "category": "finance"
-  },
-  {
-    "package_name": "com.vanguard.mobile",
     "source": "appbrain",
     "category": "finance"
   },
@@ -1145,11 +1125,6 @@
     "category": "travel"
   },
   {
-    "package_name": "com.united.mobile.android",
-    "source": "appbrain",
-    "category": "travel"
-  },
-  {
     "package_name": "com.southwest.mobile",
     "source": "appbrain",
     "category": "travel"
@@ -1215,11 +1190,6 @@
     "category": "games"
   },
   {
-    "package_name": "com.mojang.minecraftpe",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.epicgames.fortnite",
     "source": "appbrain",
     "category": "games"
@@ -1241,11 +1211,6 @@
   },
   {
     "package_name": "com.activision.callofduty.shooter",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.ea.games.nfs13_na",
     "source": "appbrain",
     "category": "games"
   },
@@ -1276,11 +1241,6 @@
   },
   {
     "package_name": "com.zynga.words",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.robtopx.geometryjump",
     "source": "appbrain",
     "category": "games"
   },
@@ -1350,11 +1310,6 @@
     "category": "games"
   },
   {
-    "package_name": "com.halfbrick.fruitninja",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.halfbrick.jetpackjoyride",
     "source": "appbrain",
     "category": "games"
@@ -1390,22 +1345,12 @@
     "category": "games"
   },
   {
-    "package_name": "com.zeptolab.ctr.paid",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
     "package_name": "com.yodo1.crossyroad",
     "source": "appbrain",
     "category": "games"
   },
   {
     "package_name": "com.hippo.hippo",
-    "source": "appbrain",
-    "category": "games"
-  },
-  {
-    "package_name": "com.marmalade.monopoly",
     "source": "appbrain",
     "category": "games"
   },
@@ -1420,8 +1365,48 @@
     "category": "games"
   },
   {
-    "package_name": "com.rockstar.gta3",
+    "package_name": "com.whatsapp.w4b",
     "source": "appbrain",
-    "category": "games"
+    "category": "communication"
+  },
+  {
+    "package_name": "com.kakao.talk",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.instagram.lite",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.facebook.pages.app",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.google.android.apps.googlevoice",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.groupme.android",
+    "source": "appbrain",
+    "category": "communication"
+  },
+  {
+    "package_name": "org.joinmastodon.android",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.nextdoor",
+    "source": "appbrain",
+    "category": "social"
+  },
+  {
+    "package_name": "com.meetup",
+    "source": "appbrain",
+    "category": "social"
   }
 ]

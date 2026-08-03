@@ -1,21 +1,21 @@
 {
   "meta": {
-    "generated_at": "2026-07-31T22:34:41Z",
+    "generated_at": "2026-08-03T18:00:02Z",
     "total_apps": 10,
     "new_additions": 0,
     "new_packages": [],
-    "total_scanned": 500,
+    "total_scanned": 282,
     "summary": {
-      "total_processed": 500,
-      "scanned_this_run": 12,
-      "scan_skipped": 273,
+      "total_processed": 282,
+      "scanned_this_run": 0,
+      "scan_skipped": 282,
       "downloaded": 0,
       "satellite_optimized_found": 0,
-      "errors": 12,
-      "packages_not_found": 215,
-      "total_failures": 227,
+      "errors": 0,
+      "packages_not_found": 0,
+      "total_failures": 0,
       "cached_skipped": 0,
-      "seed_validation_rejected": 215
+      "seed_validation_rejected": 0
     }
   },
   "apps": [
@@ -171,38 +171,6 @@
     }
   ],
   "scanned": {
-    "clubhouse.app": {
-      "package_name": "clubhouse.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.Zoom": {
-      "package_name": "com.Zoom",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.aa.com.mobile.android": {
-      "package_name": "com.aa.com.mobile.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.accor.app": {
-      "package_name": "com.accor.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.accuweather.android": {
       "package_name": "com.accuweather.android",
       "category": "weather",
@@ -238,14 +206,6 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:43:11.483840+00:00"
     },
-    "com.airbnb.android": {
-      "package_name": "com.airbnb.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.alibaba.aliexpresshd": {
       "package_name": "com.alibaba.aliexpresshd",
       "category": "shopping",
@@ -267,14 +227,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:48:50.416238+00:00"
     },
-    "com.amazon.avod.thirdparty": {
-      "package_name": "com.amazon.avod.thirdparty",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.amazon.kindle": {
       "package_name": "com.amazon.kindle",
       "category": "entertainment",
@@ -288,22 +240,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T00:04:46.276870+00:00"
-    },
-    "com.amtrak.amtrak": {
-      "package_name": "com.amtrak.amtrak",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.android.calculator2": {
-      "package_name": "com.android.calculator2",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.android.calendar": {
       "package_name": "com.android.calendar",
@@ -332,22 +268,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:33:45.594106+00:00"
-    },
-    "com.android.dialer": {
-      "package_name": "com.android.dialer",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.android.emergency": {
-      "package_name": "com.android.emergency",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.android.mms": {
       "package_name": "com.android.mms",
@@ -384,44 +304,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:34:34.024715+00:00"
     },
-    "com.android.voicedialer": {
-      "package_name": "com.android.voicedialer",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.anydo": {
       "package_name": "com.anydo",
       "category": "productivity",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:28:43.117988+00:00"
-    },
-    "com.anysoftkeyboard.android": {
-      "package_name": "com.anysoftkeyboard.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ap.mobile.android": {
-      "package_name": "com.ap.mobile.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.apple.android.applepay": {
-      "package_name": "com.apple.android.applepay",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.apple.android.music": {
       "package_name": "com.apple.android.music",
@@ -458,70 +346,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:47:00.996597+00:00"
     },
-    "com.auth0.android": {
-      "package_name": "com.auth0.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.badoo.android": {
-      "package_name": "com.badoo.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bandainamco.dragonballzdbz": {
-      "package_name": "com.bandainamco.dragonballzdbz",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bandainamco.onepiece": {
-      "package_name": "com.bandainamco.onepiece",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bankofamerica.mobilebanking": {
-      "package_name": "com.bankofamerica.mobilebanking",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bbc.mobile.news.ww": {
-      "package_name": "com.bbc.mobile.news.ww",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bbm": {
-      "package_name": "com.bbm",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bereal.www": {
-      "package_name": "com.bereal.www",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.bethsoft.falloutshelter": {
       "package_name": "com.bethsoft.falloutshelter",
       "category": "games",
@@ -529,60 +353,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:21:46.680565+00:00"
     },
-    "com.bethsoft.skyrim": {
-      "package_name": "com.bethsoft.skyrim",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.binance.dev": {
       "package_name": "com.binance.dev",
       "category": "finance",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T01:56:43.701031+00:00"
-    },
-    "com.bitwarden.android": {
-      "package_name": "com.bitwarden.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bleacherreport.android": {
-      "package_name": "com.bleacherreport.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.blocker.game": {
-      "package_name": "com.blocker.game",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.bloomberg.android": {
-      "package_name": "com.bloomberg.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.booking.app": {
-      "package_name": "com.booking.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.box.android": {
       "package_name": "com.box.android",
@@ -597,14 +373,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:46:40.821677+00:00"
-    },
-    "com.buffer.android": {
-      "package_name": "com.buffer.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.bumble.app": {
       "package_name": "com.bumble.app",
@@ -627,30 +395,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:29:59.100218+00:00"
     },
-    "com.canva.app": {
-      "package_name": "com.canva.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.capcom.mmxx": {
-      "package_name": "com.capcom.mmxx",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.cashapp.app": {
-      "package_name": "com.cashapp.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.chase.sig.android": {
       "package_name": "com.chase.sig.android",
       "category": "finance",
@@ -665,14 +409,6 @@
       "status": "negative",
       "last_scanned": "2026-07-30T22:53:01.367385+00:00"
     },
-    "com.citi.citimobile": {
-      "package_name": "com.citi.citimobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.clue.android": {
       "package_name": "com.clue.android",
       "category": "health",
@@ -680,44 +416,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:31:08.960537+00:00"
     },
-    "com.cnn.mobile.android": {
-      "package_name": "com.cnn.mobile.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.coinbase.android": {
       "package_name": "com.coinbase.android",
       "category": "finance",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:02:26.652715+00:00"
-    },
-    "com.coinhub": {
-      "package_name": "com.coinhub",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.coursera.android": {
-      "package_name": "com.coursera.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.crazyLabs.zentris": {
-      "package_name": "com.crazyLabs.zentris",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.crunchyroll.crunchyroid": {
       "package_name": "com.crunchyroll.crunchyroid",
@@ -733,76 +437,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T03:00:08.005824+00:00"
     },
-    "com.dafabet.mobile": {
-      "package_name": "com.dafabet.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.dailymotion.app": {
-      "package_name": "com.dailymotion.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.dashlane.android": {
-      "package_name": "com.dashlane.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.deezer.android": {
-      "package_name": "com.deezer.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.deliveroo.app": {
-      "package_name": "com.deliveroo.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.delta.mobile.android": {
       "package_name": "com.delta.mobile.android",
       "category": "travel",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T03:09:54.623103+00:00"
-    },
-    "com.dena.a12016001": {
-      "package_name": "com.dena.a12016001",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.dena.game.hdwars": {
-      "package_name": "com.dena.game.hdwars",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.dena.hdwars": {
-      "package_name": "com.dena.hdwars",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.didiglobal.passenger": {
       "package_name": "com.didiglobal.passenger",
@@ -818,52 +458,12 @@
       "status": "positive",
       "last_scanned": "2026-07-30T22:52:58.505934+00:00"
     },
-    "com.disney.bnmo.android": {
-      "package_name": "com.disney.bnmo.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.disney.disneyplus": {
       "package_name": "com.disney.disneyplus",
       "category": "entertainment",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:47:39.068217+00:00"
-    },
-    "com.djinnworks.anm": {
-      "package_name": "com.djinnworks.anm",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.doorhappy.doorandash": {
-      "package_name": "com.doorhappy.doorandash",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.draftkings.android": {
-      "package_name": "com.draftkings.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.dreamsky.cyberpunk": {
-      "package_name": "com.dreamsky.cyberpunk",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.droid27.transparentclockweather": {
       "package_name": "com.droid27.transparentclockweather",
@@ -900,84 +500,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:07:24.151820+00:00"
     },
-    "com.ea.game.starwars_galaxy": {
-      "package_name": "com.ea.game.starwars_galaxy",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ea.games.nfs13_na": {
-      "package_name": "com.ea.games.nfs13_na",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.ea.gp.fifa": {
-      "package_name": "com.ea.gp.fifa",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ea.gp.madden": {
-      "package_name": "com.ea.gp.madden",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ea.gp.nhl": {
-      "package_name": "com.ea.gp.nhl",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ea.gp.simcity": {
-      "package_name": "com.ea.gp.simcity",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ea.gp.thesims4": {
-      "package_name": "com.ea.gp.thesims4",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.easyjet.mobile": {
-      "package_name": "com.easyjet.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.ebay.mobile": {
       "package_name": "com.ebay.mobile",
       "category": "shopping",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T00:15:21.444054+00:00"
-    },
-    "com.eharmony.android": {
-      "package_name": "com.eharmony.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.endomondo.android": {
       "package_name": "com.endomondo.android",
@@ -1013,14 +541,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:27:43.053095+00:00"
-    },
-    "com.etrade.mobile": {
-      "package_name": "com.etrade.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.etsy.android": {
       "package_name": "com.etsy.android",
@@ -1071,29 +591,12 @@
       "status": "positive",
       "last_scanned": "2026-07-30T22:52:58.079633+00:00"
     },
-    "com.facetune": {
-      "package_name": "com.facetune",
-      "category": "",
+    "com.facebook.pages.app": {
+      "package_name": "com.facebook.pages.app",
+      "category": "social",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.fanduel.android": {
-      "package_name": "com.fanduel.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.feeld.app": {
-      "package_name": "com.feeld.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.961204+00:00"
     },
     "com.fidelity.android": {
       "package_name": "com.fidelity.android",
@@ -1123,30 +626,6 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:02:04.746598+00:00"
     },
-    "com.flipboard.app": {
-      "package_name": "com.flipboard.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.flixbus.app": {
-      "package_name": "com.flixbus.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.flo.android": {
-      "package_name": "com.flo.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.foxit.mobile.pdf.lite": {
       "package_name": "com.foxit.mobile.pdf.lite",
       "category": "productivity",
@@ -1161,60 +640,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:52:05.131823+00:00"
     },
-    "com.frame.vr": {
-      "package_name": "com.frame.vr",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.funimation.funimationnow": {
-      "package_name": "com.funimation.funimationnow",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.gameloft.android.ANMP.GloftA8HM": {
       "package_name": "com.gameloft.android.ANMP.GloftA8HM",
       "category": "games",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:05:59.162495+00:00"
-    },
-    "com.gameloft.android.ANMP.GloftM4HM": {
-      "package_name": "com.gameloft.android.ANMP.GloftM4HM",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.getanything.puzzle": {
-      "package_name": "com.getanything.puzzle",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ghisler.android.totalcommander": {
-      "package_name": "com.ghisler.android.totalcommander",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ghostery.android": {
-      "package_name": "com.ghostery.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.google.android.GoogleCamera": {
       "package_name": "com.google.android.GoogleCamera",
@@ -1250,14 +681,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:29:49.291914+00:00"
-    },
-    "com.google.android.apps.contacts": {
-      "package_name": "com.google.android.apps.contacts",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.google.android.apps.docs": {
       "package_name": "com.google.android.apps.docs",
@@ -1301,21 +724,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:30:19.745517+00:00"
     },
-    "com.google.android.apps.hangouts": {
-      "package_name": "com.google.android.apps.hangouts",
-      "category": "",
+    "com.google.android.apps.googlevoice": {
+      "package_name": "com.google.android.apps.googlevoice",
+      "category": "communication",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.google.android.apps.khanacademy": {
-      "package_name": "com.google.android.apps.khanacademy",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.947323+00:00"
     },
     "com.google.android.apps.magazines": {
       "package_name": "com.google.android.apps.magazines",
@@ -1366,36 +780,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:33:54.387525+00:00"
     },
-    "com.google.android.apps.pixel.launcher": {
-      "package_name": "com.google.android.apps.pixel.launcher",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.google.android.apps.plus": {
       "package_name": "com.google.android.apps.plus",
       "category": "social",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:03:45.143847+00:00"
-    },
-    "com.google.android.apps.sheets": {
-      "package_name": "com.google.android.apps.sheets",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.google.android.apps.slides": {
-      "package_name": "com.google.android.apps.slides",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.google.android.apps.tachyon": {
       "package_name": "com.google.android.apps.tachyon",
@@ -1410,14 +800,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:33:04.921489+00:00"
-    },
-    "com.google.android.apps.tv.launcher": {
-      "package_name": "com.google.android.apps.tv.launcher",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.google.android.apps.walletnfcrel": {
       "package_name": "com.google.android.apps.walletnfcrel",
@@ -1496,29 +878,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:56:25.462638+00:00"
     },
-    "com.gosund.gosund": {
-      "package_name": "com.gosund.gosund",
-      "category": "",
+    "com.groupme.android": {
+      "package_name": "com.groupme.android",
+      "category": "communication",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.grab.android": {
-      "package_name": "com.grab.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.grindr.android": {
-      "package_name": "com.grindr.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.965223+00:00"
     },
     "com.groupon": {
       "package_name": "com.groupon",
@@ -1534,52 +899,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T01:02:36.172782+00:00"
     },
-    "com.halfbrick.fruitninja": {
-      "package_name": "com.halfbrick.fruitninja",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.halfbrick.jetpackjoyride": {
       "package_name": "com.halfbrick.jetpackjoyride",
       "category": "games",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:18:02.884690+00:00"
-    },
-    "com.happn.app": {
-      "package_name": "com.happn.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.hbomax": {
-      "package_name": "com.hbomax",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.headspace.android": {
-      "package_name": "com.headspace.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.her.her": {
-      "package_name": "com.her.her",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.here.app.maps": {
       "package_name": "com.here.app.maps",
@@ -1588,36 +913,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T01:29:40.930961+00:00"
     },
-    "com.hilton.android": {
-      "package_name": "com.hilton.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.hinge.android": {
-      "package_name": "com.hinge.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.hippo.hippo": {
       "package_name": "com.hippo.hippo",
       "category": "games",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:20:44.863629+00:00"
-    },
-    "com.hootsuite.android": {
-      "package_name": "com.hootsuite.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.hopper.mountainview.play": {
       "package_name": "com.hopper.mountainview.play",
@@ -1626,52 +927,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T01:47:45.889543+00:00"
     },
-    "com.hotels.android": {
-      "package_name": "com.hotels.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.hotstar": {
-      "package_name": "com.hotstar",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.huawei.android.launcher": {
-      "package_name": "com.huawei.android.launcher",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.huawei.camera": {
       "package_name": "com.huawei.camera",
       "category": "photography",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T03:00:50.508913+00:00"
-    },
-    "com.huawei.photos": {
-      "package_name": "com.huawei.photos",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.huffpost.android": {
-      "package_name": "com.huffpost.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.hulu.plus": {
       "package_name": "com.hulu.plus",
@@ -1680,28 +941,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:42:45.957215+00:00"
     },
-    "com.hyatt.app": {
-      "package_name": "com.hyatt.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.ichi2.anki": {
       "package_name": "com.ichi2.anki",
       "category": "productivity",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:34:31.554727+00:00"
-    },
-    "com.ihg.app": {
-      "package_name": "com.ihg.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.imangi.templerun": {
       "package_name": "com.imangi.templerun",
@@ -1745,6 +990,13 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:27:31.632895+00:00"
     },
+    "com.instagram.lite": {
+      "package_name": "com.instagram.lite",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.930658+00:00"
+    },
     "com.jd.app.reader": {
       "package_name": "com.jd.app.reader",
       "category": "shopping",
@@ -1752,21 +1004,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T00:15:46.747949+00:00"
     },
-    "com.jetblue.android": {
-      "package_name": "com.jetblue.android",
-      "category": "",
+    "com.kakao.talk": {
+      "package_name": "com.kakao.talk",
+      "category": "communication",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.jio.media.jiocinema": {
-      "package_name": "com.jio.media.jiocinema",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.911301+00:00"
     },
     "com.kayak.android": {
       "package_name": "com.kayak.android",
@@ -1831,60 +1074,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T04:44:04.403126+00:00"
     },
-    "com.king.pethoodsaga": {
-      "package_name": "com.king.pethoodsaga",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.lastpass.android": {
-      "package_name": "com.lastpass.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.linecorp.android": {
-      "package_name": "com.linecorp.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.linkedin.android": {
       "package_name": "com.linkedin.android",
       "category": "social",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T22:58:38.519645+00:00"
-    },
-    "com.loseit.android": {
-      "package_name": "com.loseit.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.lyft.android": {
-      "package_name": "com.lyft.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.magenta.riddle": {
-      "package_name": "com.magenta.riddle",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.mapfactor.navigator": {
       "package_name": "com.mapfactor.navigator",
@@ -1900,36 +1095,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:26:17.190865+00:00"
     },
-    "com.marmalade.monopoly": {
-      "package_name": "com.marmalade.monopoly",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.marmalade.sonic": {
-      "package_name": "com.marmalade.sonic",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.marriott.mrt": {
       "package_name": "com.marriott.mrt",
       "category": "travel",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T03:08:43.860203+00:00"
-    },
-    "com.match.android": {
-      "package_name": "com.match.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.medium.reader": {
       "package_name": "com.medium.reader",
@@ -1938,13 +1109,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:03:36.288606+00:00"
     },
-    "com.mercariapp.android": {
-      "package_name": "com.mercariapp.android",
-      "category": "",
+    "com.meetup": {
+      "package_name": "com.meetup",
+      "category": "social",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.989923+00:00"
     },
     "com.miHoYo.GenshinImpact": {
       "package_name": "com.miHoYo.GenshinImpact",
@@ -1952,22 +1122,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:16:54.516923+00:00"
-    },
-    "com.miHoYo.hkrpg": {
-      "package_name": "com.miHoYo.hkrpg",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.miHoYo.tot": {
-      "package_name": "com.miHoYo.tot",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.microsoft.emmx": {
       "package_name": "com.microsoft.emmx",
@@ -2003,14 +1157,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:26:45.930923+00:00"
-    },
-    "com.microsoft.onenote": {
-      "package_name": "com.microsoft.onenote",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.microsoft.skydrive": {
       "package_name": "com.microsoft.skydrive",
@@ -2054,14 +1200,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:11:27.166503+00:00"
     },
-    "com.miui.camera": {
-      "package_name": "com.miui.camera",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.miui.home": {
       "package_name": "com.miui.home",
       "category": "tools",
@@ -2083,44 +1221,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:47:35.925243+00:00"
     },
-    "com.mojang.minecraftpe": {
-      "package_name": "com.mojang.minecraftpe",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.monzo.android": {
-      "package_name": "com.monzo.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.motorola.camera": {
       "package_name": "com.motorola.camera",
       "category": "photography",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T03:00:17.670708+00:00"
-    },
-    "com.movvit.app": {
-      "package_name": "com.movvit.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.muslim.marriage": {
-      "package_name": "com.muslim.marriage",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.mxtech.videoplayer.ad": {
       "package_name": "com.mxtech.videoplayer.ad",
@@ -2135,38 +1241,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:24:43.288361+00:00"
-    },
-    "com.myspace.android": {
-      "package_name": "com.myspace.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.nationalrail.android": {
-      "package_name": "com.nationalrail.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.nbcsports.android": {
-      "package_name": "com.nbcsports.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ncsoft.aion": {
-      "package_name": "com.ncsoft.aion",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.ncsoft.lineage": {
       "package_name": "com.ncsoft.lineage",
@@ -2196,52 +1270,19 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:21:14.391356+00:00"
     },
-    "com.netmarble.niun": {
-      "package_name": "com.netmarble.niun",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.nexon.bluearch": {
-      "package_name": "com.nexon.bluearch",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.nexon.dev.sky": {
-      "package_name": "com.nexon.dev.sky",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.nexon.kartrider.rumble": {
-      "package_name": "com.nexon.kartrider.rumble",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.nexon.mabinogi": {
-      "package_name": "com.nexon.mabinogi",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.nextcloud.client": {
       "package_name": "com.nextcloud.client",
       "category": "communication",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T22:53:02.628934+00:00"
+    },
+    "com.nextdoor": {
+      "package_name": "com.nextdoor",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.990541+00:00"
     },
     "com.nianticlabs.pikmin": {
       "package_name": "com.nianticlabs.pikmin",
@@ -2271,14 +1312,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:20:05.291393+00:00"
     },
-    "com.nilhcem.blamecharity": {
-      "package_name": "com.nilhcem.blamecharity",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.nintendo.zara": {
       "package_name": "com.nintendo.zara",
       "category": "games",
@@ -2293,76 +1326,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:14:57.282109+00:00"
     },
-    "com.noom.app": {
-      "package_name": "com.noom.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.notion.id": {
-      "package_name": "com.notion.id",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.npr.android": {
-      "package_name": "com.npr.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.nytimes.android": {
       "package_name": "com.nytimes.android",
       "category": "news",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:52:41.009233+00:00"
-    },
-    "com.odnoklassniki.android": {
-      "package_name": "com.odnoklassniki.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.okcupid": {
-      "package_name": "com.okcupid",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.olx.app": {
-      "package_name": "com.olx.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.omnitrack": {
-      "package_name": "com.omnitrack",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.onelogin.android": {
-      "package_name": "com.onelogin.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.oneplus.calculator": {
       "package_name": "com.oneplus.calculator",
@@ -2399,22 +1368,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:42:49.316593+00:00"
     },
-    "com.oppo.camera": {
-      "package_name": "com.oppo.camera",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.oppo.launcher": {
-      "package_name": "com.oppo.launcher",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.outfit7.mytalkingangelafree": {
       "package_name": "com.outfit7.mytalkingangelafree",
       "category": "games",
@@ -2428,14 +1381,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:13:51.274849+00:00"
-    },
-    "com.outfit7.talkingfriends": {
-      "package_name": "com.outfit7.talkingfriends",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.overdrive.mobile.android.libby": {
       "package_name": "com.overdrive.mobile.android.libby",
@@ -2451,28 +1396,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:45:57.927326+00:00"
     },
-    "com.paramountplus.app": {
-      "package_name": "com.paramountplus.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.paypal.android.p2pmobile": {
       "package_name": "com.paypal.android.p2pmobile",
       "category": "finance",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T01:46:02.970597+00:00"
-    },
-    "com.paytm": {
-      "package_name": "com.paytm",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.peacocktv.peacockandroid": {
       "package_name": "com.peacocktv.peacockandroid",
@@ -2502,44 +1431,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T22:53:38.539150+00:00"
     },
-    "com.playdots.two": {
-      "package_name": "com.playdots.two",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.plentyoffish": {
-      "package_name": "com.plentyoffish",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.pokerstar.android": {
-      "package_name": "com.pokerstar.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.postmates.android": {
       "package_name": "com.postmates.android",
       "category": "shopping",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T01:39:28.546470+00:00"
-    },
-    "com.proximabeta.mf": {
-      "package_name": "com.proximabeta.mf",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.pubg.imobile": {
       "package_name": "com.pubg.imobile",
@@ -2562,14 +1459,6 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:02:40.730256+00:00"
     },
-    "com.rakuten.android": {
-      "package_name": "com.rakuten.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.rarlab.rar": {
       "package_name": "com.rarlab.rar",
       "category": "tools",
@@ -2583,22 +1472,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T22:57:51.558732+00:00"
-    },
-    "com.retrica.android": {
-      "package_name": "com.retrica.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.reuters.reuters": {
-      "package_name": "com.reuters.reuters",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.revolut.revolut": {
       "package_name": "com.revolut.revolut",
@@ -2621,68 +1494,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:06:28.079325+00:00"
     },
-    "com.robtopx.geometryjump": {
-      "package_name": "com.robtopx.geometryjump",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.rockstar.gta3": {
-      "package_name": "com.rockstar.gta3",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.rockstar.gta_libertycity": {
-      "package_name": "com.rockstar.gta_libertycity",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.rockstar.gtasa": {
-      "package_name": "com.rockstar.gtasa",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.rockstar.gtavc": {
-      "package_name": "com.rockstar.gtavc",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.romwe.android": {
-      "package_name": "com.romwe.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.rovio.angrybirds": {
       "package_name": "com.rovio.angrybirds",
       "category": "games",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:11:25.028060+00:00"
-    },
-    "com.rovio.angrybirds2": {
-      "package_name": "com.rovio.angrybirds2",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.rovio.baba": {
       "package_name": "com.rovio.baba",
@@ -2698,14 +1515,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:32:02.731689+00:00"
     },
-    "com.ryanair.app": {
-      "package_name": "com.ryanair.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.samsung.android.bixby.wakeup": {
       "package_name": "com.samsung.android.bixby.wakeup",
       "category": "tools",
@@ -2720,22 +1529,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:34:23.294164+00:00"
     },
-    "com.samsung.android.camera": {
-      "package_name": "com.samsung.android.camera",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.samsung.android.camerasd": {
-      "package_name": "com.samsung.android.camerasd",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.samsung.android.contacts": {
       "package_name": "com.samsung.android.contacts",
       "category": "tools",
@@ -2743,28 +1536,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:34:17.268942+00:00"
     },
-    "com.samsung.android.gallery": {
-      "package_name": "com.samsung.android.gallery",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.samsung.android.messaging": {
       "package_name": "com.samsung.android.messaging",
       "category": "tools",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:34:40.369019+00:00"
-    },
-    "com.samsung.android.weather": {
-      "package_name": "com.samsung.android.weather",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.schwab.mobile": {
       "package_name": "com.schwab.mobile",
@@ -2794,36 +1571,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:16:43.719438+00:00"
     },
-    "com.sega.sonicforces": {
-      "package_name": "com.sega.sonicforces",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.shazam.android": {
       "package_name": "com.shazam.android",
       "category": "entertainment",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:51:59.235453+00:00"
-    },
-    "com.shein.android": {
-      "package_name": "com.shein.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.shopify.app": {
-      "package_name": "com.shopify.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.simplemobiletools.calculator": {
       "package_name": "com.simplemobiletools.calculator",
@@ -2881,14 +1634,6 @@
       "status": "negative",
       "last_scanned": "2026-07-30T22:52:56.412067+00:00"
     },
-    "com.skyscanner.android": {
-      "package_name": "com.skyscanner.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.slack": {
       "package_name": "com.slack",
       "category": "communication",
@@ -2896,36 +1641,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T22:52:56.617255+00:00"
     },
-    "com.sleepcycle.sleepcycle": {
-      "package_name": "com.sleepcycle.sleepcycle",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.snapchat.android": {
       "package_name": "com.snapchat.android",
       "category": "communication",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T22:52:56.407817+00:00"
-    },
-    "com.snowcorp.snow": {
-      "package_name": "com.snowcorp.snow",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.sonydownloader.esto": {
-      "package_name": "com.sonydownloader.esto",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.sonyliv": {
       "package_name": "com.sonyliv",
@@ -2948,36 +1669,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T03:06:24.830334+00:00"
     },
-    "com.sportsillustrated.edge": {
-      "package_name": "com.sportsillustrated.edge",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.spotify.music": {
       "package_name": "com.spotify.music",
       "category": "entertainment",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:45:05.469942+00:00"
-    },
-    "com.square_enix.android_googleplay.ff_br": {
-      "package_name": "com.square_enix.android_googleplay.ff_br",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.square_enix.android_googleplay.ffvii": {
-      "package_name": "com.square_enix.android_googleplay.ffvii",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.strava": {
       "package_name": "com.strava",
@@ -3021,36 +1718,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T03:21:58.620775+00:00"
     },
-    "com.swiggy.android": {
-      "package_name": "com.swiggy.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.sygic.aura": {
       "package_name": "com.sygic.aura",
       "category": "maps",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T01:39:28.296472+00:00"
-    },
-    "com.t2ksports.mlb2k23": {
-      "package_name": "com.t2ksports.mlb2k23",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.t2ksports.nba2k23": {
-      "package_name": "com.t2ksports.nba2k23",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.taobao.taobao": {
       "package_name": "com.taobao.taobao",
@@ -3059,28 +1732,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T00:38:31.708796+00:00"
     },
-    "com.tapatalk.tapatalk": {
-      "package_name": "com.tapatalk.tapatalk",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.target.ui": {
       "package_name": "com.target.ui",
       "category": "shopping",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T00:18:26.728287+00:00"
-    },
-    "com.tdameritrade.mobile": {
-      "package_name": "com.tdameritrade.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.tencent.ig": {
       "package_name": "com.tencent.ig",
@@ -3124,44 +1781,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:47:54.785030+00:00"
     },
-    "com.theathletic.app": {
-      "package_name": "com.theathletic.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.theleague.android": {
-      "package_name": "com.theleague.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.ticktick.task": {
       "package_name": "com.ticktick.task",
       "category": "productivity",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:34:11.563909+00:00"
-    },
-    "com.tidal.android": {
-      "package_name": "com.tidal.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.tiktok.android": {
-      "package_name": "com.tiktok.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.tinder": {
       "package_name": "com.tinder",
@@ -3170,36 +1795,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T03:08:00.129559+00:00"
     },
-    "com.tmobile.pr.adapt": {
-      "package_name": "com.tmobile.pr.adapt",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.todoist": {
       "package_name": "com.todoist",
       "category": "productivity",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:29:46.126844+00:00"
-    },
-    "com.tomtom.speedcameradetection": {
-      "package_name": "com.tomtom.speedcameradetection",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.trakt.intent": {
-      "package_name": "com.trakt.intent",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.transferwise.android": {
       "package_name": "com.transferwise.android",
@@ -3222,14 +1823,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T03:06:12.484593+00:00"
     },
-    "com.trivago.android": {
-      "package_name": "com.trivago.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.tumblr": {
       "package_name": "com.tumblr",
       "category": "social",
@@ -3237,28 +1830,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:01:53.369134+00:00"
     },
-    "com.twitch.android": {
-      "package_name": "com.twitch.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.twitter.android": {
       "package_name": "com.twitter.android",
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
       "last_scanned": "2026-07-30T22:52:58.844584+00:00"
-    },
-    "com.twitter.lite": {
-      "package_name": "com.twitter.lite",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.ubercab": {
       "package_name": "com.ubercab",
@@ -3274,22 +1851,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T01:15:33.476412+00:00"
     },
-    "com.ubisoft.assassinscreed": {
-      "package_name": "com.ubisoft.assassinscreed",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.ubisoft.rainbow6": {
-      "package_name": "com.ubisoft.rainbow6",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.udemy.android": {
       "package_name": "com.udemy.android",
       "category": "productivity",
@@ -3297,60 +1858,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:42:16.499946+00:00"
     },
-    "com.underarmour.android.running": {
-      "package_name": "com.underarmour.android.running",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.united.mobile.android": {
-      "package_name": "com.united.mobile.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.usbank.mobilebanking": {
       "package_name": "com.usbank.mobilebanking",
       "category": "finance",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:03:29.418826+00:00"
-    },
-    "com.vanguard.mobile": {
-      "package_name": "com.vanguard.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.venmo": {
-      "package_name": "com.venmo",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.ventusky.android": {
-      "package_name": "com.ventusky.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.veracrypt.veracrypt": {
-      "package_name": "com.veracrypt.veracrypt",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.verizon.messaging.vzmsgs": {
       "package_name": "com.verizon.messaging.vzmsgs",
@@ -3365,46 +1878,6 @@
       "satellite_optimized": true,
       "status": "positive",
       "last_scanned": "2026-07-30T22:52:59.312115+00:00"
-    },
-    "com.vice.android": {
-      "package_name": "com.vice.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.vimeo.android.vimeoapp": {
-      "package_name": "com.vimeo.android.vimeoapp",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.virginatlantic.vaapp": {
-      "package_name": "com.virginatlantic.vaapp",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.vk.android": {
-      "package_name": "com.vk.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.vng.candycrush": {
-      "package_name": "com.vng.candycrush",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.vsco.cam": {
       "package_name": "com.vsco.cam",
@@ -3434,38 +1907,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T01:35:26.312708+00:00"
     },
-    "com.wb.goog.harrypotter": {
-      "package_name": "com.wb.goog.harrypotter",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.wb.goog.injustice2": {
-      "package_name": "com.wb.goog.injustice2",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.wb.goog.legobat": {
-      "package_name": "com.wb.goog.legobat",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.wb.goog.mk": {
-      "package_name": "com.wb.goog.mk",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.weather.Weather": {
       "package_name": "com.weather.Weather",
       "category": "weather",
@@ -3473,36 +1914,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:51:31.709556+00:00"
     },
-    "com.weatherbug.android": {
-      "package_name": "com.weatherbug.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.webmd.android": {
       "package_name": "com.webmd.android",
       "category": "health",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:34:18.333413+00:00"
-    },
-    "com.webull.trade": {
-      "package_name": "com.webull.trade",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.welltory.app": {
-      "package_name": "com.welltory.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.wf.wellsfargomobile": {
       "package_name": "com.wf.wellsfargomobile",
@@ -3518,13 +1935,12 @@
       "status": "positive",
       "last_scanned": "2026-07-30T22:53:01.617447+00:00"
     },
-    "com.wordsmobile.words": {
-      "package_name": "com.wordsmobile.words",
-      "category": "",
+    "com.whatsapp.w4b": {
+      "package_name": "com.whatsapp.w4b",
+      "category": "communication",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.950497+00:00"
     },
     "com.wunderground.android.weather": {
       "package_name": "com.wunderground.android.weather",
@@ -3532,22 +1948,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:50:42.524180+00:00"
-    },
-    "com.ww.android.weightwatchers": {
-      "package_name": "com.ww.android.weightwatchers",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.xiaomi.camera": {
-      "package_name": "com.xiaomi.camera",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.xiaomi.market": {
       "package_name": "com.xiaomi.market",
@@ -3584,52 +1984,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:21:23.856278+00:00"
     },
-    "com.zaful.app": {
-      "package_name": "com.zaful.app",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.zee5.android": {
-      "package_name": "com.zee5.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.zeptolab.ctr.ads": {
       "package_name": "com.zeptolab.ctr.ads",
       "category": "games",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:23:20.835826+00:00"
-    },
-    "com.zeptolab.ctr.paid": {
-      "package_name": "com.zeptolab.ctr.paid",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.zeptolab.cuttherope": {
-      "package_name": "com.zeptolab.cuttherope",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.zeptolab.cuttherope2": {
-      "package_name": "com.zeptolab.cuttherope2",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "com.zhiliaoapp.musically": {
       "package_name": "com.zhiliaoapp.musically",
@@ -3645,38 +2005,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:33:19.214211+00:00"
     },
-    "com.zomato.android": {
-      "package_name": "com.zomato.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.zoosk.android": {
-      "package_name": "com.zoosk.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.zte.beauty.camera": {
-      "package_name": "com.zte.beauty.camera",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "com.zynga.poker": {
-      "package_name": "com.zynga.poker",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "com.zynga.words": {
       "package_name": "com.zynga.words",
       "category": "games",
@@ -3684,44 +2012,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:12:04.738915+00:00"
     },
-    "com.zynga.zync": {
-      "package_name": "com.zynga.zync",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "cz.mallat.uas": {
-      "package_name": "cz.mallat.uas",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "eu.livesport.android": {
-      "package_name": "eu.livesport.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
     "im.vector.app": {
       "package_name": "im.vector.app",
       "category": "communication",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T22:53:02.527396+00:00"
-    },
-    "in.airtel.movies": {
-      "package_name": "in.airtel.movies",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "jackpal.androidterm": {
       "package_name": "jackpal.androidterm",
@@ -3772,13 +2068,12 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:46:51.259225+00:00"
     },
-    "org.ismyhealth.app": {
-      "package_name": "org.ismyhealth.app",
-      "category": "",
+    "org.joinmastodon.android": {
+      "package_name": "org.joinmastodon.android",
+      "category": "social",
       "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.981100+00:00"
     },
     "org.kiwix.kiwixmobile": {
       "package_name": "org.kiwix.kiwixmobile",
@@ -3786,38 +2081,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:34:48.196166+00:00"
-    },
-    "org.lineageos.eleven": {
-      "package_name": "org.lineageos.eleven",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "org.lineageos.jelly": {
-      "package_name": "org.lineageos.jelly",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "org.lineageos.recorder": {
-      "package_name": "org.lineageos.recorder",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
-    },
-    "org.medicmobile.android": {
-      "package_name": "org.medicmobile.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "org.mozilla.firefox": {
       "package_name": "org.mozilla.firefox",
@@ -3832,14 +2095,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:41:42.305861+00:00"
-    },
-    "org.osmand": {
-      "package_name": "org.osmand",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "org.pocketworkstation.pckeyboard": {
       "package_name": "org.pocketworkstation.pckeyboard",
@@ -3882,14 +2137,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:39:10.208599+00:00"
-    },
-    "org.wse.mobile": {
-      "package_name": "org.wse.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "package_not_found"
     },
     "us.zoom.videomeetings": {
       "package_name": "us.zoom.videomeetings",

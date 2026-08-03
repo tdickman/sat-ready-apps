@@ -47,7 +47,7 @@ uv run python crawler/crawl.py
 
 The default configuration is `crawler/config.yaml`. The crawl uses the
 configured Mullvad proxy, five workers, quiet dependency logging, and the
-500-entry seed list.
+curated popular-app seed list.
 
 Output files:
 
@@ -172,7 +172,7 @@ validate_seed_packages: true
 
 crawler:
   max_workers: 5
-  per_source_timeout: 30
+  per_source_timeout: 5
   aapt2_timeout: 60
   cache_days: 30
   scan_days: 30

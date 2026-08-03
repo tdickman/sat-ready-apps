@@ -10,7 +10,7 @@ validate_seed_packages: true
 crawler:
   max_workers: 5
   per_app_timeout: 180
-  per_source_timeout: 30
+  per_source_timeout: 5
   aapt2_timeout: 60
   cache_days: 30
   scan_days: 30

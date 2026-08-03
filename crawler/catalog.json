@@ -1,19 +1,19 @@
 {
   "meta": {
-    "generated_at": "2026-07-31T22:43:57Z",
+    "generated_at": "2026-08-03T18:00:02Z",
     "total_apps": 10,
     "new_additions": 0,
     "new_packages": [],
-    "total_scanned": 285,
+    "total_scanned": 282,
     "summary": {
-      "total_processed": 285,
-      "scanned_this_run": 12,
-      "scan_skipped": 273,
+      "total_processed": 282,
+      "scanned_this_run": 0,
+      "scan_skipped": 282,
       "downloaded": 0,
       "satellite_optimized_found": 0,
-      "errors": 12,
+      "errors": 0,
       "packages_not_found": 0,
-      "total_failures": 12,
+      "total_failures": 0,
       "cached_skipped": 0,
       "seed_validation_rejected": 0
     }
@@ -215,14 +215,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:43:11.483840+00:00"
-    },
-    "com.airbnb.android": {
-      "package_name": "com.airbnb.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
     },
     "com.alibaba.aliexpresshd": {
       "package_name": "com.alibaba.aliexpresshd",
@@ -427,14 +419,6 @@
       "status": "negative",
       "last_scanned": "2026-07-30T22:53:01.367385+00:00"
     },
-    "com.citi.citimobile": {
-      "package_name": "com.citi.citimobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.clue.android": {
       "package_name": "com.clue.android",
       "category": "health",
@@ -526,14 +510,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:07:24.151820+00:00"
     },
-    "com.ea.games.nfs13_na": {
-      "package_name": "com.ea.games.nfs13_na",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.ebay.mobile": {
       "package_name": "com.ebay.mobile",
       "category": "shopping",
@@ -624,6 +600,13 @@
       "satellite_optimized": true,
       "status": "positive",
       "last_scanned": "2026-07-30T22:52:58.079633+00:00"
+    },
+    "com.facebook.pages.app": {
+      "package_name": "com.facebook.pages.app",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.961204+00:00"
     },
     "com.fidelity.android": {
       "package_name": "com.fidelity.android",
@@ -750,6 +733,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:30:19.745517+00:00"
+    },
+    "com.google.android.apps.googlevoice": {
+      "package_name": "com.google.android.apps.googlevoice",
+      "category": "communication",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.947323+00:00"
     },
     "com.google.android.apps.magazines": {
       "package_name": "com.google.android.apps.magazines",
@@ -898,6 +888,13 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:56:25.462638+00:00"
     },
+    "com.groupme.android": {
+      "package_name": "com.groupme.android",
+      "category": "communication",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.965223+00:00"
+    },
     "com.groupon": {
       "package_name": "com.groupon",
       "category": "shopping",
@@ -911,14 +908,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T01:02:36.172782+00:00"
-    },
-    "com.halfbrick.fruitninja": {
-      "package_name": "com.halfbrick.fruitninja",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
     },
     "com.halfbrick.jetpackjoyride": {
       "package_name": "com.halfbrick.jetpackjoyride",
@@ -1011,12 +1000,26 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:27:31.632895+00:00"
     },
+    "com.instagram.lite": {
+      "package_name": "com.instagram.lite",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.930658+00:00"
+    },
     "com.jd.app.reader": {
       "package_name": "com.jd.app.reader",
       "category": "shopping",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T00:15:46.747949+00:00"
+    },
+    "com.kakao.talk": {
+      "package_name": "com.kakao.talk",
+      "category": "communication",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.911301+00:00"
     },
     "com.kayak.android": {
       "package_name": "com.kayak.android",
@@ -1102,14 +1105,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:26:17.190865+00:00"
     },
-    "com.marmalade.monopoly": {
-      "package_name": "com.marmalade.monopoly",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.marriott.mrt": {
       "package_name": "com.marriott.mrt",
       "category": "travel",
@@ -1123,6 +1118,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:03:36.288606+00:00"
+    },
+    "com.meetup": {
+      "package_name": "com.meetup",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.989923+00:00"
     },
     "com.miHoYo.GenshinImpact": {
       "package_name": "com.miHoYo.GenshinImpact",
@@ -1229,14 +1231,6 @@
       "status": "negative",
       "last_scanned": "2026-07-31T05:47:35.925243+00:00"
     },
-    "com.mojang.minecraftpe": {
-      "package_name": "com.mojang.minecraftpe",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.motorola.camera": {
       "package_name": "com.motorola.camera",
       "category": "photography",
@@ -1292,6 +1286,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T22:53:02.628934+00:00"
+    },
+    "com.nextdoor": {
+      "package_name": "com.nextdoor",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.990541+00:00"
     },
     "com.nianticlabs.pikmin": {
       "package_name": "com.nianticlabs.pikmin",
@@ -1502,22 +1503,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:06:28.079325+00:00"
-    },
-    "com.robtopx.geometryjump": {
-      "package_name": "com.robtopx.geometryjump",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.rockstar.gta3": {
-      "package_name": "com.rockstar.gta3",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
     },
     "com.rovio.angrybirds": {
       "package_name": "com.rovio.angrybirds",
@@ -1883,36 +1868,12 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:42:16.499946+00:00"
     },
-    "com.united.mobile.android": {
-      "package_name": "com.united.mobile.android",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
     "com.usbank.mobilebanking": {
       "package_name": "com.usbank.mobilebanking",
       "category": "finance",
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:03:29.418826+00:00"
-    },
-    "com.vanguard.mobile": {
-      "package_name": "com.vanguard.mobile",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
-    },
-    "com.venmo": {
-      "package_name": "com.venmo",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
     },
     "com.verizon.messaging.vzmsgs": {
       "package_name": "com.verizon.messaging.vzmsgs",
@@ -1984,6 +1945,13 @@
       "status": "positive",
       "last_scanned": "2026-07-30T22:53:01.617447+00:00"
     },
+    "com.whatsapp.w4b": {
+      "package_name": "com.whatsapp.w4b",
+      "category": "communication",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.950497+00:00"
+    },
     "com.wunderground.android.weather": {
       "package_name": "com.wunderground.android.weather",
       "category": "weather",
@@ -2032,14 +2000,6 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T05:23:20.835826+00:00"
-    },
-    "com.zeptolab.ctr.paid": {
-      "package_name": "com.zeptolab.ctr.paid",
-      "category": "",
-      "satellite_optimized": false,
-      "status": "error",
-      "last_scanned": null,
-      "last_error": "download_failed"
     },
     "com.zhiliaoapp.musically": {
       "package_name": "com.zhiliaoapp.musically",
@@ -2117,6 +2077,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:46:51.259225+00:00"
+    },
+    "org.joinmastodon.android": {
+      "package_name": "org.joinmastodon.android",
+      "category": "social",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-03T17:58:32.981100+00:00"
     },
     "org.kiwix.kiwixmobile": {
       "package_name": "org.kiwix.kiwixmobile",
