@@ -9,9 +9,20 @@ const generatedDate = generatedAt ? new Date(generatedAt) : null;
 const formattedGeneratedDate = generatedDate && !Number.isNaN(generatedDate.valueOf())
   ? generatedDate.toLocaleDateString("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
   : null;
+const pageDescription = "Search manifest-verified Android apps that declare support for constrained satellite networks.";
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Android Apps for Constrained Satellite Networks"
+  description={pageDescription}
+  additionalSchemas={[{
+    "@type": "CollectionPage",
+    "@id": "https://satreadyapps.com/#catalog",
+    name: "SatReady Apps catalog",
+    url: "https://satreadyapps.com/",
+    description: pageDescription,
+  }]}
+>
   <section class="catalog-hero" aria-labelledby="page-title">
     <div class="hero-kicker"><span class="signal-dot" aria-hidden="true"></span> Open catalog / Android 16+</div>
     <h1 id="page-title">Apps that keep<br /><em>the signal.</em></h1>

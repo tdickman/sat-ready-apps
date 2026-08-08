@@ -2,7 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Not found">
+<BaseLayout
+  title="Page not found"
+  description="The requested SatReady Apps page could not be found. Browse the current catalog of manifest-verified Android apps."
+  noindex
+>
   <section class="not-found" aria-labelledby="not-found-title">
     <p class="section-eyebrow">Signal lost / 404</p>
     <h1 id="not-found-title">This app is not<br /><em>in the catalog.</em></h1>

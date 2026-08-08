@@ -15,9 +15,35 @@ const verifiedDate = app.last_verified ? new Date(app.last_verified) : null;
 const formattedVerifiedDate = verifiedDate && !Number.isNaN(verifiedDate.valueOf())
   ? verifiedDate.toLocaleDateString("en", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })
   : "Not available";
+const pageDescription = `${app.app_name} declares support for constrained satellite networks. View its package name, verification date, and official Android store links on SatReady Apps.`;
+const detailUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is string => Boolean(url));
 ---
 
-<BaseLayout title={app.app_name} description={`${app.app_name} is verified for constrained satellite networks.`}>
+<BaseLayout
+  title={`${app.app_name} satellite support`}
+  description={pageDescription}
+  additionalSchemas={[{
+    "@type": "SoftwareApplication",
+    "@id": `${detailUrl}#software-application`,
+    name: app.app_name,
+    description: pageDescription,
+    url: detailUrl,
+    identifier: app.package_name,
+    operatingSystem: "Android",
+    ...(app.category ? { applicationCategory: app.category } : {}),
+    ...(app.icon_url ? { image: app.icon_url } : {}),
+    ...(storeUrls.length ? { sameAs: storeUrls } : {}),
+    ...(app.last_verified ? { dateModified: app.last_verified } : {}),
+  }, {
+    "@type": "BreadcrumbList",
+    "@id": `${detailUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Catalog", item: "https://satreadyapps.com/" },
+      { "@type": "ListItem", position: 2, name: app.app_name, item: detailUrl },
+    ],
+  }]}
+>
   <article class="detail-page">
     <a class="back-link" href="/">← Back to catalog</a>
     <div class="detail-layout">

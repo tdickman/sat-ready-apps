@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">SatReady Apps</title>
+  <desc id="description">Android apps for constrained satellite networks</desc>
+  <rect width="1200" height="630" fill="#20312c"/>
+  <circle cx="1040" cy="108" r="210" fill="#334d44" opacity=".55"/>
+  <circle cx="1040" cy="108" r="126" fill="none" stroke="#d6f04a" stroke-width="2" opacity=".7"/>
+  <circle cx="1040" cy="108" r="72" fill="none" stroke="#d6f04a" stroke-width="2" opacity=".45"/>
+  <path d="m1040 34 17 57 57 17-57 17-17 57-17-57-57-17 57-17Z" fill="#d6f04a"/>
+  <text x="80" y="92" fill="#d6f04a" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="4">OPEN CATALOG / ANDROID 16+</text>
+  <text x="80" y="250" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">Apps that keep</text>
+  <text x="80" y="340" fill="#d6f04a" font-family="Georgia, Times New Roman, serif" font-size="88" font-style="italic">the signal.</text>
+  <text x="80" y="438" fill="#d9e0d9" font-family="Arial, Helvetica, sans-serif" font-size="27">Manifest-verified Android apps for constrained satellite networks.</text>
+  <line x1="80" y1="518" x2="1120" y2="518" stroke="#527268" stroke-width="2"/>
+  <text x="80" y="570" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">satreadyapps.com</text>
+  <text x="1120" y="570" text-anchor="end" fill="#d9e0d9" font-family="Arial, Helvetica, sans-serif" font-size="21">SEARCH THE CATALOG</text>
+</svg>

@@ -4,15 +4,38 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  additionalSchemas?: Record<string, unknown>[];
 }
 
 const {
-  title = "SatReady Apps",
-  description = "A catalog of Android apps built for constrained satellite networks.",
+  title = "Android Apps for Constrained Satellite Networks",
+  description = "Search manifest-verified Android apps that declare support for constrained satellite networks.",
+  image = "/social-card.png",
+  imageAlt = "SatReady Apps: Android apps for constrained satellite networks",
+  noindex = false,
+  additionalSchemas = [],
 } = Astro.props;
 const siteName = "SatReady Apps";
+const siteDescription = "A searchable catalog of Android apps that declare support for constrained satellite networks.";
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const siteOrigin = Astro.site ?? Astro.url;
+const siteUrl = new URL("/", siteOrigin);
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin);
+const socialImageUrl = new URL(image, siteOrigin);
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${siteUrl.href}#website`,
+  name: siteName,
+  url: siteUrl.href,
+  description: siteDescription,
+};
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [websiteSchema, ...additionalSchemas],
+}).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -22,14 +45,27 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="application-name" content={siteName} />
+    <meta name="theme-color" content="#20312c" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={socialImageUrl.href} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl.href} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <link rel="canonical" href={canonicalUrl.href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
+    <script type="application/ld+json" set:html={structuredData} />
   </head>
   <body>
     <div class="site-shell">
