@@ -12,18 +12,21 @@ interface Props {
 
 const {
   title = "Android Apps for Limited Satellite Data",
-  description = "Browse Android apps that include Android's setting for limited satellite data connections.",
+  description = "Browse Android apps whose APK manifests include Android's setting for limited satellite data connections.",
   image = "/social-card.png",
   imageAlt = "SatReady Apps: Android apps for limited satellite data",
   noindex = false,
   additionalSchemas = [],
 } = Astro.props;
 const siteName = "SatReady Apps";
-const siteDescription = "A searchable catalog of Android apps that include Android's setting for limited satellite data connections.";
+const siteDescription = "A searchable catalog of Android apps whose APK manifests include Android's setting for limited satellite data connections.";
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 const siteOrigin = Astro.site ?? Astro.url;
 const siteUrl = new URL("/", siteOrigin);
-const canonicalUrl = new URL(Astro.url.pathname, siteOrigin);
+const canonicalPath = Astro.url.pathname === "/"
+  ? "/"
+  : `${Astro.url.pathname.replace(/\/+$/, "")}/`;
+const canonicalUrl = new URL(canonicalPath, siteOrigin);
 const socialImageUrl = new URL(image, siteOrigin);
 const websiteSchema = {
   "@type": "WebSite",
@@ -32,9 +35,17 @@ const websiteSchema = {
   url: siteUrl.href,
   description: siteDescription,
 };
+const webpageSchema = {
+  "@type": "WebPage",
+  "@id": `${canonicalUrl.href}#webpage`,
+  name: pageTitle,
+  url: canonicalUrl.href,
+  description,
+  isPartOf: { "@id": `${siteUrl.href}#website` },
+};
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
-  "@graph": [websiteSchema, ...additionalSchemas],
+  "@graph": [websiteSchema, webpageSchema, ...additionalSchemas],
 }).replace(/</g, "\\u003c");
 ---
 
@@ -48,6 +59,7 @@ const structuredData = JSON.stringify({
     <meta name="theme-color" content="#20312c" />
     <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
     <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -64,6 +76,8 @@ const structuredData = JSON.stringify({
     <meta name="twitter:image:alt" content={imageAlt} />
     <link rel="canonical" href={canonicalUrl.href} />
     <link rel="alternate" type="application/rss+xml" title="SatReady Apps updates" href={new URL("/feed.xml", siteOrigin).href} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
     <script type="application/ld+json" set:html={structuredData} />
@@ -87,6 +101,8 @@ const structuredData = JSON.stringify({
       <main><slot /></main>
       <footer class="site-footer">
         <span>Apps checked for Android's limited-satellite-data setting.</span>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <a href="/methodology/">How we check</a>
         <span class="footer-dot" aria-hidden="true"></span>
         <span>satreadyapps.com</span>
       </footer>

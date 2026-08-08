@@ -1,4 +1,5 @@
 ---
+import AppGrid from "../../components/AppGrid.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { apps, formatCatalogDate } from "../../lib/catalog";
 
@@ -16,13 +17,20 @@ const formattedVerifiedDate = verifiedDate && !Number.isNaN(verifiedDate.valueOf
   ? verifiedDate.toLocaleDateString("en", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })
   : "Not available";
 const formattedAddedDate = formatCatalogDate(app.first_verified_at, true) ?? "Not available";
-const pageDescription = `${app.app_name} includes an Android setting indicating it is designed for limited satellite data. See when it was checked and find official download links.`;
-const detailUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const pageDescription = `${app.app_name} is listed in a manifest-verified catalog of Android apps with a constrained-satellite-data declaration. See its Android app ID, verification date, and official download links.`;
+const detailPath = `${Astro.url.pathname.replace(/\/+$/, "")}/`;
+const detailUrl = new URL(detailPath, Astro.site ?? Astro.url).href;
 const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is string => Boolean(url));
+const relatedApps = app.category
+  ? apps
+    .filter((candidate) => candidate.package_name !== app.package_name && candidate.category === app.category)
+    .sort((left, right) => left.app_name.localeCompare(right.app_name))
+    .slice(0, 4)
+  : [];
 ---
 
 <BaseLayout
-  title={`${app.app_name} satellite data check`}
+  title={`${app.app_name} satellite app check`}
   description={pageDescription}
   additionalSchemas={[{
     "@type": "SoftwareApplication",
@@ -51,7 +59,7 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
       <div class="detail-icon app-icon" aria-hidden="true">
         {app.icon_url ? (
           <>
-            <img src={app.icon_url} alt="" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+            <img src={app.icon_url} alt="" width="256" height="256" decoding="async" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
             <span class="icon-fallback" hidden>{initial}</span>
           </>
         ) : (
@@ -61,7 +69,7 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
       <div class="detail-content">
         <p class="section-eyebrow">Satellite data check</p>
         <h1>{app.app_name}</h1>
-        <p class="detail-description">We checked an Android installation file for this app on the date shown. It included Android's setting for apps designed to use limited satellite data. The version currently in the app store may be different, and some features may not work with your mobile provider's satellite service. Also check your phone, plan, and provider's supported-app list.</p>
+        <p class="detail-description">We checked an Android installation file for this app on the date shown. It included Android's setting for apps designed to use limited satellite data. The Android app ID is <code class="inline-code">{app.package_name}</code>. The version currently in the app store may be different, and some features may not work with your mobile provider's satellite service. Also check your phone, plan, and provider's supported-app list. <a href="/methodology/">Learn how this catalog check works.</a></p>
         <div class="detail-actions">
           {app.play_store_url && <a class="button button-primary" href={app.play_store_url} rel="noreferrer">Google Play <span aria-hidden="true">↗</span></a>}
           {app.fdroid_url && <a class="button button-secondary" href={app.fdroid_url} rel="noreferrer">F-Droid <span aria-hidden="true">↗</span></a>}
@@ -70,11 +78,11 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
       <dl class="detail-facts">
         <div>
           <dt>Last checked</dt>
-          <dd>{formattedVerifiedDate}</dd>
+          <dd><time datetime={app.last_verified}>{formattedVerifiedDate}</time></dd>
         </div>
         <div>
           <dt>Added to catalog</dt>
-          <dd>{formattedAddedDate}</dd>
+          <dd><time datetime={app.first_verified_at}>{formattedAddedDate}</time></dd>
         </div>
         {app.category && (
           <div>
@@ -89,4 +97,16 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
       </dl>
     </div>
   </article>
+  {relatedApps.length > 0 && (
+    <section class="catalog-section" aria-labelledby="related-apps-heading">
+      <div class="section-heading-row">
+        <div>
+          <p class="section-eyebrow">More in {app.category}</p>
+          <h2 id="related-apps-heading">Related verified apps</h2>
+        </div>
+        <a class="inline-link" href="/">Browse the full catalog <span aria-hidden="true">↗</span></a>
+      </div>
+      <AppGrid apps={relatedApps} gridId="related-app-grid" emptyStateId="related-no-results" />
+    </section>
+  )}
 </BaseLayout>

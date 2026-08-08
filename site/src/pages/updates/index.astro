@@ -5,24 +5,39 @@ import { formatCatalogDate, getRecentApps, meta } from "../../lib/catalog";
 
 const recentApps = getRecentApps();
 const formattedCrawlDate = typeof meta?.generated_at === "string" ? formatCatalogDate(meta.generated_at, true) : null;
-const pageDescription = "Follow new Android apps added to the SatReady Apps catalog after a manifest check.";
+const pageDescription = "Follow Android apps added to the SatReady Apps catalog after their APK manifests were checked for the limited-satellite-data setting.";
+const siteOrigin = Astro.site ?? Astro.url;
+const updatesUrl = new URL("/updates/", siteOrigin).href;
+const updateItems = recentApps.map((app, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  name: app.app_name,
+  url: new URL(`/apps/${encodeURIComponent(app.package_name)}/`, siteOrigin).href,
+}));
 ---
 
 <BaseLayout
-  title="Catalog updates"
+  title="New Android apps for satellite data"
   description={pageDescription}
   additionalSchemas={[{
     "@type": "CollectionPage",
-    "@id": "https://satreadyapps.com/updates/#catalog-updates",
+    "@id": `${updatesUrl}#catalog-updates`,
     name: "SatReady Apps catalog updates",
-    url: "https://satreadyapps.com/updates/",
+    url: updatesUrl,
     description: pageDescription,
+    mainEntity: { "@id": `${updatesUrl}#update-list` },
+  }, {
+    "@type": "ItemList",
+    "@id": `${updatesUrl}#update-list`,
+    name: "Android apps recently added to SatReady Apps",
+    numberOfItems: recentApps.length,
+    itemListElement: updateItems,
   }]}
 >
   <div class="info-page">
     <div class="info-hero">
       <p class="section-eyebrow">Catalog updates</p>
-      <h1>Recently added apps.</h1>
+      <h1>New Android apps for satellite data.</h1>
       <p class="info-lead">A running record of apps that entered the catalog after we confirmed Android's limited-satellite-data setting in an installation file.</p>
       <a class="button button-primary" href="/feed.xml">Subscribe to RSS <span aria-hidden="true">↗</span></a>
     </div>

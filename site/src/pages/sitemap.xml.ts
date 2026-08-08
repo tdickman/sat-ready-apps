@@ -13,9 +13,10 @@ export const GET: APIRoute = ({ site }) => {
   const generatedAt = typeof meta?.generated_at === "string" ? meta.generated_at.slice(0, 10) : null;
   const urls = [
     { loc: siteUrl.href, lastmod: generatedAt },
-    ...["updates", "service", "supported-phones", "developers", "submit"].map((page) => ({
+    { loc: new URL("/updates/", siteUrl).href, lastmod: generatedAt },
+    ...["methodology", "service", "supported-phones", "developers", "submit"].map((page) => ({
       loc: new URL(`/${page}/`, siteUrl).href,
-      lastmod: generatedAt,
+      lastmod: null,
     })),
     ...apps.map((app) => ({
       loc: new URL(`/apps/${encodeURIComponent(app.package_name)}/`, siteUrl).href,

@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const androidGuideUrl = "https://developer.android.com/develop/connectivity/satellite/constrained-networks";
+const satelliteManagerUrl = "https://developer.android.com/reference/android/telephony/satellite/SatelliteManager#PROPERTY_SATELLITE_DATA_OPTIMIZED";
+const repositoryUrl = "https://github.com/tdickman/sat-ready-apps";
+---
+
+<BaseLayout
+  title="How we check Android satellite apps"
+  description="Learn how SatReady Apps checks Android APK manifests for the constrained-satellite-data declaration and what a verified listing does not guarantee."
+>
+  <article class="info-page">
+    <header class="info-hero">
+      <p class="section-eyebrow">Catalog methodology</p>
+      <h1>How we check Android satellite apps</h1>
+      <p class="info-lead">SatReady Apps turns a difficult-to-search Android manifest signal into a public catalog. We inspect released installation files and publish an app only when the expected declaration is present.</p>
+    </header>
+
+    <section class="info-section" aria-labelledby="check-heading">
+      <div class="info-section-heading">
+        <h2 id="check-heading">What we check</h2>
+        <p>Android defines a manifest property for apps designed to use limited or constrained satellite data connections:</p>
+      </div>
+      <pre class="code-block"><code>android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED</code></pre>
+      <p class="info-copy">The declaration is read from the app installation file, not inferred from the app name, its marketing copy, emergency features, or the phone it runs on. The catalog records the Android package name, display name, category when available, store links, and the dates associated with the check.</p>
+    </section>
+
+    <section class="info-section" aria-labelledby="verified-heading">
+      <div class="info-section-heading">
+        <h2 id="verified-heading">What “verified” means</h2>
+      </div>
+      <ul class="check-list">
+        <li>The package was identified from a crawl seed or community suggestion.</li>
+        <li>An available Android installation file was inspected for the exact manifest property.</li>
+        <li>The app is listed only when the property is found and the package can be linked to an official store page.</li>
+        <li>The last checked date is shown on each app page so readers can judge how current the result is.</li>
+      </ul>
+    </section>
+
+    <section class="info-section" aria-labelledby="limits-heading">
+      <div class="info-section-heading">
+        <h2 id="limits-heading">What the check does not prove</h2>
+        <p>A manifest declaration is a useful discovery signal, not a compatibility guarantee. It does not measure:</p>
+      </div>
+      <ul class="check-list">
+        <li>Whether a carrier supports the app over its satellite service.</li>
+        <li>Whether a particular phone, plan, SIM, location, or account is eligible.</li>
+        <li>Whether every feature works with low bandwidth, high latency, or interruptions.</li>
+        <li>Whether the app supports offline use, emergency communication, or a specific delivery time.</li>
+        <li>Whether the current store version matches the installation file that was checked.</li>
+      </ul>
+    </section>
+
+    <section class="info-section" aria-labelledby="next-heading">
+      <div class="info-section-heading">
+        <h2 id="next-heading">Use the result responsibly</h2>
+        <p>Start with the <a href="/">Android app catalog</a>, then confirm your <a href="/supported-phones/">phone</a>, <a href="/service/">satellite service</a>, and provider's current supported-app list. If an app is missing or a listing needs correction, <a href="/submit/">suggest it for review</a>.</p>
+      </div>
+      <p class="section-eyebrow">Canonical references</p>
+      <div class="source-links">
+        <a href={androidGuideUrl} target="_blank" rel="noreferrer">Android constrained-network guide <span aria-hidden="true">↗</span></a>
+        <a href={satelliteManagerUrl} target="_blank" rel="noreferrer">SatelliteManager property reference <span aria-hidden="true">↗</span></a>
+        <a href={repositoryUrl} target="_blank" rel="noreferrer">Crawler and site source on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

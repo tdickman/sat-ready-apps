@@ -7,7 +7,15 @@ import { apps, formatCatalogDate, getRecentApps, meta } from "../lib/catalog";
 const generatedAt = typeof meta?.generated_at === "string" ? meta.generated_at : null;
 const formattedGeneratedDate = formatCatalogDate(generatedAt);
 const recentApps = getRecentApps(6);
-const pageDescription = "Browse Android apps that include Android's setting for limited satellite data connections.";
+const pageDescription = "Search a manifest-verified catalog of Android apps with Android's limited-satellite-data setting, package names, verification dates, and official download links.";
+const siteOrigin = Astro.site ?? Astro.url;
+const catalogUrl = new URL("/", siteOrigin).href;
+const catalogItems = apps.map((app, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  name: app.app_name,
+  url: new URL(`/apps/${encodeURIComponent(app.package_name)}/`, siteOrigin).href,
+}));
 ---
 
 <BaseLayout
@@ -15,10 +23,17 @@ const pageDescription = "Browse Android apps that include Android's setting for 
   description={pageDescription}
   additionalSchemas={[{
     "@type": "CollectionPage",
-    "@id": "https://satreadyapps.com/#catalog",
+    "@id": `${catalogUrl}#catalog`,
     name: "SatReady Apps catalog",
-    url: "https://satreadyapps.com/",
+    url: catalogUrl,
     description: pageDescription,
+    mainEntity: { "@id": `${catalogUrl}#app-list` },
+  }, {
+    "@type": "ItemList",
+    "@id": `${catalogUrl}#app-list`,
+    name: "Manifest-verified Android satellite apps",
+    numberOfItems: apps.length,
+    itemListElement: catalogItems,
   }]}
 >
   <section class="catalog-hero" aria-labelledby="page-title">
@@ -54,6 +69,6 @@ const pageDescription = "Browse Android apps that include Android's setting for 
 
   <section class="catalog-note" aria-labelledby="requirements-heading">
     <h2 id="requirements-heading">Before using an app over satellite</h2>
-    <p>An app being listed here is only one requirement. You also need a <a href="/supported-phones/">supported phone</a>, <a href="/service/">satellite service</a>, and confirmation that your mobile provider supports the app and feature you want to use.</p>
+    <p>An app being listed here is only one requirement. You also need a <a href="/supported-phones/">supported phone</a>, <a href="/service/">satellite service</a>, and confirmation that your mobile provider supports the app and feature you want to use. Read <a href="/methodology/">how the catalog check works</a> to understand what a listing does and does not confirm.</p>
   </section>
 </BaseLayout>

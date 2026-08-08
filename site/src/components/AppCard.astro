@@ -8,7 +8,7 @@ interface Props {
 
 const { app, showAddedDate = false } = Astro.props;
 const initial = app.app_name.trim().charAt(0).toUpperCase() || "?";
-const detailUrl = `/apps/${encodeURIComponent(app.package_name)}`;
+const detailUrl = `/apps/${encodeURIComponent(app.package_name)}/`;
 const addedDate = showAddedDate ? formatCatalogDate(app.first_verified_at) : null;
 ---
 
@@ -17,7 +17,7 @@ const addedDate = showAddedDate ? formatCatalogDate(app.first_verified_at) : nul
     <div class="app-icon app-icon-card" aria-hidden="true">
       {app.icon_url ? (
         <>
-          <img src={app.icon_url} alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+          <img src={app.icon_url} alt="" width="256" height="256" loading="lazy" decoding="async" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
           <span class="icon-fallback" hidden>{initial}</span>
         </>
       ) : (

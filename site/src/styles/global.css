@@ -83,6 +83,8 @@ h1, h2, p { margin-top: 0; }
 [hidden] { display: none !important; }
 
 .site-footer { align-items: center; border-top: 1px solid var(--line); color: var(--muted); display: flex; flex-wrap: wrap; font-family: var(--mono); font-size: .61rem; gap: .75rem; letter-spacing: .04em; padding: 1.5rem 0 2rem; text-transform: uppercase; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover, .site-footer a:focus-visible { color: var(--ink); }
 .footer-dot { background: var(--signal-dark); border-radius: 50%; height: 5px; width: 5px; }
 
 .detail-page { padding: 4rem 0 8rem; }
