@@ -104,16 +104,18 @@ def _load_previous_scan_state(path: Path, previous_apps: dict[str, dict]) -> dic
 
     # Catalogs created before scan-state tracking can still avoid rescanning positives.
     for package_name, app in previous_apps.items():
-        state.setdefault(
-            package_name,
-            {
-                "package_name": package_name,
-                "category": app.get("category", ""),
-                "satellite_optimized": True,
-                "status": "positive",
-                "last_scanned": app.get("last_verified"),
-            },
-        )
+        if package_name in state:
+            if not state[package_name].get("first_verified_at") and app.get("first_verified_at"):
+                state[package_name]["first_verified_at"] = app["first_verified_at"]
+            continue
+        state[package_name] = {
+            "package_name": package_name,
+            "category": app.get("category", ""),
+            "satellite_optimized": True,
+            "status": "positive",
+            "last_scanned": app.get("last_verified"),
+            "first_verified_at": app.get("first_verified_at"),
+        }
     return state
 
 
@@ -622,8 +624,26 @@ def _write_catalog(
     current_pkgs = {a["package_name"] for a in apps}
 
     new_packages = current_pkgs - previous_pkgs
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for app in apps:
-        app["new_addition"] = app["package_name"] in new_packages
+        package_name = app["package_name"]
+        previous_app = previous.get(package_name, {})
+        previous_scan = previous_scans.get(package_name, {})
+        previous_positive_scan = previous_scan if previous_scan.get("status") == "positive" else {}
+        first_verified_at = previous_app.get("first_verified_at") or previous_scan.get("first_verified_at")
+        if not isinstance(first_verified_at, str) or not first_verified_at.strip():
+            first_verified_at = (
+                previous_app.get("last_scanned")
+                or previous_positive_scan.get("last_scanned")
+                or previous_app.get("last_verified")
+                or app.get("first_verified_at")
+                or app.get("last_scanned")
+                or app.get("last_verified")
+            )
+        if not isinstance(first_verified_at, str) or not first_verified_at.strip():
+            first_verified_at = generated_at
+        app["first_verified_at"] = first_verified_at
+        app["new_addition"] = package_name in new_packages
 
     scans = {
         package_name: scan
@@ -634,13 +654,24 @@ def _write_catalog(
         package_name = result["package_name"]
         status = result.get("status")
         if status in {"positive", "negative"}:
-            scans[package_name] = {
+            scan = {
                 "package_name": package_name,
                 "category": result.get("category", ""),
                 "satellite_optimized": result.get("satellite_optimized", False),
                 "status": status,
                 "last_scanned": result.get("last_scanned"),
             }
+            previous_first_verified_at = (
+                previous_scans.get(package_name, {}).get("first_verified_at")
+                or previous.get(package_name, {}).get("first_verified_at")
+                or previous.get(package_name, {}).get("last_scanned")
+                or previous.get(package_name, {}).get("last_verified")
+            )
+            if previous_first_verified_at:
+                scan["first_verified_at"] = previous_first_verified_at
+            elif status == "positive":
+                scan["first_verified_at"] = current_apps[package_name].get("first_verified_at")
+            scans[package_name] = scan
         elif status == "error":
             previous_scan = scans.get(package_name)
             if previous_scan:
@@ -673,7 +704,7 @@ def _write_catalog(
 
     catalog = {
         "meta": {
-            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "generated_at": generated_at,
             "total_apps": len(deduped),
             "new_additions": len(new_packages),
             "new_packages": sorted(new_packages),

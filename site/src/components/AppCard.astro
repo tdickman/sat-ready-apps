@@ -1,13 +1,15 @@
 ---
-import type { CatalogApp } from "../lib/catalog";
+import { formatCatalogDate, type CatalogApp } from "../lib/catalog";
 
 interface Props {
   app: CatalogApp;
+  showAddedDate?: boolean;
 }
 
-const { app } = Astro.props;
+const { app, showAddedDate = false } = Astro.props;
 const initial = app.app_name.trim().charAt(0).toUpperCase() || "?";
 const detailUrl = `/apps/${encodeURIComponent(app.package_name)}`;
+const addedDate = showAddedDate ? formatCatalogDate(app.first_verified_at) : null;
 ---
 
 <article class="app-card" data-app-name={app.app_name} data-package-name={app.package_name}>
@@ -25,6 +27,7 @@ const detailUrl = `/apps/${encodeURIComponent(app.package_name)}`;
     <div class="app-card-copy">
       <h2>{app.app_name}</h2>
       {app.category && <span class="category-label">{app.category}</span>}
+      {addedDate && <span class="app-added-date">Added {addedDate}</span>}
     </div>
     <span class="card-arrow" aria-hidden="true">↗</span>
   </a>

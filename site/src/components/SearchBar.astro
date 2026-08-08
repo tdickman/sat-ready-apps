@@ -9,8 +9,11 @@
 
 <script>
   const input = document.querySelector<HTMLInputElement>("#app-search");
-  const cards = Array.from(document.querySelectorAll<HTMLElement>(".app-card"));
-  const emptyState = document.querySelector<HTMLElement>("#no-results");
+  const searchGrid = document.querySelector<HTMLElement>('.app-grid[data-searchable="true"]');
+  const cards = searchGrid ? Array.from(searchGrid.querySelectorAll<HTMLElement>(".app-card")) : [];
+  const emptyState = searchGrid?.dataset.emptyState
+    ? document.getElementById(searchGrid.dataset.emptyState)
+    : null;
   const resultSummary = document.querySelector<HTMLElement>("#search-results");
 
   if (input && emptyState && resultSummary) {

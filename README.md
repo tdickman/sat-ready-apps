@@ -64,6 +64,11 @@ writes a partial catalog. Review the crawl summary and the `scanned` state in
 After a successful crawl, review the catalog and commit the updated
 `crawler/catalog.json`. That commit triggers a new site deployment.
 
+Each published app also retains a `first_verified_at` timestamp. This is the
+stable addition date used by the site's Recently Added section, `/updates/`
+page, and `/feed.xml` RSS feed. The crawler's `new_packages` and
+`new_addition` fields continue to describe only the current crawl.
+
 ## Crawl Configuration
 
 Important settings are in [`crawler/config.yaml`](crawler/config.yaml):

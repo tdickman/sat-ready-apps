@@ -35,6 +35,7 @@ def test_write_catalog_filters_negative_results_and_preserves_failures(tmp_path)
             "package_name": "com.example.previous",
             "app_name": "Previous",
             "satellite_optimized": True,
+            "first_verified_at": "2026-07-01T12:00:00+00:00",
         }
     }
     positive = {
@@ -43,6 +44,7 @@ def test_write_catalog_filters_negative_results_and_preserves_failures(tmp_path)
         "satellite_optimized": True,
         "status": "positive",
         "last_verified": "2026-07-30",
+        "last_scanned": "2026-07-30T22:00:00+00:00",
     }
     negative = {
         "package_name": "com.example.negative",
@@ -63,6 +65,144 @@ def test_write_catalog_filters_negative_results_and_preserves_failures(tmp_path)
     catalog = json.loads(output_path.read_text())
     packages = {app["package_name"] for app in catalog["apps"]}
     assert packages == {"com.example.new", "com.example.previous"}
+    apps = {app["package_name"]: app for app in catalog["apps"]}
+    assert apps["com.example.new"]["first_verified_at"] == "2026-07-30T22:00:00+00:00"
+    assert apps["com.example.previous"]["first_verified_at"] == "2026-07-01T12:00:00+00:00"
+    assert apps["com.example.new"]["new_addition"] is True
+    assert apps["com.example.previous"]["new_addition"] is False
+    assert catalog["meta"]["new_additions"] == 1
+    assert catalog["meta"]["new_packages"] == ["com.example.new"]
+
+
+def test_write_catalog_preserves_first_verified_at_for_existing_app(tmp_path):
+    output_path = tmp_path / "catalog.json"
+    previous = {
+        "com.example.app": {
+            "package_name": "com.example.app",
+            "app_name": "Example",
+            "first_verified_at": "2026-06-01T10:00:00+00:00",
+            "last_verified": "2026-07-30",
+        }
+    }
+    result = {
+        "package_name": "com.example.app",
+        "app_name": "Example",
+        "satellite_optimized": True,
+        "status": "positive",
+        "last_verified": "2026-08-08",
+        "last_scanned": "2026-08-08T18:00:00+00:00",
+    }
+
+    _write_catalog(output_path, [result], previous, {}, {}, set(), {"com.example.app"})
+
+    catalog = json.loads(output_path.read_text())
+    assert catalog["apps"][0]["first_verified_at"] == "2026-06-01T10:00:00+00:00"
+    assert catalog["meta"]["new_packages"] == []
+
+
+def test_write_catalog_backfills_legacy_app_from_previous_timestamp(tmp_path):
+    output_path = tmp_path / "catalog.json"
+    previous = {
+        "com.example.app": {
+            "package_name": "com.example.app",
+            "app_name": "Example",
+            "last_verified": "2026-07-01",
+        }
+    }
+    result = {
+        "package_name": "com.example.app",
+        "app_name": "Example",
+        "status": "positive",
+        "satellite_optimized": True,
+        "last_verified": "2026-08-08",
+        "last_scanned": "2026-08-08T18:00:00+00:00",
+    }
+
+    _write_catalog(output_path, [result], previous, {}, {}, set(), {"com.example.app"})
+
+    catalog = json.loads(output_path.read_text())
+    assert catalog["apps"][0]["first_verified_at"] == "2026-07-01"
+
+
+def test_write_catalog_preserves_first_verified_at_after_negative_scan(tmp_path):
+    output_path = tmp_path / "catalog.json"
+    first_verified_at = "2026-06-01T10:00:00+00:00"
+    previous = {
+        "com.example.app": {
+            "package_name": "com.example.app",
+            "app_name": "Example",
+            "first_verified_at": first_verified_at,
+        }
+    }
+    previous_scans = {
+        "com.example.app": {
+            "package_name": "com.example.app",
+            "status": "positive",
+        }
+    }
+
+    _write_catalog(
+        output_path,
+        [{"package_name": "com.example.app", "status": "negative", "satellite_optimized": False}],
+        previous,
+        previous_scans,
+        {},
+        set(),
+        {"com.example.app"},
+    )
+    negative_catalog = json.loads(output_path.read_text())
+
+    _write_catalog(
+        output_path,
+        [{
+            "package_name": "com.example.app",
+            "app_name": "Example",
+            "status": "positive",
+            "satellite_optimized": True,
+            "last_verified": "2026-08-08",
+            "last_scanned": "2026-08-08T18:00:00+00:00",
+        }],
+        {},
+        negative_catalog["scanned"],
+        {},
+        set(),
+        {"com.example.app"},
+    )
+
+    catalog = json.loads(output_path.read_text())
+    assert catalog["apps"][0]["first_verified_at"] == first_verified_at
+    assert catalog["meta"]["new_packages"] == ["com.example.app"]
+
+
+def test_write_catalog_ignores_negative_scan_as_first_verification(tmp_path):
+    output_path = tmp_path / "catalog.json"
+    result = {
+        "package_name": "com.example.app",
+        "app_name": "Example",
+        "status": "positive",
+        "satellite_optimized": True,
+        "last_verified": "2026-08-08",
+        "last_scanned": "2026-08-08T18:00:00+00:00",
+    }
+
+    _write_catalog(
+        output_path,
+        [result],
+        {},
+        {
+            "com.example.app": {
+                "package_name": "com.example.app",
+                "status": "negative",
+                "last_scanned": "2026-08-01T18:00:00+00:00",
+            }
+        },
+        {},
+        set(),
+        {"com.example.app"},
+    )
+
+    catalog = json.loads(output_path.read_text())
+    assert catalog["apps"][0]["first_verified_at"] == "2026-08-08T18:00:00+00:00"
 
 
 def test_process_package_retries_a_corrupt_fresh_cache(tmp_path):

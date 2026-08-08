@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { apps } from "../../lib/catalog";
+import { apps, formatCatalogDate } from "../../lib/catalog";
 
 export function getStaticPaths() {
   return apps.map((app) => ({
@@ -15,6 +15,7 @@ const verifiedDate = app.last_verified ? new Date(app.last_verified) : null;
 const formattedVerifiedDate = verifiedDate && !Number.isNaN(verifiedDate.valueOf())
   ? verifiedDate.toLocaleDateString("en", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })
   : "Not available";
+const formattedAddedDate = formatCatalogDate(app.first_verified_at, true) ?? "Not available";
 const pageDescription = `${app.app_name} includes an Android setting indicating it is designed for limited satellite data. See when it was checked and find official download links.`;
 const detailUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is string => Boolean(url));
@@ -70,6 +71,10 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
         <div>
           <dt>Last checked</dt>
           <dd>{formattedVerifiedDate}</dd>
+        </div>
+        <div>
+          <dt>Added to catalog</dt>
+          <dd>{formattedAddedDate}</dd>
         </div>
         {app.category && (
           <div>

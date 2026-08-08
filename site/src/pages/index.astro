@@ -2,13 +2,11 @@
 import AppGrid from "../components/AppGrid.astro";
 import SearchBar from "../components/SearchBar.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { apps, meta } from "../lib/catalog";
+import { apps, formatCatalogDate, getRecentApps, meta } from "../lib/catalog";
 
 const generatedAt = typeof meta?.generated_at === "string" ? meta.generated_at : null;
-const generatedDate = generatedAt ? new Date(generatedAt) : null;
-const formattedGeneratedDate = generatedDate && !Number.isNaN(generatedDate.valueOf())
-  ? generatedDate.toLocaleDateString("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
-  : null;
+const formattedGeneratedDate = formatCatalogDate(generatedAt);
+const recentApps = getRecentApps(6);
 const pageDescription = "Browse Android apps that include Android's setting for limited satellite data connections.";
 ---
 
@@ -33,10 +31,25 @@ const pageDescription = "Browse Android apps that include Android's setting for 
     </div>
   </section>
 
+  <section class="catalog-section recent-section" aria-labelledby="recent-heading">
+    <div class="section-heading-row">
+      <div>
+        <p class="section-eyebrow">Latest additions</p>
+        <h2 id="recent-heading">Recently added apps</h2>
+      </div>
+      <a class="inline-link" href="/updates/">View all updates <span aria-hidden="true">↗</span></a>
+    </div>
+    {recentApps.length > 0 ? (
+      <AppGrid apps={recentApps} showAddedDate gridId="recent-app-grid" emptyStateId="recent-no-results" />
+    ) : (
+      <p class="empty-state">No additions have been recorded yet.</p>
+    )}
+  </section>
+
   <section class="catalog-section" aria-labelledby="catalog-heading">
     <h2 id="catalog-heading">Browse apps</h2>
     <SearchBar />
-    <AppGrid apps={apps} />
+    <AppGrid apps={apps} gridId="catalog-app-grid" emptyStateId="catalog-no-results" searchable />
   </section>
 
   <section class="catalog-note" aria-labelledby="requirements-heading">

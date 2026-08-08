@@ -63,6 +63,7 @@ const structuredData = JSON.stringify({
     <meta name="twitter:image" content={socialImageUrl.href} />
     <meta name="twitter:image:alt" content={imageAlt} />
     <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="alternate" type="application/rss+xml" title="SatReady Apps updates" href={new URL("/feed.xml", siteOrigin).href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
     <script type="application/ld+json" set:html={structuredData} />
@@ -76,6 +77,7 @@ const structuredData = JSON.stringify({
         </a>
         <nav class="site-nav" aria-label="Main navigation">
           <a href="/">Apps</a>
+          <a href="/updates/">Updates</a>
           <a href="/service/">Service</a>
           <a href="/supported-phones/">Phones</a>
           <a href="/developers/">Developers</a>

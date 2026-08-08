@@ -7,6 +7,10 @@ The Astro site for [satreadyapps.com](https://satreadyapps.com) is a static cata
 `npm run dev` and `npm run build` run this sync first, so the crawler output is
 the single source of truth and a missing or malformed catalog fails clearly.
 
+The site exposes the latest additions at `/updates/` and as an RSS feed at
+`/feed.xml`. Both use each app's durable `first_verified_at` timestamp from
+the crawler catalog.
+
 ## Commands
 
 ```bash

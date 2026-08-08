@@ -47,6 +47,10 @@ h1, h2, p { margin-top: 0; }
 .catalog-section { border-top: 1px solid var(--line); padding: 3.5rem 0 5rem; }
 .section-eyebrow { margin-bottom: .8rem; }
 .catalog-section > h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.07em; line-height: 1; margin-bottom: 2.4rem; }
+.section-heading-row { align-items: end; display: flex; gap: 2rem; justify-content: space-between; margin-bottom: 2.4rem; }
+.section-heading-row h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.07em; line-height: 1; margin: 0; }
+.inline-link { color: var(--muted); font-family: var(--mono); font-size: .68rem; letter-spacing: .04em; text-decoration: none; white-space: nowrap; }
+.inline-link:hover, .inline-link:focus-visible { color: var(--ink); }
 .catalog-note { border-top: 1px solid var(--line); padding: 3.5rem 0 7rem; }
 .catalog-note h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -.06em; margin-bottom: 1rem; }
 .catalog-note p { color: var(--muted); line-height: 1.65; max-width: 760px; }
@@ -68,6 +72,7 @@ h1, h2, p { margin-top: 0; }
 .app-card-copy { min-width: 0; }
 .app-card h2 { font-size: 1.15rem; letter-spacing: -.04em; margin: 0 0 .35rem; overflow-wrap: anywhere; }
 .category-label { color: var(--signal-dark); display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .08em; margin-top: .8rem; text-transform: uppercase; }
+.app-added-date { color: var(--muted); display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .04em; margin-top: .7rem; text-transform: uppercase; }
 .card-arrow { color: var(--signal-dark); font-size: 1.2rem; opacity: 0; transform: translate(-5px, 5px); transition: opacity .2s ease, transform .2s ease; }
 .app-card:hover .card-arrow, .app-card-link:focus-visible .card-arrow { opacity: 1; transform: translate(0, 0); }
 .app-icon { align-items: center; background: var(--night); color: var(--signal); display: flex; justify-content: center; overflow: hidden; }
@@ -118,6 +123,9 @@ h1, h2, p { margin-top: 0; }
 .info-section-heading .section-eyebrow { margin-bottom: .8rem; }
 .info-section-heading h2 { margin-bottom: 1rem; }
 .info-section-heading p { margin-bottom: 0; }
+.update-note { max-width: 820px; }
+.update-note h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.07em; line-height: 1; margin-bottom: 1.2rem; }
+.update-note > p:last-child { color: var(--muted); line-height: 1.65; max-width: 680px; }
 .supported-phone-list { border-top: 1px solid var(--line); }
 .supported-phone-group { border-bottom: 1px solid var(--line); display: grid; gap: 1.5rem; padding: 2rem 0; }
 .supported-phone-group h3 { font-size: 1.35rem; letter-spacing: -.04em; margin: 0; }
@@ -180,6 +188,7 @@ h1, h2, p { margin-top: 0; }
 @media (max-width: 639px) {
   .site-nav { gap: .7rem; }
   .site-nav a { font-size: .59rem; min-height: 24px; padding: .5rem 0; }
+  .section-heading-row { align-items: start; flex-direction: column; gap: 1.2rem; }
   .detail-layout { gap: 2rem; }
   .detail-icon { max-width: 130px; }
   .detail-facts { grid-template-columns: 1fr; }

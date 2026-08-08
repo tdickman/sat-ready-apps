@@ -21,9 +21,11 @@ const packageNamePattern = /^[A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z][A-Za-z0-9_]*)+$/
 const packageNames = new Set();
 for (const [index, app] of catalog.apps.entries()) {
   if (!app || typeof app !== "object"
-    || typeof app.package_name !== "string" || !packageNamePattern.test(app.package_name)
-    || typeof app.app_name !== "string" || app.app_name.trim() === ""
-    || typeof app.last_verified !== "string" || app.last_verified.trim() === "") {
+      || typeof app.package_name !== "string" || !packageNamePattern.test(app.package_name)
+      || typeof app.app_name !== "string" || app.app_name.trim() === ""
+      || typeof app.first_verified_at !== "string" || app.first_verified_at.trim() === ""
+      || Number.isNaN(Date.parse(app.first_verified_at))
+      || typeof app.last_verified !== "string" || app.last_verified.trim() === "") {
     throw new Error(`${sourcePath} contains an invalid app at index ${index}`);
   }
 

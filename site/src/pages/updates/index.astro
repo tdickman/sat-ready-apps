@@ -1,0 +1,49 @@
+---
+import AppGrid from "../../components/AppGrid.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatCatalogDate, getRecentApps, meta } from "../../lib/catalog";
+
+const recentApps = getRecentApps();
+const formattedCrawlDate = typeof meta?.generated_at === "string" ? formatCatalogDate(meta.generated_at, true) : null;
+const pageDescription = "Follow new Android apps added to the SatReady Apps catalog after a manifest check.";
+---
+
+<BaseLayout
+  title="Catalog updates"
+  description={pageDescription}
+  additionalSchemas={[{
+    "@type": "CollectionPage",
+    "@id": "https://satreadyapps.com/updates/#catalog-updates",
+    name: "SatReady Apps catalog updates",
+    url: "https://satreadyapps.com/updates/",
+    description: pageDescription,
+  }]}
+>
+  <div class="info-page">
+    <div class="info-hero">
+      <p class="section-eyebrow">Catalog updates</p>
+      <h1>Recently added apps.</h1>
+      <p class="info-lead">A running record of apps that entered the catalog after we confirmed Android's limited-satellite-data setting in an installation file.</p>
+      <a class="button button-primary" href="/feed.xml">Subscribe to RSS <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <section class="info-section" aria-labelledby="updates-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Release history</p>
+        <h2 id="updates-heading">Apps added to SatReady</h2>
+        <p>{formattedCrawlDate ? `Last crawl completed ${formattedCrawlDate}.` : "The catalog has not reported a crawl date yet."} Each date below is when the app was first verified here, not when it was published in an app store.</p>
+      </div>
+      {recentApps.length > 0 ? (
+        <AppGrid apps={recentApps} showAddedDate />
+      ) : (
+        <p class="empty-state">No additions have been recorded yet.</p>
+      )}
+    </section>
+
+    <section class="info-section update-note" aria-labelledby="method-heading">
+      <p class="section-eyebrow">What changed</p>
+      <h2 id="method-heading">A listing is a verified signal</h2>
+      <p>We look for the Android manifest setting that indicates an app is designed for limited satellite data. This does not guarantee connectivity, carrier support, bandwidth, or that every app feature will work over satellite.</p>
+    </section>
+  </div>
+</BaseLayout>

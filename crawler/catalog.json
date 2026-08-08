@@ -22,6 +22,7 @@
     {
       "package_name": "com.whatsapp",
       "app_name": "WhatsApp",
+      "first_verified_at": "2026-07-30T22:53:01.617447+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLndoYXRzYXBwX2ljb25fMTc4MDA2NDM0MV8wNzg/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -38,6 +39,7 @@
     {
       "package_name": "com.facebook.orca",
       "app_name": "Messenger",
+      "first_verified_at": "2026-07-30T22:52:58.079633+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmZhY2Vib29rLm9yY2FfaWNvbl8xNzgwNDQ4NjYwXzAyOQ/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -54,6 +56,7 @@
     {
       "package_name": "com.twitter.android",
       "app_name": "X Beta",
+      "first_verified_at": "2026-07-30T22:52:58.844584+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLnR3aXR0ZXIuYW5kcm9pZF9pY29uX2lkXzE3Nzg2MDA5ODJfMDUz/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -70,6 +73,7 @@
     {
       "package_name": "com.discord",
       "app_name": "Discord",
+      "first_verified_at": "2026-07-30T22:52:58.505934+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmRpc2NvcmRfaWNvbl8xNzgxNjM3MzQ0XzA1Ng/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -86,6 +90,7 @@
     {
       "package_name": "com.google.android.apps.messaging",
       "app_name": "Messages",
+      "first_verified_at": "2026-07-30T22:52:58.053094+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLmFwcHMubWVzc2FnaW5nX2ljb25fMTc4MTU0NTgyNl8wMjA/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -102,6 +107,7 @@
     {
       "package_name": "com.viber.voip",
       "app_name": "Viber",
+      "first_verified_at": "2026-07-30T22:52:59.312115+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLnZpYmVyLnZvaXBfaWNvbl8xNzgyODIxNzg2XzAxMg/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -118,6 +124,7 @@
     {
       "package_name": "org.thoughtcrime.securesms",
       "app_name": "Signal",
+      "first_verified_at": "2026-07-30T22:53:00.466840+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/b3JnLnRob3VnaHRjcmltZS5zZWN1cmVzbXNfaWNvbl8xNzgwOTU4MTI0XzAwNw/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-07-30",
@@ -134,6 +141,7 @@
     {
       "package_name": "com.google.android.calendar",
       "app_name": "Calendar",
+      "first_verified_at": "2026-07-30T23:07:06.798047+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLmNhbGVuZGFyX2ljb25fMTc4MDk1ODQ3MV8wMDc/icon.png?w=256&fakeurl=1",
       "category": "productivity",
       "last_verified": "2026-07-30",
@@ -150,6 +158,7 @@
     {
       "package_name": "com.google.android.apps.maps",
       "app_name": "Maps",
+      "first_verified_at": "2026-07-31T01:24:21.039707+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLmFwcHMubWFwc19pY29uXzE3ODA5Mjc5MjVfMDM3/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-07-31",
@@ -166,6 +175,7 @@
     {
       "package_name": "com.accuweather.android",
       "app_name": "AccuWeather",
+      "first_verified_at": "2026-07-31T02:50:55.910977+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmFjY3V3ZWF0aGVyLmFuZHJvaWRfaWNvbl8xNzgxMDU3MTA2XzA2MQ/icon.png?w=256&fakeurl=1",
       "category": "weather",
       "last_verified": "2026-07-31",
@@ -182,6 +192,7 @@
     {
       "package_name": "com.google.android.apps.adm",
       "app_name": "Find Hub",
+      "first_verified_at": "2026-08-08T17:25:08.997175+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLmFwcHMuYWRtX2ljb25fMTc4MDkzMTU4NV8wMDE/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -198,6 +209,7 @@
     {
       "package_name": "com.tmobile.tuesdays",
       "app_name": "T-Life",
+      "first_verified_at": "2026-08-08T17:40:40.383254+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLnRtb2JpbGUudHVlc2RheXNfaWNvbl8xNzgwOTY1MjM3XzA3MA/icon.png?w=256&fakeurl=1",
       "category": "shopping",
       "last_verified": "2026-08-08",
@@ -214,6 +226,7 @@
     {
       "package_name": "com.caltopo.android",
       "app_name": "CalTopo",
+      "first_verified_at": "2026-08-08T17:24:50.547820+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLmNhbHRvcG8uYW5kcm9pZF9pY29uXzE3ODExNDQxNTNfMDUz/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -230,6 +243,7 @@
     {
       "package_name": "onxmaps.backcountry",
       "app_name": "onX Backcountry",
+      "first_verified_at": "2026-08-08T17:28:01.080213+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5iYWNrY291bnRyeV9pY29uXzE3ODEzOTIwNDdfMDc3/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -246,6 +260,7 @@
     {
       "package_name": "onxmaps.hunt",
       "app_name": "onX Hunt",
+      "first_verified_at": "2026-08-08T17:28:24.451642+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5odW50X2ljb25fMTc4MDUxMjUyMV8wMjE/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -262,6 +277,7 @@
     {
       "package_name": "onxmaps.offroad",
       "app_name": "onX Offroad",
+      "first_verified_at": "2026-08-08T17:32:11.271729+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5vZmZyb2FkX2ljb25fMTc4MDc0NjEwNV8wMjc/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -278,6 +294,7 @@
     {
       "package_name": "onxmaps.fish",
       "app_name": "onX Fish",
+      "first_verified_at": "2026-08-08T17:30:40.906592+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5maXNoX2ljb25fMTc3NDgzMjkyOF8wMjc/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -294,6 +311,7 @@
     {
       "package_name": "co.switchapp",
       "app_name": "Dialpad",
+      "first_verified_at": "2026-08-08T17:32:50.984361+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y28uc3dpdGNoYXBwX2ljb25fMTc4MTM4NjQ5OF8wNjA/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-08-08",
@@ -310,6 +328,7 @@
     {
       "package_name": "com.sprint.sdcplus",
       "app_name": "TDC",
+      "first_verified_at": "2026-08-08T17:34:42.695115+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLnNwcmludC5zZGNwbHVzX2ljb25fMTYzMzU1MzM1NV8wNDI/icon.png?w=256&fakeurl=1",
       "category": "communication",
       "last_verified": "2026-08-08",
@@ -326,6 +345,7 @@
     {
       "package_name": "ai.x.grok",
       "app_name": "Grok",
+      "first_verified_at": "2026-08-08T17:36:23.080478+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/YWkueC5ncm9rX2ljb25fZW4tVVNfMTc4MDkyNzMzNF8wODA/icon.png?w=256&fakeurl=1",
       "category": "productivity",
       "last_verified": "2026-08-08",
@@ -342,6 +362,7 @@
     {
       "package_name": "com.samsung.android.app.find",
       "app_name": "Samsung Find",
+      "first_verified_at": "2026-08-08T17:33:45.626932+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLnNhbXN1bmcuYW5kcm9pZC5hcHAuZmluZF9pY29uXzE3ODMzMTIzMTRfMDI2/icon.png?w=256&fakeurl=1",
       "category": "maps",
       "last_verified": "2026-08-08",
@@ -358,6 +379,7 @@
     {
       "package_name": "com.sec.android.app.shealth",
       "app_name": "Samsung Health",
+      "first_verified_at": "2026-08-08T17:37:47.465120+00:00",
       "icon_url": "https://image.winudf.com/v2/image1/Y29tLnNlYy5hbmRyb2lkLmFwcC5zaGVhbHRoX2ljb25fMTc3NTgwNDExNV8wNTM/icon.png?w=256&fakeurl=1",
       "category": "health",
       "last_verified": "2026-08-08",

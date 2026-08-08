@@ -4,14 +4,24 @@ import type { CatalogApp } from "../lib/catalog";
 
 interface Props {
   apps: CatalogApp[];
+  showAddedDate?: boolean;
+  gridId?: string;
+  emptyStateId?: string;
+  searchable?: boolean;
 }
 
-const { apps } = Astro.props;
+const {
+  apps,
+  showAddedDate = false,
+  gridId = "app-grid",
+  emptyStateId = "no-results",
+  searchable = false,
+} = Astro.props;
 ---
 
-<div id="app-grid" class="app-grid" aria-label="Catalog apps">
-  {apps.map((app) => <AppCard app={app} />)}
+<div id={gridId} class="app-grid" data-searchable={searchable ? "true" : undefined} data-empty-state={emptyStateId} aria-label="Catalog apps">
+  {apps.map((app) => <AppCard app={app} showAddedDate={showAddedDate} />)}
 </div>
-<p id="no-results" class="empty-state" hidden={apps.length > 0}>
+<p id={emptyStateId} class="empty-state" hidden={apps.length > 0}>
   {apps.length > 0 ? "No apps found. Try a different name." : "No apps in the catalog yet. Apps will appear here after they are checked."}
 </p>
