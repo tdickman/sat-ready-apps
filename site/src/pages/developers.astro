@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const androidGuideUrl = "https://developer.android.com/develop/connectivity/satellite/constrained-networks";
+const satelliteManagerUrl = "https://developer.android.com/reference/android/telephony/satellite/SatelliteManager#PROPERTY_SATELLITE_DATA_OPTIMIZED";
+const networkCapabilitiesUrl = "https://developer.android.com/reference/android/net/NetworkCapabilities";
+---
+
+<BaseLayout
+  title="Developers"
+  description="Build Android apps that declare and handle support for constrained satellite networks."
+>
+  <article class="info-page">
+    <header class="info-hero">
+      <p class="section-eyebrow">For Android developers / Android 16+</p>
+      <h1>Build for<br /><em>constrained networks.</em></h1>
+      <p class="info-lead">Declare satellite support and design requests that survive low bandwidth, high latency, and interruptions.</p>
+    </header>
+
+    <section class="info-section" aria-labelledby="manifest-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">01 / Manifest</p>
+        <h2 id="manifest-heading">Tell Android your app is ready.</h2>
+        <p>Add the satellite data optimization property to the final app's <code class="inline-code">&lt;application&gt;</code> element. Use the exact package name as the value. This declaration belongs to the app manifest, not a library.</p>
+      </div>
+      <p class="code-label">AndroidManifest.xml</p>
+      <pre class="code-block"><code>&lt;application
+    android:label="@string/app_name"&gt;
+    &lt;meta-data
+        android:name="android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED"
+        android:value="com.example.yourapp" /&gt;
+&lt;/application&gt;</code></pre>
+      <p class="info-copy">Verify the declaration in the released APK before shipping.</p>
+    </section>
+
+    <section class="info-section info-split" aria-labelledby="network-heading">
+      <div>
+        <p class="section-eyebrow">02 / Network requests</p>
+        <h2 id="network-heading">Let constrained networks through.</h2>
+        <p class="info-copy">Requests that require an unconstrained network will exclude satellite connectivity. Remove that requirement and branch from the capabilities Android reports.</p>
+        <p class="code-label">Kotlin</p>
+        <pre class="code-block"><code>val request = NetworkRequest.Builder()
+    .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    .removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED)
+    .build()
+
+fun isConstrained(capabilities: NetworkCapabilities) =
+    !capabilities.hasCapability(
+        NetworkCapabilities.NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED
+    )</code></pre>
+      </div>
+      <aside class="info-callout">
+        <h3>Send less. Queue work. Resume safely.</h3>
+        <p>Keep payloads small, batch sync, make retries resumable, and limit background work.</p>
+      </aside>
+    </section>
+
+    <section class="info-section" aria-labelledby="push-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">03 / Push messages</p>
+        <h2 id="push-heading">Opt in to constrained FCM delivery.</h2>
+        <p>If your app uses Firebase Cloud Messaging, set the Android-specific flag on messages that should be delivered over a constrained network.</p>
+      </div>
+      <p class="code-label">FCM message payload</p>
+      <pre class="code-block"><code>&#123;
+  "message": &#123;
+    "token": "DEVICE_TOKEN",
+    "data": &#123; "sync": "requested" &#125;,
+    "android": &#123;
+      "bandwidth_constrained_ok": true
+    &#125;
+  &#125;
+&#125;</code></pre>
+    </section>
+
+    <section class="info-section" aria-labelledby="test-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Before release</p>
+        <h2 id="test-heading">Test behavior, not just metadata.</h2>
+        <p>Use an Android 16 device or emulator configuration that exposes constrained-network behavior. Check payload size, timeouts, retries, queued work, and recovery after the connection disappears.</p>
+      </div>
+      <p class="section-eyebrow">Canonical references</p>
+      <div class="source-links">
+        <a href={androidGuideUrl} target="_blank" rel="noreferrer">Android constrained-network guide <span aria-hidden="true">↗</span></a>
+        <a href={satelliteManagerUrl} target="_blank" rel="noreferrer">SatelliteManager property reference <span aria-hidden="true">↗</span></a>
+        <a href={networkCapabilitiesUrl} target="_blank" rel="noreferrer">NetworkCapabilities reference <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

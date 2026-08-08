@@ -1,0 +1,165 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const currentPhoneGroups = [
+  {
+    brand: "Apple",
+    evidence: "T-Mobile catalog / Apple carrier support",
+    models: ["iPhone 15", "iPhone 16", "iPhone 16 Plus", "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max", "iPhone 17e", "iPhone Air"],
+  },
+  {
+    brand: "Google",
+    evidence: "T-Mobile catalog and support list",
+    models: ["Pixel 9", "Pixel 9a", "Pixel 9 Pro", "Pixel 9 Pro XL", "Pixel 9 Pro Fold", "Pixel 10", "Pixel 10a", "Pixel 10 Pro", "Pixel 10 Pro XL", "Pixel 10 Pro Fold"],
+  },
+  {
+    brand: "Samsung",
+    evidence: "T-Mobile catalog / support documentation",
+    models: ["Galaxy S25", "Galaxy S25+", "Galaxy S25 Ultra", "Galaxy S25 Edge", "Galaxy S25 FE", "Galaxy S26", "Galaxy S26+", "Galaxy S26 Ultra", "Galaxy Z Flip7", "Galaxy Z Fold7", "Galaxy Z Flip8", "Galaxy Z Fold8", "Galaxy Z Fold8 Ultra", "Galaxy A17 5G", "Galaxy A36 5G", "Galaxy A37 5G", "Galaxy A57 5G", "Galaxy XCover7 Pro 5G"],
+  },
+  {
+    brand: "Motorola",
+    evidence: "T-Mobile catalog",
+    models: ["moto g - 2026", "moto g play - 2026", "moto g stylus - 2026", "razr - 2025", "razr+ 2025", "razr ultra - 2025", "razr - 2026", "razr fold - 2026", "razr - Swarovski", "edge - 2025"],
+  },
+  {
+    brand: "TCL",
+    evidence: "T-Mobile catalog",
+    models: ["NXTPAPER 70 Pro", "FLIP 4"],
+  },
+  {
+    brand: "T-Mobile",
+    evidence: "T-Mobile catalog",
+    models: ["REVVL 8", "REVVL 8 Pro"],
+  },
+  {
+    brand: "Sonim",
+    evidence: "T-Mobile catalog",
+    models: ["XP Pro", "XP3plus 5G", "XP3plus 5G Non-Camera Version"],
+  },
+];
+
+const additionalPhoneGroups = [
+  {
+    label: "Current model-specific support examples",
+    note: "T-Mobile currently links direct T-Satellite tutorials for these phones. The tutorials confirm satellite messaging; they do not establish that every model has satellite data or every messaging feature.",
+    models: ["iPhone 13 family (all models)", "iPhone 14 family", "iPhone 15 Plus, Pro, and Pro Max", "iPhone 16e, Pro, and Pro Max", "Galaxy S24, S24+, and S24 Ultra", "Galaxy Z Flip6", "Galaxy Z Fold6"],
+  },
+  {
+    label: "Current T-Satellite setup documentation",
+    note: "T-Mobile's current eSIM setup instructions name these phones as devices affected by the one-eSIM/one-physical-SIM configuration. That is positive support evidence, but exact service and feature eligibility still depends on the IMEI checker.",
+    models: ["Galaxy A15 5G", "Galaxy A16 5G SE", "Galaxy A35", "Galaxy S21 family", "Galaxy S22 family", "Galaxy S23 family", "Galaxy S23 FE", "Galaxy Z Flip3 5G through Z Flip5", "Galaxy Z Fold3 5G through Z Fold5", "Galaxy XCover6 Pro", "moto razr 2024", "moto edge 2024", "moto g stylus 5G (2024)", "moto g 5G (2024)", "T-Mobile REVVL 7", "T-Mobile REVVL 7 Pro"],
+  },
+];
+
+const pixelHelpUrl = "https://support.google.com/pixelphone/answer/15254448?hl=en";
+const androidSatelliteUrl = "https://source.android.com/docs/core/connect/satellite";
+const tMobileSupportUrl = "https://www.t-mobile.com/support/coverage/satellite-support";
+const tMobilePhonesUrl = "https://www.t-mobile.com/cell-phones/network/satellite";
+const tMobileBusinessUrl = "https://www.t-mobile.com/support/business/T-Mobile-for-Business-Satellite-Support";
+const tMobilePixelDataUrl = "https://www.t-mobile.com/news/network/t-satellite-data-pixel-10";
+const appleCarrierUrl = "https://support.apple.com/en-us/122339";
+const imeiUrl = "https://www.t-mobile.com/resources/bring-your-own-phone";
+---
+
+<BaseLayout
+  title="Supported phones"
+  description="Find phones with documented T-Mobile T-Satellite support, and understand what that means for constrained-network apps."
+>
+  <article class="info-page">
+    <header class="info-hero">
+      <p class="section-eyebrow">Device guide / T-Satellite</p>
+      <h1>Know the<br /><em>hardware.</em></h1>
+      <p class="info-lead">Pixel is only one part of the picture. T-Mobile's current catalog and support documentation cover satellite-capable phones from Apple, Google, Samsung, Motorola, TCL, T-Mobile, and Sonim.</p>
+    </header>
+
+    <section class="info-section" aria-labelledby="phones-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Current T-Mobile catalog</p>
+        <h2 id="phones-heading">T-Satellite is broader than Pixel.</h2>
+        <p>T-Mobile's Satellite Connected Phones catalog is the best public starting point for supported device families. The list below reflects the catalog and current T-Mobile support material checked August 8, 2026.</p>
+      </div>
+      <div class="phone-grid phone-family-grid">
+        {currentPhoneGroups.map((group, index) => (
+          <article class="phone-card phone-family">
+            <div class="phone-family-heading">
+              <span class="phone-card-index">{String(index + 1).padStart(2, "0")} / BRAND</span>
+              <h3>{group.brand}</h3>
+            </div>
+            <ul class="phone-models">
+              {group.models.map((model) => <li>{model}</li>)}
+            </ul>
+            <p>{group.evidence}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="additional-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Additional T-Mobile evidence</p>
+        <h2 id="additional-heading">More phones are documented in support.</h2>
+        <p>T-Mobile's main support page now sends customers to the T-Life app or IMEI checker for exact eligibility. It also exposes model-specific tutorials and eSIM setup guidance that confirm support beyond the current retail catalog snapshot.</p>
+      </div>
+      <div class="phone-grid phone-evidence-grid">
+        {additionalPhoneGroups.map((group, index) => (
+          <article class="phone-card phone-evidence">
+            <span class="phone-card-index">{String(index + 1).padStart(2, "0")} / SUPPORT</span>
+            <h3>{group.label}</h3>
+            <ul class="phone-models">
+              {group.models.map((model) => <li>{model}</li>)}
+            </ul>
+            <p>{group.note}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="info-section info-split" aria-labelledby="distinction-heading">
+      <div>
+        <p class="section-eyebrow">Read the signal correctly</p>
+        <h2 id="distinction-heading">Hardware support is not app support.</h2>
+        <p class="info-copy">T-Satellite support means a phone can use some combination of satellite messaging, location sharing, emergency texting, or selected data services through T-Mobile. Features vary by model, software, plan, region, and network conditions.</p>
+        <p class="info-copy">SatReady Apps checks a different layer: whether an Android APK declares that its app is optimized for constrained satellite data. A T-Satellite phone still needs the app's declaration and the right service path before satellite app data can work.</p>
+      </div>
+      <aside class="info-callout">
+        <p class="section-eyebrow">Important distinction</p>
+        <h3>Phone support is not one feature.</h3>
+        <p>T-Mobile says data is available on optimized apps and select phones. The IMEI checker is authoritative for your exact handset and available features.</p>
+        <div class="callout-links">
+          <a href={imeiUrl} target="_blank" rel="noreferrer">Check T-Mobile eligibility <span aria-hidden="true">↗</span></a>
+          <a href="/developers/">Read the developer guide <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="info-section" aria-labelledby="check-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Before you rely on it</p>
+        <h2 id="check-heading">Check the whole chain.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Check your exact device IMEI in T-Life or T-Mobile's bring-your-own-phone checker. Carrier variants can differ from the same retail model.</li>
+        <li>Confirm your plan, eSIM or SIM setup, software version, region, and current service availability.</li>
+        <li>Install and sign in to the apps you need before leaving terrestrial coverage.</li>
+        <li>Expect different capabilities: messaging and location sharing are broader than satellite handset data, which is limited to optimized apps.</li>
+        <li>Test with small, low-frequency requests. Satellite networks have lower throughput and higher, more variable latency.</li>
+      </ul>
+    </section>
+
+    <section class="info-section" aria-labelledby="sources-heading">
+      <p class="section-eyebrow">Primary sources</p>
+      <h2 id="sources-heading">Keep checking eligibility.</h2>
+      <p class="info-copy">Carrier compatibility changes as firmware, plans, and satellite features roll out. These sources explain the current catalog, the per-device check, the Pixel 10 data rollout, Apple's carrier requirements, and Android's platform layer.</p>
+      <div class="source-links">
+        <a href={tMobilePhonesUrl} target="_blank" rel="noreferrer">T-Mobile Satellite Connected Phones <span aria-hidden="true">↗</span></a>
+        <a href={tMobileSupportUrl} target="_blank" rel="noreferrer">T-Mobile T-Satellite support <span aria-hidden="true">↗</span></a>
+        <a href={tMobileBusinessUrl} target="_blank" rel="noreferrer">T-Mobile business device guidance <span aria-hidden="true">↗</span></a>
+        <a href={tMobilePixelDataUrl} target="_blank" rel="noreferrer">T-Satellite data on Pixel 10 <span aria-hidden="true">↗</span></a>
+        <a href={appleCarrierUrl} target="_blank" rel="noreferrer">Apple carrier satellite requirements <span aria-hidden="true">↗</span></a>
+        <a href={pixelHelpUrl} target="_blank" rel="noreferrer">Google Pixel Satellite SOS <span aria-hidden="true">↗</span></a>
+        <a href={androidSatelliteUrl} target="_blank" rel="noreferrer">AOSP satellite connectivity <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
