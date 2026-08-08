@@ -111,34 +111,6 @@ To preview the production output:
 npm run preview
 ```
 
-## Deploy With Cloudflare Pages
-
-Cloudflare Pages uses its Git integration to check out the repository, install
-the site dependencies, run the Astro build, and deploy the generated static
-files. No GitHub Actions workflow is required.
-
-In **Workers & Pages**, choose **Create application > Pages > Connect to Git**.
-Use these build settings:
-
-| Setting | Value |
-| --- | --- |
-| Production branch | `main` |
-| Root directory | `site` |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-
-The output directory is relative to the `site` root, so Cloudflare deploys
-`site/dist`. The complete repository remains available during the build, which
-allows the site's sync script to read `crawler/catalog.json`.
-
-The Pages build intentionally does not run the crawler. The crawler requires a
-local Mullvad SOCKS5 proxy and Android `aapt2`, which are not available in the
-Pages build environment. Run the crawler locally, commit the resulting catalog,
-and push the commit to trigger a deployment.
-
-After the first deployment, add `satreadyapps.com` under the Pages project's
-**Custom domains** settings.
-
 ## Development Checks
 
 Run the crawler tests and checks from the repository root:
