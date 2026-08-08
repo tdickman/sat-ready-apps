@@ -1,20 +1,26 @@
-# Android Satellite Apps
+# SatReady Apps
 
-Python crawler that downloads Android APKs, checks their manifests for
-`android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED`, and writes a catalog of
-matching apps.
+**Live site: [satreadyapps.com](https://satreadyapps.com)**
 
-The crawler covers the original U1-U4 pipeline. The Astro site lives under
-`site/` and consumes the generated `crawler/catalog.json` at build time.
+SatReady Apps is a catalog of Android apps whose manifests declare
+`android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED`.
+
+This repository contains two parts:
+
+- `crawler/`: downloads APKs, inspects their manifests, and writes the catalog.
+- `site/`: a static Astro site that publishes the catalog.
+
+The crawler runs locally. Cloudflare Pages builds and hosts the static site from
+the committed catalog.
 
 ## Requirements
 
 - Python 3.12 or newer
 - [`uv`](https://docs.astral.sh/uv/)
 - Android SDK Build-Tools with `aapt2` on `PATH`
-- A working Mullvad connection exposing SOCKS5 at `10.64.0.1:1080`
+- Mullvad exposing a SOCKS5 proxy at `10.64.0.1:1080`
 
-## Setup
+## Set Up The Crawler
 
 From the repository root:
 
@@ -22,158 +28,49 @@ From the repository root:
 uv sync
 ```
 
-Run the test suite:
-
-```bash
-uv run pytest -q
-```
-
-## Verify Mullvad
-
-The crawler uses `socks5h`, so DNS resolution also goes through Mullvad:
+The crawler uses `socks5h`, so DNS resolution also goes through Mullvad. Verify
+the connection with:
 
 ```bash
 uv run python -c "import requests; p='socks5h://10.64.0.1:1080'; r=requests.get('https://am.i.mullvad.net/connected', proxies={'http':p,'https':p}, timeout=15); print(r.text)"
 ```
 
-The response should state that you are connected to Mullvad and show a Mullvad
-exit IP.
+The response should confirm the Mullvad connection and show a Mullvad exit IP.
 
-## Run The Full Crawl
+## Run A Crawl
+
+Run the full crawl with the default configuration:
 
 ```bash
 uv run python crawler/crawl.py
 ```
 
-The default configuration is `crawler/config.yaml`. The crawl uses the
-configured Mullvad proxy, five workers, quiet dependency logging, and the
-curated popular-app seed list.
+The default configuration is [`crawler/config.yaml`](crawler/config.yaml). It
+uses the configured Mullvad proxy, five workers, the curated seed list, and
+incremental scan scheduling.
 
-Output files:
+The crawl writes:
 
-- `crawler/catalog.json`: confirmed apps and scan state
-- `crawler/crawl-errors.json`: per-package failure details, including source errors
-- `crawler/seed-validation.json`: Google Play preflight results for packages scanned this run
-- `crawler/apk_cache/`: downloaded APKs and bundles
-- `crawler/apk_cache/.parser_cache.json`: parser cache
+- `crawler/catalog.json`: confirmed apps and scan state; this is the site's source data.
+- `crawler/crawl-errors.json`: per-package failure details.
+- `crawler/seed-validation.json`: Google Play preflight results.
+- `crawler/apk_cache/`: downloaded APKs and bundles.
 
-Downloaded APKs and parser caches are ignored by Git.
-
-The command exits with status 1 if one or more packages fail, even though a
-partial catalog is still written. Review the summary and the `scanned` state in
+Downloaded APKs, parser caches, and error reports are ignored by Git. The
+crawler exits with status 1 when one or more packages fail, even though it still
+writes a partial catalog. Review the crawl summary and the `scanned` state in
 `crawler/catalog.json`.
 
-## Run A 10-App Test
+After a successful crawl, review the catalog and commit the updated
+`crawler/catalog.json`. That commit triggers a new site deployment.
 
-If the temporary test files already exist, run the crawl directly:
+## Crawl Configuration
 
-```bash
-uv run python crawler/crawl.py /tmp/satellite-test-config.yaml
-```
-
-The result is written to `/tmp/satellite-test-catalog.json`.
-
-To recreate those temporary files from a fresh checkout, use:
-
-Create an isolated seed list and configuration:
-
-```bash
-uv run python - <<'PY'
-import json
-from pathlib import Path
-import yaml
-
-packages = [
-    "com.google.android.apps.messaging",
-    "com.google.android.dialer",
-    "com.google.android.gm",
-    "com.android.chrome",
-    "org.telegram.messenger",
-    "com.whatsapp",
-    "org.fdroid.fdroid",
-    "com.google.android.apps.maps",
-    "com.google.android.youtube",
-    "com.spotify.music",
-]
-
-seed = [{"package_name": package, "category": "test"} for package in packages]
-config = yaml.safe_load(Path("crawler/config.yaml").read_text())
-
-Path("/tmp/satellite-test-seed.json").write_text(json.dumps(seed, indent=2))
-config["seed_list_path"] = "/tmp/satellite-test-seed.json"
-config["output_path"] = "/tmp/satellite-test-catalog.json"
-config["apk_cache_dir"] = "/tmp/satellite-test-cache"
-Path("/tmp/satellite-test-config.yaml").write_text(yaml.safe_dump(config))
-PY
-
-uv run python crawler/crawl.py /tmp/satellite-test-config.yaml
-```
-
-Inspect the isolated result:
-
-```bash
-uv run python -c "import json; print(json.dumps(json.load(open('/tmp/satellite-test-catalog.json')), indent=2))"
-```
-
-`com.google.android.apps.messaging` is a likely positive case. APK versions and
-source availability can change, so treat other expected outcomes as test
-expectations rather than permanent guarantees.
-
-## Incremental Crawls
-
-Each completed scan is recorded in `catalog.json` under `scanned`:
-
-```json
-{
-  "com.example.app": {
-    "category": "test",
-    "satellite_optimized": false,
-    "status": "negative",
-    "last_scanned": "2026-07-30T12:00:00+00:00"
-  }
-}
-```
-
-Successful positive and negative scans younger than `crawler.scan_days` are
-skipped. The default is 30 days:
+Important settings are in [`crawler/config.yaml`](crawler/config.yaml):
 
 ```yaml
-crawler:
-  scan_days: 30
-```
-
-Failed scans remain eligible for retry. New seed packages are scanned
-immediately. A positive app that becomes negative is removed from `apps` while
-its negative scan remains in `scanned`.
-
-APK reuse and scan scheduling are separate controls:
-
-- `cache_days`: reuse a downloaded APK for this many days
-- `scan_days`: skip a successful manifest scan for this many days
-
-## Store Links
-
-Play Store and F-Droid URLs are checked before they are included in an app
-entry. Checks use the configured Mullvad SOCKS5 proxy. Set this only for
-offline or mocked tests:
-
-```yaml
-validate_store_links: false
-```
-
-## Configuration
-
-Important settings are in `crawler/config.yaml`:
-
-```yaml
-error_output_path: crawl-errors.json
-seed_validation_report_path: seed-validation.json
-validate_seed_packages: true
-
 crawler:
   max_workers: 5
-  per_source_timeout: 5
-  aapt2_timeout: 60
   cache_days: 30
   scan_days: 30
 
@@ -184,24 +81,67 @@ proxy:
   port: 1080
 ```
 
-`source_order` controls the justapk fallback order. `quiet: true` suppresses
-third-party progress and debug output while retaining the crawl summary and
-writing detailed failures to `error_output_path`. APK manifests are parsed with
-the native Android `aapt2` tool; set `AAPT2_PATH` when the executable is not on
-`PATH`.
+- `cache_days` controls how long a downloaded APK can be reused.
+- `scan_days` controls how long a successful manifest scan is considered current.
+- Failed scans remain eligible for retry.
+- New seed packages are scanned immediately.
+- Set `AAPT2_PATH` when `aapt2` is not on `PATH`.
+- Set `validate_store_links: false` only for offline or mocked tests.
 
-With `validate_seed_packages: true`, packages that return HTTP 404 from Google
-Play are rejected before APK download. Temporary validation failures such as
-HTTP 403, HTTP 429, or network errors remain eligible for download.
+## Develop The Site
 
-The crawl summary and `crawl-errors.json` distinguish confirmed missing
-packages from operational download errors. `errors` counts source, parser, and
-worker failures; `packages_not_found` and `not_found` contain packages rejected
-by the Google Play preflight. `total_failures` includes both categories.
+The Astro site lives in `site/`:
 
-## Development
+```bash
+cd site
+npm install
+npm run dev
+```
 
-Run all tests and checks with:
+The site syncs and validates `../crawler/catalog.json` before development and
+production builds. To create a production build locally:
+
+```bash
+npm run build
+```
+
+To preview the production output:
+
+```bash
+npm run preview
+```
+
+## Deploy With Cloudflare Pages
+
+Cloudflare Pages uses its Git integration to check out the repository, install
+the site dependencies, run the Astro build, and deploy the generated static
+files. No GitHub Actions workflow is required.
+
+In **Workers & Pages**, choose **Create application > Pages > Connect to Git**.
+Use these build settings:
+
+| Setting | Value |
+| --- | --- |
+| Production branch | `main` |
+| Root directory | `site` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+
+The output directory is relative to the `site` root, so Cloudflare deploys
+`site/dist`. The complete repository remains available during the build, which
+allows the site's sync script to read `crawler/catalog.json`.
+
+The Pages build intentionally does not run the crawler. The crawler requires a
+local Mullvad SOCKS5 proxy and Android `aapt2`, which are not available in the
+Pages build environment. Run the crawler locally, commit the resulting catalog,
+and push the commit to trigger a deployment.
+
+After the first deployment, add `satreadyapps.com` under the Pages project's
+**Custom domains** settings.
+
+## Development Checks
+
+Run the crawler tests and checks from the repository root:
 
 ```bash
 uv run pytest -q
@@ -209,16 +149,8 @@ uv run python -m compileall -q crawler
 uv lock --check
 ```
 
-`crawler/requirements.txt` is retained as a legacy pip-compatible dependency
-list. `pyproject.toml` and `uv.lock` are the source of truth for `uv` setups.
-
-## Build The Site
-
-The site syncs and validates the crawler catalog before every development or
-production build:
+Build the site from `site/`:
 
 ```bash
-cd site
-npm install
 npm run build
 ```
