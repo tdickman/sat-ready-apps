@@ -1408,5 +1408,105 @@
     "package_name": "com.meetup",
     "source": "appbrain",
     "category": "social"
+  },
+  {
+    "package_name": "com.google.android.apps.adm",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.sec.android.daemonapp",
+    "source": "t-mobile",
+    "category": "weather"
+  },
+  {
+    "package_name": "com.tmobile.tuesdays",
+    "source": "t-mobile",
+    "category": "shopping"
+  },
+  {
+    "package_name": "com.alltrails.alltrails",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.caltopo.android",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "onxmaps.backcountry",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "onxmaps.hunt",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "onxmaps.offroad",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "onxmaps.fish",
+    "source": "t-mobile",
+    "category": "maps"
+  },
+  {
+    "package_name": "co.switchapp",
+    "source": "t-mobile",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.x3AM.Innovations.Flare.Mobile.App",
+    "source": "t-mobile",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.moviuscorp.movius",
+    "source": "t-mobile",
+    "category": "communication"
+  },
+  {
+    "package_name": "com.sprint.sdcplus",
+    "source": "t-mobile",
+    "category": "communication"
+  },
+  {
+    "package_name": "ai.x.grok",
+    "source": "samsung-community",
+    "category": "productivity"
+  },
+  {
+    "package_name": "com.google.android.gms",
+    "source": "samsung-community",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.app.find",
+    "source": "samsung-community",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.osp.app.signin",
+    "source": "samsung-community",
+    "category": "tools"
+  },
+  {
+    "package_name": "com.samsung.android.fmm",
+    "source": "samsung-community",
+    "category": "maps"
+  },
+  {
+    "package_name": "com.x.android.lite",
+    "source": "samsung-community",
+    "category": "social"
+  },
+  {
+    "package_name": "com.sec.android.app.shealth",
+    "source": "samsung-community",
+    "category": "health"
   }
 ]
