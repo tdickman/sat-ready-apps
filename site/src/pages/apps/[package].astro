@@ -15,13 +15,13 @@ const verifiedDate = app.last_verified ? new Date(app.last_verified) : null;
 const formattedVerifiedDate = verifiedDate && !Number.isNaN(verifiedDate.valueOf())
   ? verifiedDate.toLocaleDateString("en", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })
   : "Not available";
-const pageDescription = `${app.app_name} declares support for constrained satellite networks. View its package name, verification date, and official Android store links on SatReady Apps.`;
+const pageDescription = `${app.app_name} includes an Android setting indicating it is designed for limited satellite data. See when it was checked and find official download links.`;
 const detailUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is string => Boolean(url));
 ---
 
 <BaseLayout
-  title={`${app.app_name} satellite support`}
+  title={`${app.app_name} satellite data check`}
   description={pageDescription}
   additionalSchemas={[{
     "@type": "SoftwareApplication",
@@ -58,10 +58,9 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
         )}
       </div>
       <div class="detail-content">
-        <p class="section-eyebrow">Verified application</p>
+        <p class="section-eyebrow">Satellite data check</p>
         <h1>{app.app_name}</h1>
-        <p class="package-name">{app.package_name}</p>
-        <p class="detail-description">This app declares the Android satellite data optimization property and is included in the constrained-network catalog.</p>
+        <p class="detail-description">We checked an Android installation file for this app on the date shown. It included Android's setting for apps designed to use limited satellite data. The version currently in the app store may be different, and some features may not work with your mobile provider's satellite service. Also check your phone, plan, and provider's supported-app list.</p>
         <div class="detail-actions">
           {app.play_store_url && <a class="button button-primary" href={app.play_store_url} rel="noreferrer">Google Play <span aria-hidden="true">↗</span></a>}
           {app.fdroid_url && <a class="button button-secondary" href={app.fdroid_url} rel="noreferrer">F-Droid <span aria-hidden="true">↗</span></a>}
@@ -69,7 +68,7 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
       </div>
       <dl class="detail-facts">
         <div>
-          <dt>Last verified</dt>
+          <dt>Last checked</dt>
           <dd>{formattedVerifiedDate}</dd>
         </div>
         {app.category && (
@@ -79,8 +78,8 @@ const storeUrls = [app.play_store_url, app.fdroid_url].filter((url): url is stri
           </div>
         )}
         <div>
-          <dt>Manifest property</dt>
-          <dd class="property-name">PROPERTY_<br />SATELLITE_DATA_OPTIMIZED</dd>
+          <dt>Android app ID</dt>
+          <dd class="app-id">{app.package_name}</dd>
         </div>
       </dl>
     </div>

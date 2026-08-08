@@ -13,5 +13,5 @@ const { apps } = Astro.props;
   {apps.map((app) => <AppCard app={app} />)}
 </div>
 <p id="no-results" class="empty-state" hidden={apps.length > 0}>
-  {apps.length > 0 ? "No apps found. Try a different name." : "No apps in the catalog yet. The next crawl will add verified results."}
+  {apps.length > 0 ? "No apps found. Try a different name." : "No apps in the catalog yet. Apps will appear here after they are checked."}
 </p>

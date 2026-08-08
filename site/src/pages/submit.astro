@@ -2,8 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const repositoryUrl = "https://github.com/tdickman/sat-ready-apps";
-const issueUrl = "https://github.com/tdickman/sat-ready-apps/issues/new";
+const issueTitle = "Add app: ";
+const issueBody = `App name:
+Google Play or F-Droid link:
+Android app ID (if known):
+App version or satellite-support information:`;
+const issueUrl = `${repositoryUrl}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
 const seedListUrl = "https://github.com/tdickman/sat-ready-apps/blob/main/crawler/seed_list.json";
+const seedListEditUrl = "https://github.com/tdickman/sat-ready-apps/edit/main/crawler/seed_list.json";
 ---
 
 <BaseLayout
@@ -12,51 +18,48 @@ const seedListUrl = "https://github.com/tdickman/sat-ready-apps/blob/main/crawle
 >
   <article class="info-page">
     <header class="info-hero">
-      <p class="section-eyebrow">Community / GitHub</p>
-      <h1>Add to the<br /><em>signal.</em></h1>
-      <p class="info-lead">Suggest an Android app for the catalog. We check its released APK for the satellite optimization declaration before listing it.</p>
+      <h1>Submit an app</h1>
+      <p class="info-lead">Suggest an Android app for the catalog. Before listing it, we check its Android installation file for a setting that indicates it is designed for limited satellite data.</p>
     </header>
-
-    <section class="info-section" aria-labelledby="submit-heading">
-      <div class="info-section-heading">
-        <p class="section-eyebrow">Choose a path</p>
-        <h2 id="submit-heading">Issue or pull request.</h2>
-      </div>
-      <div class="submit-actions">
-        <article class="submit-action">
-          <h3>Nominate an app</h3>
-          <p>Open an issue with the package name, store link, and any supporting details.</p>
-          <a class="button button-primary" href={issueUrl} target="_blank" rel="noreferrer">New GitHub issue <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="submit-action">
-          <h3>Contribute a package</h3>
-          <p>Add the package to <code class="inline-code">crawler/seed_list.json</code> and open a pull request.</p>
-          <a class="button button-secondary" href={repositoryUrl} target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
-        </article>
-      </div>
-    </section>
 
     <section class="info-section" aria-labelledby="details-heading">
       <div class="info-section-heading">
-        <p class="section-eyebrow">What to include</p>
-        <h2 id="details-heading">Keep it useful.</h2>
+        <h2 id="details-heading">Include these details</h2>
+        <p>Search the <a href="/">current app list</a> first, then provide enough information to find the correct app version and check it.</p>
       </div>
       <ul class="check-list">
-        <li>The exact Android package name, such as <code class="inline-code">com.example.app</code>.</li>
+        <li>The Android app ID, if you know it, such as <code class="inline-code">com.example.app</code>.</li>
         <li>A Google Play or F-Droid link, if available.</li>
-        <li>The release version or evidence that suggests satellite support.</li>
+        <li>The app version, plus any link or information suggesting it works with satellite data.</li>
       </ul>
-      <div class="submit-note">
-        <p>Catalog data is generated. Do not edit the catalog output directly. The next crawl checks <code class="inline-code">android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED</code> and lists a package only when the declaration is found.</p>
-      </div>
     </section>
 
-    <section class="info-section" aria-labelledby="repository-heading">
-      <p class="section-eyebrow">Open source</p>
-      <h2 id="repository-heading">See the project.</h2>
+    <section class="info-section" aria-labelledby="submit-heading">
+      <div class="info-section-heading">
+        <h2 id="submit-heading">How to submit</h2>
+      </div>
+      <div class="submit-actions">
+        <article class="submit-action">
+          <p class="section-eyebrow">Recommended</p>
+          <h3>Suggest an app on GitHub</h3>
+          <p>Choose this option to suggest an app without editing project files.</p>
+          <a class="button button-primary" href={issueUrl} target="_blank" rel="noreferrer">Open an app suggestion <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="submit-action">
+          <p class="section-eyebrow">For people familiar with GitHub</p>
+          <h3>Edit the app list on GitHub</h3>
+          <p>Add the app to <code class="inline-code">crawler/seed_list.json</code> and submit your edit for review. Leave the generated catalog files unchanged.</p>
+          <a class="button button-secondary" href={seedListEditUrl} target="_blank" rel="noreferrer">Edit the app list <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <p class="info-copy">Both methods require a GitHub account. You can <a href={seedListUrl} target="_blank" rel="noreferrer">view the app list</a> without editing it.</p>
+    </section>
+
+    <section class="info-section" aria-labelledby="review-heading">
+      <h2 id="review-heading">What happens next</h2>
+      <p class="info-copy">An automated check downloads the app's Android installation file and looks for Android's limited-satellite-data setting. We list the app only when that setting is found. If we cannot complete the check, we do not list it.</p>
       <div class="source-links">
-        <a href={seedListUrl} target="_blank" rel="noreferrer">Seed list <span aria-hidden="true">↗</span></a>
-        <a href={`${repositoryUrl}/issues`} target="_blank" rel="noreferrer">Issues <span aria-hidden="true">↗</span></a>
+        <a href={repositoryUrl} target="_blank" rel="noreferrer">Project files on GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </article>

@@ -11,15 +11,15 @@ interface Props {
 }
 
 const {
-  title = "Android Apps for Constrained Satellite Networks",
-  description = "Search manifest-verified Android apps that declare support for constrained satellite networks.",
+  title = "Android Apps for Limited Satellite Data",
+  description = "Browse Android apps that include Android's setting for limited satellite data connections.",
   image = "/social-card.png",
-  imageAlt = "SatReady Apps: Android apps for constrained satellite networks",
+  imageAlt = "SatReady Apps: Android apps for limited satellite data",
   noindex = false,
   additionalSchemas = [],
 } = Astro.props;
 const siteName = "SatReady Apps";
-const siteDescription = "A searchable catalog of Android apps that declare support for constrained satellite networks.";
+const siteDescription = "A searchable catalog of Android apps that include Android's setting for limited satellite data connections.";
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 const siteOrigin = Astro.site ?? Astro.url;
 const siteUrl = new URL("/", siteOrigin);
@@ -75,16 +75,16 @@ const structuredData = JSON.stringify({
           <span>satready<span class="wordmark-accent">/</span>apps</span>
         </a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="/">Catalog</a>
+          <a href="/">Apps</a>
           <a href="/service/">Get service</a>
           <a href="/supported-phones/">Supported phones</a>
           <a href="/developers/">Developers</a>
-          <a href="/submit/">Submit</a>
+          <a href="/submit/">Suggest an app</a>
         </nav>
       </header>
       <main><slot /></main>
       <footer class="site-footer">
-        <span>Manifest-verified for constrained networks.</span>
+        <span>Apps checked for Android's limited-satellite-data setting.</span>
         <span class="footer-dot" aria-hidden="true"></span>
         <span>satreadyapps.com</span>
       </footer>

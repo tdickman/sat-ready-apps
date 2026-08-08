@@ -1,9 +1,8 @@
 <div class="search-panel">
-  <label for="app-search">Search the catalog</label>
+  <label for="app-search">Search apps</label>
   <div class="search-input-wrap">
     <span class="search-icon" aria-hidden="true">⌕</span>
-    <input id="app-search" type="search" placeholder="Search by app name" autocomplete="off" spellcheck="false" />
-    <kbd>/</kbd>
+    <input id="app-search" type="search" placeholder="Search by app name or Android app ID" autocomplete="off" spellcheck="false" />
   </div>
   <p id="search-results" class="search-results" aria-live="polite"></p>
 </div>
@@ -21,7 +20,8 @@
 
       for (const card of cards) {
         const appName = card.dataset.appName?.toLocaleLowerCase() ?? "";
-        const visible = !query || appName.includes(query);
+        const packageName = card.dataset.packageName?.toLocaleLowerCase() ?? "";
+        const visible = !query || appName.includes(query) || packageName.includes(query);
         card.hidden = !visible;
         if (visible) visibleCount += 1;
       }

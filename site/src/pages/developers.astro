@@ -12,15 +12,14 @@ const networkCapabilitiesUrl = "https://developer.android.com/reference/android/
 >
   <article class="info-page">
     <header class="info-hero">
-      <p class="section-eyebrow">For Android developers / Android 16+</p>
-      <h1>Build for<br /><em>constrained networks.</em></h1>
-      <p class="info-lead">Declare satellite support and design requests that survive low bandwidth, high latency, and interruptions.</p>
+      <h1>Support constrained satellite networks</h1>
+      <p class="info-lead">For Android 16 and later, declare constrained-network support in the app manifest and make network behavior tolerate low bandwidth, high latency, and interruptions. The declaration makes an app eligible; it does not guarantee carrier support.</p>
     </header>
 
     <section class="info-section" aria-labelledby="manifest-heading">
       <div class="info-section-heading">
-        <p class="section-eyebrow">01 / Manifest</p>
-        <h2 id="manifest-heading">Tell Android your app is ready.</h2>
+        <p class="section-eyebrow">Required</p>
+        <h2 id="manifest-heading">1. Declare support in the manifest</h2>
         <p>Add the satellite data optimization property to the final app's <code class="inline-code">&lt;application&gt;</code> element. Use the exact package name as the value. This declaration belongs to the app manifest, not a library.</p>
       </div>
       <p class="code-label">AndroidManifest.xml</p>
@@ -33,32 +32,30 @@ const networkCapabilitiesUrl = "https://developer.android.com/reference/android/
       <p class="info-copy">Verify the declaration in the released APK before shipping.</p>
     </section>
 
-    <section class="info-section info-split" aria-labelledby="network-heading">
-      <div>
-        <p class="section-eyebrow">02 / Network requests</p>
-        <h2 id="network-heading">Let constrained networks through.</h2>
-        <p class="info-copy">Requests that require an unconstrained network will exclude satellite connectivity. Remove that requirement and branch from the capabilities Android reports.</p>
-        <p class="code-label">Kotlin</p>
-        <pre class="code-block"><code>val request = NetworkRequest.Builder()
+    <section class="info-section" aria-labelledby="network-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">If you build custom network requests</p>
+        <h2 id="network-heading">2. Handle constrained network requests</h2>
+        <p class="info-copy">Apps with custom <code class="inline-code">ConnectivityManager</code> or <code class="inline-code">NetworkRequest</code> logic must not require an unconstrained network. Remove that requirement and branch from the transport and capabilities Android reports.</p>
+      </div>
+      <p class="code-label">Kotlin</p>
+      <pre class="code-block"><code>val request = NetworkRequest.Builder()
     .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     .removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED)
     .build()
 
-fun isConstrained(capabilities: NetworkCapabilities) =
+fun shouldOptimizeForSatellite(capabilities: NetworkCapabilities) =
+    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_SATELLITE) ||
     !capabilities.hasCapability(
         NetworkCapabilities.NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED
     )</code></pre>
-      </div>
-      <aside class="info-callout">
-        <h3>Send less. Queue work. Resume safely.</h3>
-        <p>Keep payloads small, batch sync, make retries resumable, and limit background work.</p>
-      </aside>
+      <p class="info-copy">Keep payloads small, queue work, make retries resumable, and limit background transfers.</p>
     </section>
 
     <section class="info-section" aria-labelledby="push-heading">
       <div class="info-section-heading">
-        <p class="section-eyebrow">03 / Push messages</p>
-        <h2 id="push-heading">Opt in to constrained FCM delivery.</h2>
+        <p class="section-eyebrow">Optional / apps using FCM</p>
+        <h2 id="push-heading">3. Enable constrained FCM delivery</h2>
         <p>If your app uses Firebase Cloud Messaging, set the Android-specific flag on messages that should be delivered over a constrained network.</p>
       </div>
       <p class="code-label">FCM message payload</p>
@@ -76,7 +73,7 @@ fun isConstrained(capabilities: NetworkCapabilities) =
     <section class="info-section" aria-labelledby="test-heading">
       <div class="info-section-heading">
         <p class="section-eyebrow">Before release</p>
-        <h2 id="test-heading">Test behavior, not just metadata.</h2>
+        <h2 id="test-heading">4. Test on a constrained network</h2>
         <p>Use an Android 16 device or emulator configuration that exposes constrained-network behavior. Check payload size, timeouts, retries, queued work, and recovery after the connection disappears.</p>
       </div>
       <p class="section-eyebrow">Canonical references</p>
@@ -84,6 +81,7 @@ fun isConstrained(capabilities: NetworkCapabilities) =
         <a href={androidGuideUrl} target="_blank" rel="noreferrer">Android constrained-network guide <span aria-hidden="true">↗</span></a>
         <a href={satelliteManagerUrl} target="_blank" rel="noreferrer">SatelliteManager property reference <span aria-hidden="true">↗</span></a>
         <a href={networkCapabilitiesUrl} target="_blank" rel="noreferrer">NetworkCapabilities reference <span aria-hidden="true">↗</span></a>
+        <a href="/submit/">Submit a released app <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </article>
