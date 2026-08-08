@@ -59,7 +59,7 @@ const tMobilePhonesUrl = "https://www.t-mobile.com/cell-phones/network/satellite
 const tMobileBusinessUrl = "https://www.t-mobile.com/support/business/T-Mobile-for-Business-Satellite-Support";
 const tMobilePixelDataUrl = "https://www.t-mobile.com/news/network/t-satellite-data-pixel-10";
 const appleCarrierUrl = "https://support.apple.com/en-us/122339";
-const imeiUrl = "https://www.t-mobile.com/resources/bring-your-own-phone";
+const imeiUrl = "https://www.t-mobile.com/resources/bring-your-own-phone#phone-check";
 ---
 
 <BaseLayout
@@ -71,6 +71,10 @@ const imeiUrl = "https://www.t-mobile.com/resources/bring-your-own-phone";
       <p class="section-eyebrow">Device guide / T-Satellite</p>
       <h1>Know the<br /><em>hardware.</em></h1>
       <p class="info-lead">Pixel is only one part of the picture. T-Mobile's current catalog and support documentation cover satellite-capable phones from Apple, Google, Samsung, Motorola, TCL, T-Mobile, and Sonim.</p>
+      <div class="info-hero-actions">
+        <a class="button button-primary" href="/service/">Get satellite service <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="#phones-heading">Browse phone support <span aria-hidden="true">↓</span></a>
+      </div>
     </header>
 
     <section class="info-section" aria-labelledby="phones-heading">
@@ -127,6 +131,7 @@ const imeiUrl = "https://www.t-mobile.com/resources/bring-your-own-phone";
         <h3>Phone support is not one feature.</h3>
         <p>T-Mobile says data is available on optimized apps and select phones. The IMEI checker is authoritative for your exact handset and available features.</p>
         <div class="callout-links">
+          <a href="/service/">See service options <span aria-hidden="true">↗</span></a>
           <a href={imeiUrl} target="_blank" rel="noreferrer">Check T-Mobile eligibility <span aria-hidden="true">↗</span></a>
           <a href="/developers/">Read the developer guide <span aria-hidden="true">↗</span></a>
         </div>

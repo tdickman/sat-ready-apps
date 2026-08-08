@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const tMobileServiceUrl = "https://www.t-mobile.com/coverage/satellite-phone-service";
+const tMobileChooseServiceUrl = "https://www.t-mobile.com/coverage/satellite-phone-service/choose-your-satellite-service";
+const tMobileTrialUrl = "https://secure.t-mobile.com/network";
+const tMobileEligibilityUrl = "https://www.t-mobile.com/resources/bring-your-own-phone#phone-check";
+const tMobileSupportUrl = "https://www.t-mobile.com/support/coverage/satellite-support";
+const tMobileAppsUrl = `${tMobileSupportUrl}#apps`;
+const tMobileText911Url = "https://www.t-mobile.com/coverage/satellite-phone-service/standalone-sign-up?planId=TSAT911";
+const appleSatelliteUrl = "https://support.apple.com/en-us/101573";
+const pixelSatelliteUrl = "https://support.google.com/pixelphone/answer/15254448?hl=en";
+const checkedDate = "August 8, 2026";
+---
+
+<BaseLayout
+  title="Get satellite service"
+  description="Compare the ways to get phone satellite service for SatReady Apps, including T-Mobile T-Satellite plans and emergency-only options."
+>
+  <article class="info-page">
+    <header class="info-hero">
+      <p class="section-eyebrow">Service guide / US phone connectivity</p>
+      <h1>Get the<br /><em>signal.</em></h1>
+      <p class="info-lead">SatReady Apps finds Android apps whose manifests declare support for constrained satellite data. You still need a compatible phone, a service plan, and current carrier app eligibility to connect beyond cell towers.</p>
+      <div class="info-hero-actions">
+        <a class="button button-primary" href={tMobileEligibilityUrl} target="_blank" rel="noreferrer">Check your phone <span aria-hidden="true">↗</span></a>
+        <a class="button button-secondary" href="/supported-phones/">See supported phones <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <section class="info-section" aria-labelledby="service-options-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">How to get service</p>
+        <h2 id="service-options-heading">Choose your route.</h2>
+        <p>For US Android satellite app data covered by this catalog, T-Mobile T-Satellite with Starlink is the only direct-to-phone service we currently verify. T-Mobile offers it to existing customers and to people who use another carrier. Manifest verification is not a guarantee that every listed app is currently enabled on T-Satellite or on every phone.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-option service-option-featured">
+          <span class="phone-card-index">01 / INCLUDED</span>
+          <h3>Eligible T-Mobile plan</h3>
+          <p class="service-price">Included</p>
+          <p>T-Satellite is included at no extra cost with eligible T-Mobile plans. T-Mobile's current service page names Experience Beyond 2.0 and Better Value; plan eligibility can change.</p>
+          <a class="button button-primary" href={tMobileServiceUrl} target="_blank" rel="noreferrer">View T-Satellite plans <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-option">
+          <span class="phone-card-index">02 / T-MOBILE</span>
+          <h3>Add it to T-Mobile</h3>
+          <p class="service-price">Currently $10/month per line</p>
+          <p>If you already have T-Mobile but not an eligible included plan, add T-Satellite through T-Life or My T-Mobile under Manage Data &amp; Add-Ons. A compatible phone is still required.</p>
+          <a class="button button-secondary" href={tMobileServiceUrl} target="_blank" rel="noreferrer">See add-on details <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-option">
+          <span class="phone-card-index">03 / STANDALONE</span>
+          <h3>Keep your current carrier</h3>
+          <p class="service-price">Currently $10/month per line</p>
+          <p>Non-T-Mobile customers can enroll in standalone T-Satellite without switching their regular phone service. Your phone must be unlocked, satellite-optimized, and able to use eSIM.</p>
+          <a class="button button-secondary" href={tMobileChooseServiceUrl} target="_blank" rel="noreferrer">Enroll in standalone service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-option">
+          <span class="phone-card-index">04 / TRY IT</span>
+          <h3>Test the T-Mobile network</h3>
+          <p class="service-price">Free for 30 days</p>
+          <p>T-Mobile Trial currently includes T-Satellite for qualifying non-T-Mobile users with a compatible unlocked phone. This is a trial, not the ongoing standalone plan.</p>
+          <a class="button button-secondary" href={tMobileTrialUrl} target="_blank" rel="noreferrer">Start T-Mobile Trial <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-option">
+          <span class="phone-card-index">05 / EMERGENCY</span>
+          <h3>Text 911 only</h3>
+          <p class="service-price">Free</p>
+          <p>T-Mobile Text to 911 can provide emergency satellite texting on eligible phones, including for some non-T-Mobile customers. It cannot run apps or send ordinary messages to other numbers.</p>
+          <a class="button button-secondary" href={tMobileText911Url} target="_blank" rel="noreferrer">Register for T-911 <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="info-section info-split" aria-labelledby="alternatives-heading">
+      <div>
+        <p class="section-eyebrow">What counts as an alternative?</p>
+        <h2 id="alternatives-heading">T-Mobile is not the only satellite feature.</h2>
+        <p class="info-copy">Apple and Google offer built-in satellite emergency features on some phones. Those features are useful, but they are not a carrier plan for general satellite data and they do not make the Android apps in this catalog work over satellite.</p>
+        <p class="info-copy">Other carriers may offer satellite messaging or emergency products. We do not list those as equivalent service options unless their current documentation confirms direct-to-phone Android satellite data for optimized apps.</p>
+      </div>
+      <aside class="info-callout">
+        <p class="section-eyebrow">Not the same service</p>
+        <h3>Check the feature, not just the satellite label.</h3>
+        <p>Apple Emergency SOS is for iPhone 14 and later. Pixel Satellite SOS is for supported Pixel phones and emergency use. Neither is a path to satellite app data on an Android phone.</p>
+        <div class="callout-links">
+          <a href={appleSatelliteUrl} target="_blank" rel="noreferrer">Apple Emergency SOS details <span aria-hidden="true">↗</span></a>
+          <a href={pixelSatelliteUrl} target="_blank" rel="noreferrer">Google Pixel Satellite SOS details <span aria-hidden="true">↗</span></a>
+          <a href={tMobileAppsUrl} target="_blank" rel="noreferrer">T-Mobile optimized app list <span aria-hidden="true">↗</span></a>
+          <a href={tMobileSupportUrl} target="_blank" rel="noreferrer">T-Mobile feature eligibility <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="info-section" aria-labelledby="steps-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Before you leave coverage</p>
+        <h2 id="steps-heading">Check the whole chain.</h2>
+        <p>Service, phone, and app support are separate checks. Complete each one while you still have a normal connection.</p>
+      </div>
+      <ol class="step-list">
+        <li class="step">
+          <span class="step-number">01</span>
+          <div>
+            <h3>Check the exact phone.</h3>
+            <p>Use T-Mobile's IMEI checker. Carrier variants can differ from the same retail model, and the standalone route requires an unlocked phone with eSIM capability.</p>
+            <a class="button button-secondary" href={tMobileEligibilityUrl} target="_blank" rel="noreferrer">Check device eligibility <span aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">02</span>
+          <div>
+            <h3>Activate the service.</h3>
+            <p>T-Mobile says you can enroll online, in a retail store, or by phone. Existing customers can manage the add-on in T-Life or My T-Mobile. The standalone signup is the direct path for customers on another carrier.</p>
+            <a class="button button-secondary" href={tMobileServiceUrl} target="_blank" rel="noreferrer">Open T-Mobile service guide <span aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">03</span>
+          <div>
+            <h3>Install and sign in first.</h3>
+            <p>Install the apps you need and sign in before leaving terrestrial coverage. Satellite data is slower and more limited than ordinary cellular data, and only functionality on T-Mobile's current optimized-app list is expected to work. SatReady's manifest check and T-Mobile's carrier list are separate checks.</p>
+            <a class="button button-secondary" href="/">Browse verified apps <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href={tMobileAppsUrl} target="_blank" rel="noreferrer">Check T-Mobile's app list <span aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="info-section" aria-labelledby="sources-heading">
+      <p class="section-eyebrow">Research checked {checkedDate}</p>
+      <h2 id="sources-heading">Use the carrier's current eligibility.</h2>
+      <p class="info-copy">Pricing, plan inclusion, device support, and satellite features can change. T-Mobile's eligibility checker and service pages are the authority for a specific phone and account.</p>
+      <div class="source-links">
+        <a href={tMobileServiceUrl} target="_blank" rel="noreferrer">T-Mobile T-Satellite service <span aria-hidden="true">↗</span></a>
+        <a href={tMobileChooseServiceUrl} target="_blank" rel="noreferrer">Standalone enrollment <span aria-hidden="true">↗</span></a>
+        <a href={tMobileEligibilityUrl} target="_blank" rel="noreferrer">T-Mobile IMEI checker <span aria-hidden="true">↗</span></a>
+        <a href={tMobileSupportUrl} target="_blank" rel="noreferrer">T-Mobile support guide <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
