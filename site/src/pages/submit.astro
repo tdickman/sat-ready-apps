@@ -7,73 +7,56 @@ const seedListUrl = "https://github.com/tdickman/sat-ready-apps/blob/main/crawle
 ---
 
 <BaseLayout
-  title="Submit an app"
-  description="Submit an Android app for SatReady Apps through GitHub, or open a pull request to add its package to the crawl queue."
+  title="Submit"
+  description="Suggest an Android app for the SatReady Apps catalog through GitHub."
 >
   <article class="info-page">
     <header class="info-hero">
-      <p class="section-eyebrow">Community queue / GitHub</p>
-      <h1>Put an app<br /><em>on the radar.</em></h1>
-      <p class="info-lead">Nominate an Android app that should be checked for constrained satellite network support. The crawler verifies the released APK; a submission is not an instant catalog listing.</p>
+      <p class="section-eyebrow">Community / GitHub</p>
+      <h1>Add to the<br /><em>signal.</em></h1>
+      <p class="info-lead">Suggest an Android app for the catalog. We check its released APK for the satellite optimization declaration before listing it.</p>
     </header>
 
     <section class="info-section" aria-labelledby="submit-heading">
       <div class="info-section-heading">
         <p class="section-eyebrow">Choose a path</p>
         <h2 id="submit-heading">Issue or pull request.</h2>
-        <p>Use an issue if you want to share a package quickly. Open a pull request if you are comfortable adding the package to the crawler’s seed list and following the repository checks.</p>
       </div>
       <div class="submit-actions">
         <article class="submit-action">
-          <h3>Open an issue</h3>
-          <p>Best for a quick nomination, a correction, or a stale listing report. Include the package name and any evidence you have.</p>
+          <h3>Nominate an app</h3>
+          <p>Open an issue with the package name, store link, and any supporting details.</p>
           <a class="button button-primary" href={issueUrl} target="_blank" rel="noreferrer">New GitHub issue <span aria-hidden="true">↗</span></a>
         </article>
         <article class="submit-action">
-          <h3>Open a pull request</h3>
-          <p>Add one package to the seed list, then let the normal crawl and review process confirm the manifest declaration.</p>
+          <h3>Contribute a package</h3>
+          <p>Add the package to <code class="inline-code">crawler/seed_list.json</code> and open a pull request.</p>
           <a class="button button-secondary" href={repositoryUrl} target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
         </article>
       </div>
     </section>
 
-    <section class="info-section" aria-labelledby="issue-heading">
+    <section class="info-section" aria-labelledby="details-heading">
       <div class="info-section-heading">
-        <p class="section-eyebrow">Issue checklist</p>
-        <h2 id="issue-heading">Give the crawler a useful lead.</h2>
+        <p class="section-eyebrow">What to include</p>
+        <h2 id="details-heading">Keep it useful.</h2>
       </div>
-      <ol class="contribution-list">
-        <li>Include the exact Android package name, for example <code class="inline-code">com.example.app</code>, not only the app’s display name.</li>
-        <li>Add the Google Play or F-Droid URL if one exists, plus the release version you checked.</li>
-        <li>Explain why you believe the app supports constrained networks. A manifest snippet, release note, or maintainer confirmation is useful context.</li>
-        <li>For a correction, include the current listing URL and describe what is stale or incorrect.</li>
-      </ol>
-    </section>
-
-    <section class="info-section" aria-labelledby="pr-heading">
-      <div class="info-section-heading">
-        <p class="section-eyebrow">Pull request checklist</p>
-        <h2 id="pr-heading">Change the source, not the output.</h2>
-        <p>Catalog data is generated. Do not edit <code class="inline-code">crawler/catalog.json</code> or <code class="inline-code">site/src/data/catalog.json</code> directly.</p>
-      </div>
-      <ol class="contribution-list">
-        <li>Fork the repository and add a single object with the package name to <a href={seedListUrl} target="_blank" rel="noreferrer"><code class="inline-code">crawler/seed_list.json</code></a>. Keep the JSON valid and do not duplicate an existing package.</li>
-        <li>Add a category when it is clear and useful. The crawler fills in the app name, icon, store links, and verification result.</li>
-        <li>Run <code class="inline-code">uv run pytest -q</code> and <code class="inline-code">npm run build</code> from the documented project directories.</li>
-        <li>Describe the package, your source, and what you tested in the pull request. Review happens before an app appears in the public catalog.</li>
-      </ol>
+      <ul class="check-list">
+        <li>The exact Android package name, such as <code class="inline-code">com.example.app</code>.</li>
+        <li>A Google Play or F-Droid link, if available.</li>
+        <li>The release version or evidence that suggests satellite support.</li>
+      </ul>
       <div class="submit-note">
-        <p><strong>What happens next:</strong> the next crawl downloads an available APK and checks for <code class="inline-code">android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED</code>. A package is listed only when that manifest signal is found. This check does not guarantee connectivity, carrier support, or that every app feature works over satellite.</p>
+        <p>Catalog data is generated. Do not edit the catalog output directly. The next crawl checks <code class="inline-code">android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED</code> and lists a package only when the declaration is found.</p>
       </div>
     </section>
 
     <section class="info-section" aria-labelledby="repository-heading">
-      <p class="section-eyebrow">Open source project</p>
-      <h2 id="repository-heading">Follow the work on GitHub.</h2>
-      <p class="info-copy">Read the crawler and site code, review existing issues, and see how the catalog is generated.</p>
+      <p class="section-eyebrow">Open source</p>
+      <h2 id="repository-heading">See the project.</h2>
       <div class="source-links">
-        <a href={repositoryUrl} target="_blank" rel="noreferrer">SatReady Apps repository <span aria-hidden="true">↗</span></a>
-        <a href={`${repositoryUrl}/issues`} target="_blank" rel="noreferrer">Issues and discussions <span aria-hidden="true">↗</span></a>
+        <a href={seedListUrl} target="_blank" rel="noreferrer">Seed list <span aria-hidden="true">↗</span></a>
+        <a href={`${repositoryUrl}/issues`} target="_blank" rel="noreferrer">Issues <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </article>
