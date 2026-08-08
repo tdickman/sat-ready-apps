@@ -486,6 +486,7 @@ def process_package(
     if not apk_path:
         return {
             "package_name": package_name,
+            "category": category,
             "error": "download_failed",
             "error_detail": download_error,
             "downloaded": False,
@@ -511,6 +512,7 @@ def process_package(
         if not apk_path:
             return {
                 "package_name": package_name,
+                "category": category,
                 "error": "download_failed",
                 "error_detail": download_error,
                 "downloaded": False,
@@ -525,6 +527,7 @@ def process_package(
     if parser_result.get("error"):
         return {
             "package_name": package_name,
+            "category": category,
             "error": "parse_failed",
             "error_detail": parser_result.get("error"),
             "downloaded": downloaded,
@@ -536,6 +539,7 @@ def process_package(
     if parsed_package not in (None, package_name):
         return {
             "package_name": package_name,
+            "category": category,
             "error": "package_mismatch",
             "error_detail": f"downloaded package {parsed_package!r}",
             "downloaded": downloaded,
@@ -640,10 +644,13 @@ def _write_catalog(
         elif status == "error":
             previous_scan = scans.get(package_name)
             if previous_scan:
-                scans[package_name] = {
+                scan = {
                     **previous_scan,
                     "last_error": result.get("error"),
                 }
+                if result.get("category"):
+                    scan["category"] = result["category"]
+                scans[package_name] = scan
             else:
                 scans[package_name] = {
                     "package_name": package_name,
@@ -830,6 +837,7 @@ def run_crawl(config: dict) -> dict:
     sat_found = 0
     cached_skipped = 0
     failed_packages: set[str] = set()
+    categories = {entry["package_name"]: entry.get("category", "") for entry in seed_list}
     failure_details: dict[str, dict] = {
         package_name: {
             "error": "package_not_found",
@@ -865,6 +873,8 @@ def run_crawl(config: dict) -> dict:
             pkg = future_map[future]
             try:
                 result = future.result()
+                if not result.get("category"):
+                    result["category"] = categories.get(pkg, "")
                 if result.get("error"):
                     errors += 1
                     failed_packages.add(pkg)
@@ -891,6 +901,7 @@ def run_crawl(config: dict) -> dict:
                 results.append(
                     {
                         "package_name": pkg,
+                        "category": categories.get(pkg, ""),
                         "status": "error",
                         "error": str(e),
                         "error_detail": str(e),

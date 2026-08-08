@@ -1415,11 +1415,6 @@
     "category": "maps"
   },
   {
-    "package_name": "com.sec.android.daemonapp",
-    "source": "t-mobile",
-    "category": "weather"
-  },
-  {
     "package_name": "com.tmobile.tuesdays",
     "source": "t-mobile",
     "category": "shopping"
@@ -1488,21 +1483,6 @@
     "package_name": "com.samsung.android.app.find",
     "source": "samsung-community",
     "category": "maps"
-  },
-  {
-    "package_name": "com.osp.app.signin",
-    "source": "samsung-community",
-    "category": "tools"
-  },
-  {
-    "package_name": "com.samsung.android.fmm",
-    "source": "samsung-community",
-    "category": "maps"
-  },
-  {
-    "package_name": "com.x.android.lite",
-    "source": "samsung-community",
-    "category": "social"
   },
   {
     "package_name": "com.sec.android.app.shealth",

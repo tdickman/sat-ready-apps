@@ -112,7 +112,24 @@ def test_process_package_reports_failed_replacement_download(tmp_path):
         result = process_package("com.example.app", "tools", config)
 
     assert result["error"] == "download_failed"
+    assert result["category"] == "tools"
     assert result["error_detail"] == "All sources failed: apkpure: timeout"
+
+
+def test_process_package_preserves_category_on_download_failure(tmp_path):
+    config = {
+        "apk_cache_dir": str(tmp_path),
+        "crawler": {"cache_days": 30},
+    }
+
+    with patch(
+        "crawl.download_with_diagnostics",
+        return_value=(None, "All sources failed: apkpure: timeout"),
+    ):
+        result = process_package("com.example.app", "maps", config)
+
+    assert result["error"] == "download_failed"
+    assert result["category"] == "maps"
 
 
 def test_run_crawl_does_not_count_failed_cache_refresh_as_skip(tmp_path):
@@ -334,6 +351,85 @@ def test_run_crawl_preserves_previous_app_when_worker_fails(tmp_path):
             "detail": "temporary failure",
         }
     ]
+
+
+def test_run_crawl_refreshes_category_on_previous_error(tmp_path):
+    seed_path = tmp_path / "seed.json"
+    output_path = tmp_path / "catalog.json"
+    seed_path.write_text(json.dumps([{"package_name": "com.example.app", "category": "maps"}]))
+    output_path.write_text(
+        json.dumps(
+            {
+                "apps": [],
+                "scanned": {
+                    "com.example.app": {
+                        "package_name": "com.example.app",
+                        "category": "",
+                        "satellite_optimized": False,
+                        "status": "error",
+                        "last_scanned": None,
+                        "last_error": "download_failed",
+                    }
+                },
+            }
+        )
+    )
+    config = {
+        "seed_list_path": str(seed_path),
+        "output_path": str(output_path),
+        "crawler": {"max_workers": 1},
+    }
+    result = {
+        "package_name": "com.example.app",
+        "category": "maps",
+        "error": "download_failed",
+        "status": "error",
+    }
+
+    with patch("crawl.process_package", return_value=result):
+        run_crawl(config)
+
+    catalog = json.loads(output_path.read_text())
+    assert catalog["scanned"]["com.example.app"]["category"] == "maps"
+
+
+def test_run_crawl_preserves_existing_category_on_categoryless_error(tmp_path):
+    seed_path = tmp_path / "seed.json"
+    output_path = tmp_path / "catalog.json"
+    seed_path.write_text(json.dumps([{"package_name": "com.example.app", "category": "maps"}]))
+    output_path.write_text(
+        json.dumps(
+            {
+                "apps": [],
+                "scanned": {
+                    "com.example.app": {
+                        "package_name": "com.example.app",
+                        "category": "maps",
+                        "satellite_optimized": False,
+                        "status": "error",
+                        "last_scanned": None,
+                        "last_error": "parse_failed",
+                    }
+                },
+            }
+        )
+    )
+    config = {
+        "seed_list_path": str(seed_path),
+        "output_path": str(output_path),
+        "crawler": {"max_workers": 1},
+    }
+    result = {
+        "package_name": "com.example.app",
+        "error": "parse_failed",
+        "status": "error",
+    }
+
+    with patch("crawl.process_package", return_value=result):
+        run_crawl(config)
+
+    catalog = json.loads(output_path.read_text())
+    assert catalog["scanned"]["com.example.app"]["category"] == "maps"
 
 
 def test_run_crawl_does_not_report_negative_cached_skips(tmp_path):

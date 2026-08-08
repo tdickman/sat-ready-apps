@@ -1,19 +1,19 @@
 {
   "meta": {
-    "generated_at": "2026-08-03T18:00:02Z",
-    "total_apps": 10,
+    "generated_at": "2026-08-08T17:58:15Z",
+    "total_apps": 22,
     "new_additions": 0,
     "new_packages": [],
-    "total_scanned": 282,
+    "total_scanned": 298,
     "summary": {
-      "total_processed": 282,
-      "scanned_this_run": 0,
-      "scan_skipped": 282,
+      "total_processed": 298,
+      "scanned_this_run": 2,
+      "scan_skipped": 296,
       "downloaded": 0,
       "satellite_optimized_found": 0,
-      "errors": 0,
+      "errors": 2,
       "packages_not_found": 0,
-      "total_failures": 0,
+      "total_failures": 2,
       "cached_skipped": 0,
       "seed_validation_rejected": 0
     }
@@ -178,9 +178,215 @@
       "play_store_url": "https://play.google.com/store/apps/details?id=com.accuweather.android",
       "fdroid_url": null,
       "new_addition": false
+    },
+    {
+      "package_name": "com.google.android.apps.adm",
+      "app_name": "Find Hub",
+      "icon_url": "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLmFwcHMuYWRtX2ljb25fMTc4MDkzMTU4NV8wMDE/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:25:08.997175+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.google.android.apps.adm",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "com.tmobile.tuesdays",
+      "app_name": "T-Life",
+      "icon_url": "https://image.winudf.com/v2/image1/Y29tLnRtb2JpbGUudHVlc2RheXNfaWNvbl8xNzgwOTY1MjM3XzA3MA/icon.png?w=256&fakeurl=1",
+      "category": "shopping",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:40:40.383254+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.tmobile.tuesdays",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "com.caltopo.android",
+      "app_name": "CalTopo",
+      "icon_url": "https://image.winudf.com/v2/image1/Y29tLmNhbHRvcG8uYW5kcm9pZF9pY29uXzE3ODExNDQxNTNfMDUz/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:24:50.547820+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.caltopo.android",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "onxmaps.backcountry",
+      "app_name": "onX Backcountry",
+      "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5iYWNrY291bnRyeV9pY29uXzE3ODEzOTIwNDdfMDc3/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:28:01.080213+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=onxmaps.backcountry",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "onxmaps.hunt",
+      "app_name": "onX Hunt",
+      "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5odW50X2ljb25fMTc4MDUxMjUyMV8wMjE/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:28:24.451642+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=onxmaps.hunt",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "onxmaps.offroad",
+      "app_name": "onX Offroad",
+      "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5vZmZyb2FkX2ljb25fMTc4MDc0NjEwNV8wMjc/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:32:11.271729+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=onxmaps.offroad",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "onxmaps.fish",
+      "app_name": "onX Fish",
+      "icon_url": "https://image.winudf.com/v2/image1/b254bWFwcy5maXNoX2ljb25fMTc3NDgzMjkyOF8wMjc/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:30:40.906592+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=onxmaps.fish",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "co.switchapp",
+      "app_name": "Dialpad",
+      "icon_url": "https://image.winudf.com/v2/image1/Y28uc3dpdGNoYXBwX2ljb25fMTc4MTM4NjQ5OF8wNjA/icon.png?w=256&fakeurl=1",
+      "category": "communication",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:32:50.984361+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=co.switchapp",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "com.sprint.sdcplus",
+      "app_name": "TDC",
+      "icon_url": "https://image.winudf.com/v2/image1/Y29tLnNwcmludC5zZGNwbHVzX2ljb25fMTYzMzU1MzM1NV8wNDI/icon.png?w=256&fakeurl=1",
+      "category": "communication",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:34:42.695115+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.sprint.sdcplus",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "ai.x.grok",
+      "app_name": "Grok",
+      "icon_url": "https://image.winudf.com/v2/image1/YWkueC5ncm9rX2ljb25fZW4tVVNfMTc4MDkyNzMzNF8wODA/icon.png?w=256&fakeurl=1",
+      "category": "productivity",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:36:23.080478+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=ai.x.grok",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "com.samsung.android.app.find",
+      "app_name": "Samsung Find",
+      "icon_url": "https://image.winudf.com/v2/image1/Y29tLnNhbXN1bmcuYW5kcm9pZC5hcHAuZmluZF9pY29uXzE3ODMzMTIzMTRfMDI2/icon.png?w=256&fakeurl=1",
+      "category": "maps",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:33:45.626932+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.samsung.android.app.find",
+      "fdroid_url": null,
+      "new_addition": false
+    },
+    {
+      "package_name": "com.sec.android.app.shealth",
+      "app_name": "Samsung Health",
+      "icon_url": "https://image.winudf.com/v2/image1/Y29tLnNlYy5hbmRyb2lkLmFwcC5zaGVhbHRoX2ljb25fMTc3NTgwNDExNV8wNTM/icon.png?w=256&fakeurl=1",
+      "category": "health",
+      "last_verified": "2026-08-08",
+      "last_scanned": "2026-08-08T17:37:47.465120+00:00",
+      "downloaded": true,
+      "error": null,
+      "satellite_optimized": true,
+      "status": "positive",
+      "cached": false,
+      "play_store_url": "https://play.google.com/store/apps/details?id=com.sec.android.app.shealth",
+      "fdroid_url": null,
+      "new_addition": false
     }
   ],
   "scanned": {
+    "ai.x.grok": {
+      "package_name": "ai.x.grok",
+      "category": "productivity",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:36:23.080478+00:00"
+    },
+    "co.switchapp": {
+      "package_name": "co.switchapp",
+      "category": "communication",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:32:50.984361+00:00"
+    },
     "com.accuweather.android": {
       "package_name": "com.accuweather.android",
       "category": "weather",
@@ -222,6 +428,14 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T00:22:35.566474+00:00"
+    },
+    "com.alltrails.alltrails": {
+      "package_name": "com.alltrails.alltrails",
+      "category": "maps",
+      "satellite_optimized": false,
+      "status": "error",
+      "last_scanned": null,
+      "last_error": "download_failed"
     },
     "com.alphainventor.filemanager": {
       "package_name": "com.alphainventor.filemanager",
@@ -404,6 +618,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:29:59.100218+00:00"
+    },
+    "com.caltopo.android": {
+      "package_name": "com.caltopo.android",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:24:50.547820+00:00"
     },
     "com.chase.sig.android": {
       "package_name": "com.chase.sig.android",
@@ -671,6 +892,13 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:32:37.350654+00:00"
     },
+    "com.google.android.apps.adm": {
+      "package_name": "com.google.android.apps.adm",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:25:08.997175+00:00"
+    },
     "com.google.android.apps.authenticator2": {
       "package_name": "com.google.android.apps.authenticator2",
       "category": "tools",
@@ -852,6 +1080,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-30T23:27:34.585651+00:00"
+    },
+    "com.google.android.gms": {
+      "package_name": "com.google.android.gms",
+      "category": "tools",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-08T17:40:44.809383+00:00"
     },
     "com.google.android.googlequicksearchbox": {
       "package_name": "com.google.android.googlequicksearchbox",
@@ -1238,6 +1473,14 @@
       "status": "negative",
       "last_scanned": "2026-07-31T03:00:17.670708+00:00"
     },
+    "com.moviuscorp.movius": {
+      "package_name": "com.moviuscorp.movius",
+      "category": "communication",
+      "satellite_optimized": false,
+      "status": "error",
+      "last_scanned": null,
+      "last_error": "download_failed"
+    },
     "com.mxtech.videoplayer.ad": {
       "package_name": "com.mxtech.videoplayer.ad",
       "category": "entertainment",
@@ -1525,6 +1768,13 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:32:02.731689+00:00"
     },
+    "com.samsung.android.app.find": {
+      "package_name": "com.samsung.android.app.find",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:33:45.626932+00:00"
+    },
     "com.samsung.android.bixby.wakeup": {
       "package_name": "com.samsung.android.bixby.wakeup",
       "category": "tools",
@@ -1566,6 +1816,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T02:35:53.895810+00:00"
+    },
+    "com.sec.android.app.shealth": {
+      "package_name": "com.sec.android.app.shealth",
+      "category": "health",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:37:47.465120+00:00"
     },
     "com.sec.android.app.voicenote": {
       "package_name": "com.sec.android.app.voicenote",
@@ -1686,6 +1943,13 @@
       "status": "negative",
       "last_scanned": "2026-07-30T23:45:05.469942+00:00"
     },
+    "com.sprint.sdcplus": {
+      "package_name": "com.sprint.sdcplus",
+      "category": "communication",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:34:42.695115+00:00"
+    },
     "com.strava": {
       "package_name": "com.strava",
       "category": "health",
@@ -1804,6 +2068,13 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T03:08:00.129559+00:00"
+    },
+    "com.tmobile.tuesdays": {
+      "package_name": "com.tmobile.tuesdays",
+      "category": "shopping",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:40:40.383254+00:00"
     },
     "com.todoist": {
       "package_name": "com.todoist",
@@ -1959,6 +2230,13 @@
       "status": "negative",
       "last_scanned": "2026-07-31T02:50:42.524180+00:00"
     },
+    "com.x3AM.Innovations.Flare.Mobile.App": {
+      "package_name": "com.x3AM.Innovations.Flare.Mobile.App",
+      "category": "communication",
+      "satellite_optimized": false,
+      "status": "negative",
+      "last_scanned": "2026-08-08T17:31:57.941177+00:00"
+    },
     "com.xiaomi.market": {
       "package_name": "com.xiaomi.market",
       "category": "tools",
@@ -2049,6 +2327,34 @@
       "satellite_optimized": false,
       "status": "negative",
       "last_scanned": "2026-07-31T01:34:57.155369+00:00"
+    },
+    "onxmaps.backcountry": {
+      "package_name": "onxmaps.backcountry",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:28:01.080213+00:00"
+    },
+    "onxmaps.fish": {
+      "package_name": "onxmaps.fish",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:30:40.906592+00:00"
+    },
+    "onxmaps.hunt": {
+      "package_name": "onxmaps.hunt",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:28:24.451642+00:00"
+    },
+    "onxmaps.offroad": {
+      "package_name": "onxmaps.offroad",
+      "category": "maps",
+      "satellite_optimized": true,
+      "status": "positive",
+      "last_scanned": "2026-08-08T17:32:11.271729+00:00"
     },
     "org.adblockplus.browser": {
       "package_name": "org.adblockplus.browser",
