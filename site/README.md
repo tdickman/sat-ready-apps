@@ -1,6 +1,6 @@
-# Satellite Apps Site
+# SatReady Apps
 
-The Astro site is a static catalog generated from `../crawler/catalog.json`.
+The Astro site for [satreadyapps.com](https://satreadyapps.com) is a static catalog generated from `../crawler/catalog.json`.
 
 `npm run sync-catalog` validates the crawler output and copies it into
 `src/data/catalog.json`, which is the file Astro imports at build time. Both

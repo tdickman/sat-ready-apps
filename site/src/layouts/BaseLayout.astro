@@ -7,10 +7,12 @@ interface Props {
 }
 
 const {
-  title = "Satellite-ready apps",
+  title = "SatReady Apps",
   description = "A catalog of Android apps built for constrained satellite networks.",
 } = Astro.props;
-const pageTitle = title === "Satellite-ready apps" ? title : `${title} | Satellite-ready apps`;
+const siteName = "SatReady Apps";
+const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 ---
 
 <!doctype html>
@@ -19,15 +21,22 @@ const pageTitle = title === "Satellite-ready apps" ? title : `${title} | Satelli
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="application-name" content={siteName} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="wordmark" href="/" aria-label="Satellite-ready apps home">
+        <a class="wordmark" href="/" aria-label="SatReady Apps home">
           <span class="wordmark-mark" aria-hidden="true">✦</span>
-          <span>satellite<span class="wordmark-accent">/</span>apps</span>
+          <span>satready<span class="wordmark-accent">/</span>apps</span>
         </a>
         <nav aria-label="Main navigation">
           <a href="/">Catalog</a>
@@ -37,7 +46,7 @@ const pageTitle = title === "Satellite-ready apps" ? title : `${title} | Satelli
       <footer class="site-footer">
         <span>Manifest-verified for constrained networks.</span>
         <span class="footer-dot" aria-hidden="true"></span>
-        <span>Updated from the monthly crawl.</span>
+        <span>satreadyapps.com</span>
       </footer>
     </div>
   </body>
