@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { apps, formatCatalogDate, meta } from "../../lib/catalog";
+
+const androidGuideUrl = "https://developer.android.com/develop/connectivity/satellite/constrained-networks";
+const satelliteManagerUrl = "https://developer.android.com/reference/android/telephony/satellite/SatelliteManager#PROPERTY_SATELLITE_DATA_OPTIMIZED";
+const generatedAt = typeof meta?.generated_at === "string" ? meta.generated_at : null;
+const formattedGeneratedDate = formatCatalogDate(generatedAt);
+const pageDescription = "Learn how to find Android apps that declare support for constrained satellite networks, then verify carrier, phone, plan, and feature compatibility.";
+const siteOrigin = Astro.site ?? Astro.url;
+const pageUrl = new URL("/guides/how-to-find-satellite-ready-android-apps/", siteOrigin).href;
+const faqItems = [
+  {
+    question: "Does a SatReady Apps listing guarantee that an app works over my carrier's satellite service?",
+    answer: "No. A listing confirms that an inspected Android installation file contains the constrained-satellite-data declaration. Carrier, phone, plan, account, location, and feature support must still be confirmed separately.",
+  },
+  {
+    question: "Does satellite-ready mean the whole app works over satellite?",
+    answer: "No. An app can limit or change individual features on a constrained connection. Text and small data transfers may behave differently from voice, video, maps, or media uploads.",
+  },
+  {
+    question: "Is a satellite-ready app also an offline app?",
+    answer: "Not necessarily. Offline capability and constrained satellite networking are different. Check the app's documentation for downloaded maps, saved content, or other offline features.",
+  },
+  {
+    question: "Can I rely on a listed app for emergencies?",
+    answer: "Do not treat a catalog listing as an emergency-service guarantee. Use your phone and provider's official emergency instructions and test non-emergency features before depending on them.",
+  },
+  {
+    question: "Why might an app be missing?",
+    answer: "The app may not declare the Android property, an inspectable installation file may not be available, or the catalog may not have checked it yet. You can suggest an app for review.",
+  },
+];
+---
+
+<BaseLayout
+  title="How to find satellite-ready Android apps"
+  description={pageDescription}
+  additionalSchemas={[{
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    headline: "How to find satellite-ready Android apps",
+    description: pageDescription,
+    mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+    author: { "@type": "Organization", name: "SatReady Apps", url: new URL("/", siteOrigin).href },
+    publisher: { "@type": "Organization", name: "SatReady Apps", url: new URL("/", siteOrigin).href },
+    ...(generatedAt ? { dateModified: generatedAt } : {}),
+  }, {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  }]}
+>
+  <article class="info-page">
+    <header class="info-hero">
+      <p class="section-eyebrow">Reader guide</p>
+      <h1>How to find satellite-ready Android apps</h1>
+      <p class="info-lead">Finding an app is only the first step. Android, your phone, your mobile provider, and the app itself all play separate roles in whether a feature can work over satellite.</p>
+      <a class="button button-primary" href="/">Browse {apps.length} checked apps <span aria-hidden="true">→</span></a>
+    </header>
+
+    <section class="info-section" aria-labelledby="meaning-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Start with the definition</p>
+        <h2 id="meaning-heading">“Satellite-ready” can describe different things</h2>
+        <p>A phone may contain satellite-capable hardware, a carrier may offer direct-to-device service, and an app may declare that it is designed for constrained satellite data. You need the relevant pieces to line up.</p>
+      </div>
+      <ul class="check-list">
+        <li><span><strong>Phone:</strong> The device must support the satellite service and network mode you plan to use.</span></li>
+        <li><span><strong>Service:</strong> Your carrier, plan, SIM, account, and location must be eligible.</span></li>
+        <li><span><strong>App:</strong> The Android package can declare that it is optimized for constrained satellite data.</span></li>
+        <li><span><strong>Feature:</strong> The specific action—such as messaging, location sharing, maps, or media—must be supported under the available conditions.</span></li>
+      </ul>
+    </section>
+
+    <section class="info-section" aria-labelledby="steps-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Four checks</p>
+        <h2 id="steps-heading">How to evaluate an app</h2>
+      </div>
+      <ol class="step-list">
+        <li class="step">
+          <span class="step-number">01</span>
+          <div>
+            <h3>Confirm your phone and satellite service</h3>
+            <p>Start with the <a href="/supported-phones/">supported-phone guide</a> and <a href="/service/">service requirements</a>. Then verify current eligibility with your provider, because device and plan support can change independently of the app.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">02</span>
+          <div>
+            <h3>Search the Android app catalog</h3>
+            <p>Browse or search by app name, Android package name, or category. SatReady Apps currently lists {apps.length} apps whose inspected installation files contained Android's constrained-satellite-data declaration{formattedGeneratedDate ? `; the catalog was last updated ${formattedGeneratedDate}` : ""}.</p>
+            <a class="button button-secondary" href="/">Search the catalog <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">03</span>
+          <div>
+            <h3>Read the app detail page</h3>
+            <p>Check the exact package name, verification date, and official store link. Package names matter because similarly named apps can be unrelated, and the checked installation file may not be identical to the store version available today.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">04</span>
+          <div>
+            <h3>Verify the feature and test safely</h3>
+            <p>Compare the result with your provider's current supported-app list and the app developer's documentation. Test non-emergency behavior before a trip, expect lower throughput and higher latency, and keep another communication plan when safety matters.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="info-section" aria-labelledby="signal-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">What SatReady Apps checks</p>
+        <h2 id="signal-heading">A declaration inside the released Android app</h2>
+        <p>Android provides a manifest property for apps that self-identify as optimized for constrained satellite networks:</p>
+      </div>
+      <pre class="code-block"><code>android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED</code></pre>
+      <p class="info-copy">Android's documentation says this declaration lets an app use a constrained satellite network when it is the only network available and can help the system list it among satellite-enabled apps. SatReady Apps inspects released installation files for the exact property instead of inferring support from an app's name, marketing copy, emergency features, or popularity.</p>
+      <p class="info-copy">Read the complete <a href="/methodology/">catalog methodology</a> for the verification process and limitations.</p>
+    </section>
+
+    <section class="info-section" aria-labelledby="limits-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Interpret the result carefully</p>
+        <h2 id="limits-heading">What a listing does not prove</h2>
+        <p>The manifest property is a useful discovery signal, not a compatibility certificate.</p>
+      </div>
+      <ul class="check-list">
+        <li><span>It does not prove that a carrier has approved or enabled the app.</span></li>
+        <li><span>It does not prove that your phone, plan, SIM, account, or location is eligible.</span></li>
+        <li><span>It does not show which individual app features work over satellite.</span></li>
+        <li><span>It does not measure performance, delivery time, reliability, or data usage.</span></li>
+        <li><span>It does not mean the app works offline or provides emergency communication.</span></li>
+      </ul>
+    </section>
+
+    <section class="info-section" aria-labelledby="faq-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Common questions</p>
+        <h2 id="faq-heading">Satellite-ready Android app FAQ</h2>
+      </div>
+      <div class="service-paths">
+        {faqItems.map((item) => (
+          <section>
+            <h3>{item.question}</h3>
+            <div><p>{item.answer}</p></div>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="next-heading">
+      <div class="info-section-heading">
+        <p class="section-eyebrow">Next steps</p>
+        <h2 id="next-heading">Check an app or suggest one</h2>
+        <p>Use the catalog as a starting point, then confirm current support with your provider and the app developer. If an app is missing or a listing needs correction, suggest it for review.</p>
+      </div>
+      <div class="detail-actions">
+        <a class="button button-primary" href="/">Browse apps <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="/submit/">Suggest an app <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="section-eyebrow">Primary references</p>
+      <div class="source-links">
+        <a href={androidGuideUrl} target="_blank" rel="noreferrer">Android constrained-network guide <span aria-hidden="true">↗</span></a>
+        <a href={satelliteManagerUrl} target="_blank" rel="noreferrer">SatelliteManager property reference <span aria-hidden="true">↗</span></a>
+        <a href="/methodology/">How SatReady Apps checks packages <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
