@@ -14,6 +14,7 @@ export const GET: APIRoute = ({ site }) => {
   const urls = [
     { loc: siteUrl.href, lastmod: generatedAt },
     { loc: new URL("/updates/", siteUrl).href, lastmod: generatedAt },
+    { loc: new URL("/guides/how-to-find-satellite-ready-android-apps/", siteUrl).href, lastmod: generatedAt },
     ...["methodology", "service", "supported-phones", "developers", "submit"].map((page) => ({
       loc: new URL(`/${page}/`, siteUrl).href,
       lastmod: null,
