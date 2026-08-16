@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-08-08T18:27:56Z",
+    "generated_at": "2026-08-16T03:11:29Z",
     "total_apps": 22,
     "new_additions": 0,
     "new_packages": [],
@@ -400,21 +400,24 @@
       "category": "productivity",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:36:23.080478+00:00"
+      "last_scanned": "2026-08-08T17:36:23.080478+00:00",
+      "first_verified_at": "2026-08-08T17:36:23.080478+00:00"
     },
     "co.switchapp": {
       "package_name": "co.switchapp",
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:32:50.984361+00:00"
+      "last_scanned": "2026-08-08T17:32:50.984361+00:00",
+      "first_verified_at": "2026-08-08T17:32:50.984361+00:00"
     },
     "com.accuweather.android": {
       "package_name": "com.accuweather.android",
       "category": "weather",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-31T02:50:55.910977+00:00"
+      "last_scanned": "2026-07-31T02:50:55.910977+00:00",
+      "first_verified_at": "2026-07-31T02:50:55.910977+00:00"
     },
     "com.activision.callofduty.shooter": {
       "package_name": "com.activision.callofduty.shooter",
@@ -646,7 +649,8 @@
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:24:50.547820+00:00"
+      "last_scanned": "2026-08-08T17:24:50.547820+00:00",
+      "first_verified_at": "2026-08-08T17:24:50.547820+00:00"
     },
     "com.chase.sig.android": {
       "package_name": "com.chase.sig.android",
@@ -709,7 +713,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:52:58.505934+00:00"
+      "last_scanned": "2026-07-30T22:52:58.505934+00:00",
+      "first_verified_at": "2026-07-30T22:52:58.505934+00:00"
     },
     "com.disney.disneyplus": {
       "package_name": "com.disney.disneyplus",
@@ -842,7 +847,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:52:58.079633+00:00"
+      "last_scanned": "2026-07-30T22:52:58.079633+00:00",
+      "first_verified_at": "2026-07-30T22:52:58.079633+00:00"
     },
     "com.facebook.pages.app": {
       "package_name": "com.facebook.pages.app",
@@ -919,7 +925,8 @@
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:25:08.997175+00:00"
+      "last_scanned": "2026-08-08T17:25:08.997175+00:00",
+      "first_verified_at": "2026-08-08T17:25:08.997175+00:00"
     },
     "com.google.android.apps.authenticator2": {
       "package_name": "com.google.android.apps.authenticator2",
@@ -1003,7 +1010,8 @@
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-31T01:24:21.039707+00:00"
+      "last_scanned": "2026-07-31T01:24:21.039707+00:00",
+      "first_verified_at": "2026-07-31T01:24:21.039707+00:00"
     },
     "com.google.android.apps.mapslite": {
       "package_name": "com.google.android.apps.mapslite",
@@ -1017,7 +1025,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:52:58.053094+00:00"
+      "last_scanned": "2026-07-30T22:52:58.053094+00:00",
+      "first_verified_at": "2026-07-30T22:52:58.053094+00:00"
     },
     "com.google.android.apps.nbu.files": {
       "package_name": "com.google.android.apps.nbu.files",
@@ -1080,7 +1089,8 @@
       "category": "productivity",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T23:07:06.798047+00:00"
+      "last_scanned": "2026-07-30T23:07:06.798047+00:00",
+      "first_verified_at": "2026-07-30T23:07:06.798047+00:00"
     },
     "com.google.android.deskclock": {
       "package_name": "com.google.android.deskclock",
@@ -1795,7 +1805,8 @@
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:33:45.626932+00:00"
+      "last_scanned": "2026-08-08T17:33:45.626932+00:00",
+      "first_verified_at": "2026-08-08T17:33:45.626932+00:00"
     },
     "com.samsung.android.bixby.wakeup": {
       "package_name": "com.samsung.android.bixby.wakeup",
@@ -1844,7 +1855,8 @@
       "category": "health",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:37:47.465120+00:00"
+      "last_scanned": "2026-08-08T17:37:47.465120+00:00",
+      "first_verified_at": "2026-08-08T17:37:47.465120+00:00"
     },
     "com.sec.android.app.voicenote": {
       "package_name": "com.sec.android.app.voicenote",
@@ -1970,7 +1982,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:34:42.695115+00:00"
+      "last_scanned": "2026-08-08T17:34:42.695115+00:00",
+      "first_verified_at": "2026-08-08T17:34:42.695115+00:00"
     },
     "com.strava": {
       "package_name": "com.strava",
@@ -2096,7 +2109,8 @@
       "category": "shopping",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:40:40.383254+00:00"
+      "last_scanned": "2026-08-08T17:40:40.383254+00:00",
+      "first_verified_at": "2026-08-08T17:40:40.383254+00:00"
     },
     "com.todoist": {
       "package_name": "com.todoist",
@@ -2138,7 +2152,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:52:58.844584+00:00"
+      "last_scanned": "2026-07-30T22:52:58.844584+00:00",
+      "first_verified_at": "2026-07-30T22:52:58.844584+00:00"
     },
     "com.ubercab": {
       "package_name": "com.ubercab",
@@ -2180,7 +2195,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:52:59.312115+00:00"
+      "last_scanned": "2026-07-30T22:52:59.312115+00:00",
+      "first_verified_at": "2026-07-30T22:52:59.312115+00:00"
     },
     "com.vsco.cam": {
       "package_name": "com.vsco.cam",
@@ -2236,7 +2252,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:53:01.617447+00:00"
+      "last_scanned": "2026-07-30T22:53:01.617447+00:00",
+      "first_verified_at": "2026-07-30T22:53:01.617447+00:00"
     },
     "com.whatsapp.w4b": {
       "package_name": "com.whatsapp.w4b",
@@ -2355,28 +2372,32 @@
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:28:01.080213+00:00"
+      "last_scanned": "2026-08-08T17:28:01.080213+00:00",
+      "first_verified_at": "2026-08-08T17:28:01.080213+00:00"
     },
     "onxmaps.fish": {
       "package_name": "onxmaps.fish",
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:30:40.906592+00:00"
+      "last_scanned": "2026-08-08T17:30:40.906592+00:00",
+      "first_verified_at": "2026-08-08T17:30:40.906592+00:00"
     },
     "onxmaps.hunt": {
       "package_name": "onxmaps.hunt",
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:28:24.451642+00:00"
+      "last_scanned": "2026-08-08T17:28:24.451642+00:00",
+      "first_verified_at": "2026-08-08T17:28:24.451642+00:00"
     },
     "onxmaps.offroad": {
       "package_name": "onxmaps.offroad",
       "category": "maps",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-08-08T17:32:11.271729+00:00"
+      "last_scanned": "2026-08-08T17:32:11.271729+00:00",
+      "first_verified_at": "2026-08-08T17:32:11.271729+00:00"
     },
     "org.adblockplus.browser": {
       "package_name": "org.adblockplus.browser",
@@ -2460,7 +2481,8 @@
       "category": "communication",
       "satellite_optimized": true,
       "status": "positive",
-      "last_scanned": "2026-07-30T22:53:00.466840+00:00"
+      "last_scanned": "2026-07-30T22:53:00.466840+00:00",
+      "first_verified_at": "2026-07-30T22:53:00.466840+00:00"
     },
     "org.torproject.android": {
       "package_name": "org.torproject.android",
